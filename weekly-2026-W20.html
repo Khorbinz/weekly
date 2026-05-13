@@ -19,15 +19,9 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
 /* ── Header ── */
 .app-header{background:linear-gradient(135deg,#1e3a8a,#1e40af);color:#fff;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.18)}
-.sec-nav{position:sticky;top:46px;z-index:190;background:#fff;border-bottom:1px solid var(--border);display:flex;gap:0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.sec-nav a{display:flex;align-items:center;gap:6px;padding:9px 18px;font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap}
-.sec-nav a:hover{color:var(--blue);background:#f8fafc}
-.sec-nav a.online:hover,.sec-nav a.online:focus{border-bottom-color:#1e40af;color:#1e40af}
-.sec-nav a.phone:hover,.sec-nav a.phone:focus{border-bottom-color:#7c3aed;color:#7c3aed}
-.sec-nav a.email:hover,.sec-nav a.email:focus{border-bottom-color:#059669;color:#059669}
-.sec-nav a.qc:hover,.sec-nav a.qc:focus{border-bottom-color:#d97706;color:#d97706}
-.sec-nav a.summary:hover,.sec-nav a.summary:focus{border-bottom-color:#0891b2;color:#0891b2}
-.sec-nav-spacer{flex:1}
+.header-nav{display:flex;gap:2px;align-items:center}
+.header-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;transition:all .15s;white-space:nowrap}
+.header-nav a:hover{background:rgba(255,255,255,.2);color:#fff}
 .app-title{font-size:15px;font-weight:700}
 .app-meta{font-size:11px;opacity:.8;margin-top:2px}
 .legend{display:flex;gap:14px;align-items:center}
@@ -123,22 +117,14 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <div class="app-title">US MY 客服周报 · 2026年第20周</div>
     <div class="app-meta">5月6日（周三）— 5月12日（周一）&nbsp;·&nbsp; US Advisory Team</div>
   </div>
-  <div class="legend">
-    <div class="litem"><div class="ldot" style="background:var(--sg)"></div>达标</div>
-    <div class="litem"><div class="ldot" style="background:var(--sa)"></div>临界</div>
-    <div class="litem"><div class="ldot" style="background:var(--sr)"></div>未达</div>
-  </div>
+  <nav class="header-nav">
+    <a href="#sec-online">💬 在线</a>
+    <a href="#sec-phone">📞 电话</a>
+    <a href="#sec-email">📧 邮件</a>
+    <a href="#sec-qc">🔍 差错</a>
+    <a href="#sec-summary">📋 总结</a>
+  </nav>
 </div>
-
-<nav class="sec-nav">
-  <a href="#sec-online" class="online">💬 在线</a>
-  <a href="#sec-phone" class="phone">📞 电话</a>
-  <a href="#sec-email" class="email">📧 邮件</a>
-  <a href="#sec-qc" class="qc">🔍 差错</a>
-  <a href="#sec-summary" class="summary">📋 总结</a>
-  <div class="sec-nav-spacer"></div>
-  <span style="font-size:10px;color:#94a3b8;padding:0 14px;display:flex;align-items:center">数据来源：US周报内容.xlsx</span>
-</nav>
 
 <div class="main">
 
