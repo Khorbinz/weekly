@@ -311,7 +311,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="chart-card" style="margin-bottom:12px">
-    <div class="chart-title">班次人均工单（本周）</div>
+    <div class="chart-title">班次人均工单趋势（4周·工作日）</div>
     <div class="chart-wrap"><canvas id="cOnlineShift"></canvas></div>
   </div>
 
@@ -586,7 +586,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="chart-card" style="margin-bottom:12px">
-    <div class="chart-title">班次人均工单（本周 · MY）</div>
+    <div class="chart-title">班次人均工单趋势（4周 · MY）</div>
     <div class="chart-wrap"><canvas id="cEmailShift"></canvas></div>
   </div>
 
@@ -903,25 +903,31 @@ new Chart(document.getElementById('cPhonePerAgent'),{
 });
 
 new Chart(document.getElementById('cOnlineShift'),{
-  data:{labels:['大夜','小夜','早班'],datasets:[
-    {type:'bar',label:'工作日人均',data:[36.53,42.73,31.19],backgroundColor:['rgba(30,64,175,.7)','rgba(220,38,38,.7)','rgba(30,64,175,.7)'],borderRadius:5,
-      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'#374151',formatter:v=>v}},
-    {type:'bar',label:'周末人均',data:[21.00,21.75,29.75],backgroundColor:'rgba(30,64,175,.2)',borderRadius:5,
-      datalabels:{display:true,anchor:'end',align:'top',font:{...F,size:9},color:'#94a3b8',formatter:v=>v}},
+  data:{labels:L4,datasets:[
+    {type:'line',label:'大夜',data:[35.80,36.13,28.67,36.53],borderColor:'#1e40af',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af',formatter:v=>v}},
+    {type:'line',label:'小夜',data:[34.13,34.29,29.07,42.73],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#dc2626',formatter:v=>v}},
+    {type:'line',label:'早班',data:[26.88,25.93,25.40,31.19],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'top',offset:3,font:{...F},color:'#059669',formatter:v=>v}},
   ]},
-  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20,bottom:10}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
-    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,max:55,ticks:{font:F},grid:GRID}}}
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:20,max:50,ticks:{font:F},grid:GRID}}}
 });
 
 new Chart(document.getElementById('cEmailShift'),{
-  data:{labels:['大夜（工作日）','小夜（工作日）','大夜（周末）'],datasets:[
-    {type:'bar',label:'人均工单',data:[86.86,93.88,89.00],backgroundColor:['rgba(5,150,105,.7)','rgba(220,38,38,.7)','rgba(5,150,105,.5)'],borderRadius:5,
-      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'#374151',formatter:v=>v}},
+  data:{labels:L4,datasets:[
+    {type:'line',label:'大夜',data:[104.43,89.50,96.00,86.86],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#059669',formatter:v=>v.toFixed(1)}},
+    {type:'line',label:'小夜',data:[100.71,88.57,93.38,93.88],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#dc2626',formatter:v=>v.toFixed(1)}},
+    {type:'line',label:'大夜(周末)',data:[94.50,81.00,125.50,89.00],borderColor:'#0891b2',tension:.3,borderWidth:1.5,pointRadius:3,borderDash:[4,3],
+      datalabels:{display:true,align:'top',offset:3,font:{...F},color:'#0891b2',formatter:v=>v.toFixed(1)}},
   ]},
-  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
-    plugins:{legend:{display:false},datalabels:{}},
-    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:70,max:105,ticks:{font:F},grid:GRID}}}
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20,bottom:10}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:70,max:135,ticks:{font:F},grid:GRID}}}
 });
 
 new Chart(document.getElementById('cErrRate'),{
