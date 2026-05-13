@@ -310,19 +310,9 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </table>
   </div>
 
-  <div class="analysis-block">
-    <div class="analysis-title">🕐 班次工单量 & 人均（本周）</div>
-    <table class="data-table">
-      <thead><tr><th>班次</th><th>大夜</th><th>小夜</th><th>早班</th><th>合计</th></tr></thead>
-      <tbody>
-        <tr><td>工作日工单量</td><td>548</td><td class="highlight">641 ⚠</td><td>499</td><td>1,688</td></tr>
-        <tr><td>工作日人数</td><td>15</td><td>15</td><td>16</td><td>46</td></tr>
-        <tr><td>工作日人均工单</td><td>36.53</td><td class="highlight">42.73 ⚠</td><td>31.19</td><td>—</td></tr>
-        <tr><td>周末工单量</td><td>84</td><td>87</td><td>119</td><td>290</td></tr>
-        <tr><td>周末人数</td><td>4</td><td>4</td><td>4</td><td>12</td></tr>
-        <tr><td>周末人均工单</td><td>21.00</td><td>21.75</td><td>29.75</td><td>—</td></tr>
-      </tbody>
-    </table>
+  <div class="chart-card" style="margin-bottom:12px">
+    <div class="chart-title">班次人均工单（本周）</div>
+    <div class="chart-wrap"><canvas id="cOnlineShift"></canvas></div>
   </div>
 
   <div class="analysis-block">
@@ -590,16 +580,9 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </table>
   </div>
 
-  <div class="analysis-block">
-    <div class="analysis-title">🕐 邮件班次工单量 & 人均（本周 · MY）</div>
-    <table class="data-table">
-      <thead><tr><th>班次</th><th>大夜（工作日）</th><th>小夜（工作日）</th><th>大夜（周末）</th></tr></thead>
-      <tbody>
-        <tr><td>工单量</td><td>608</td><td class="highlight">751 ⚠</td><td>178</td></tr>
-        <tr><td>人数</td><td>7</td><td>8</td><td>2</td></tr>
-        <tr><td>人均工单</td><td>86.86</td><td class="highlight">93.88 ⚠</td><td>89.00</td></tr>
-      </tbody>
-    </table>
+  <div class="chart-card" style="margin-bottom:12px">
+    <div class="chart-title">班次人均工单（本周 · MY）</div>
+    <div class="chart-wrap"><canvas id="cEmailShift"></canvas></div>
   </div>
 
   <div class="analysis-block">
@@ -902,6 +885,28 @@ new Chart(document.getElementById('cEmailSla'),{
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:86,max:100,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cOnlineShift'),{
+  data:{labels:['大夜','小夜','早班'],datasets:[
+    {type:'bar',label:'工作日人均',data:[36.53,42.73,31.19],backgroundColor:['rgba(30,64,175,.7)','rgba(220,38,38,.7)','rgba(30,64,175,.7)'],borderRadius:5,
+      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'#374151',formatter:v=>v}},
+    {type:'bar',label:'周末人均',data:[21.00,21.75,29.75],backgroundColor:'rgba(30,64,175,.2)',borderRadius:5,
+      datalabels:{display:true,anchor:'end',align:'top',font:{...F,size:9},color:'#94a3b8',formatter:v=>v}},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,max:55,ticks:{font:F},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cEmailShift'),{
+  data:{labels:['大夜（工作日）','小夜（工作日）','大夜（周末）'],datasets:[
+    {type:'bar',label:'人均工单',data:[86.86,93.88,89.00],backgroundColor:['rgba(5,150,105,.7)','rgba(220,38,38,.7)','rgba(5,150,105,.5)'],borderRadius:5,
+      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'#374151',formatter:v=>v}},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{legend:{display:false},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:70,max:105,ticks:{font:F},grid:GRID}}}
 });
 
 new Chart(document.getElementById('cErrRate'),{
