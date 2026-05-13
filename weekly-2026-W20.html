@@ -611,7 +611,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
       <div class="chart-wrap chart-wrap-lg"><canvas id="cErrRate"></canvas></div>
     </div>
     <div class="chart-card">
-      <div class="chart-title">差错原因分类（本周·在线）</div>
+      <div class="chart-title">质检规则违规归类（本周·在线·15次）</div>
       <div class="chart-wrap chart-wrap-lg"><canvas id="cErrCause"></canvas></div>
     </div>
     <div class="chart-card">
@@ -621,15 +621,32 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
+    <div class="analysis-title">📋 质检规则违规明细（本周）</div>
+    <table class="data-table">
+      <thead><tr><th>质检规则</th><th>规则说明</th><th>渠道</th><th>违规次数</th><th>占比</th></tr></thead>
+      <tbody>
+        <tr><td>专业解答-J2</td><td>知识解答不准确 / 不完整</td><td>在线</td><td><strong>8</strong></td><td>53%</td></tr>
+        <tr><td>服务沟通规范-B5</td><td>未在当日成功发出消息解答问题</td><td>在线</td><td>2</td><td>13%</td></tr>
+        <tr><td>服务沟通规范-C2</td><td>未经客户同意使用英文回复</td><td>在线</td><td>1</td><td>7%</td></tr>
+        <tr><td>服务沟通规范-C4</td><td>未等待5分钟即归档</td><td>在线</td><td>1</td><td>7%</td></tr>
+        <tr><td>服务沟通规范-C3</td><td>要求等待后未在1分钟内回复</td><td>电话</td><td>1</td><td>7%</td></tr>
+        <tr><td>服务用语-A7</td><td>超时未使用礼貌等待用语</td><td>在线</td><td>1</td><td>7%</td></tr>
+        <tr><td>操作规范-E3</td><td>操作流程未规范执行</td><td>在线</td><td>1</td><td>7%</td></tr>
+        <tr><td>处理流程-H1</td><td>未按标准处理流程操作</td><td>在线</td><td>1</td><td>7%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="analysis-block">
     <div class="analysis-title">🔎 深度分析</div>
     <div class="insight-row">
       <div class="insight warn">
-        <div class="insight-label">⚠ 在线1.72%——合规&交易类占40%</div>
-        <div class="insight-text">在线差错原因：合规类解答20%、交易业务20%，合计40%；资金业务20%、账户10%、漏答10%、承诺未回复10%、无法定位10%。差错集中在知识类，需针对性培训。</div>
+        <div class="insight-label">⚠ 在线：专业解答-J2 占53%（8/15次）</div>
+        <div class="insight-text">在线15次违规中，专业解答-J2（知识解答不准确/不完整）8次，占53%；服务沟通规范（B5未跟进2次、C2英文回复1次、C4归档时机1次）4次，占27%；服务用语/操作规范/处理流程各1次。核心短板是知识深度不足。</div>
       </div>
       <div class="insight warn">
-        <div class="insight-label">⚠ 电话差错0.76%，与在线同源</div>
-        <div class="insight-text">电话差错原因：合规流程33%、交易业务33%，合计66%——与在线高度一致，说明合规和交易解答是团队整体知识短板，需统一培训。</div>
+        <div class="insight-label">⚠ 电话：服务沟通规范-C3（等待超时）</div>
+        <div class="insight-text">本周电话差错1条（05-08），违规规则为服务沟通规范-C3（要求客户等待后未在1分钟内回复且未约定回复时间）。与在线沟通规范类差错同属流程执行层面，可纳入统一SOP培训。</div>
       </div>
       <div class="insight ok">
         <div class="insight-label">✓ 邮件连续2周零差错</div>
@@ -643,7 +660,8 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <table class="action-table">
       <thead><tr><th>优先级</th><th>行动项</th><th>负责人</th><th>期限</th></tr></thead>
       <tbody>
-        <tr><td><span class="priority p-high">高</span></td><td>在线&电话差错同源（合规+交易40-66%）——安排专项培训，聚焦合规处理流程和交易规则解答</td><td>Training</td><td>5月19日</td></tr>
+        <tr><td><span class="priority p-high">高</span></td><td>专业解答-J2 占在线差错53%，针对交易/资金/账户/合规业务解答准确性做专项培训</td><td>Training</td><td>5月19日</td></tr>
+        <tr><td><span class="priority p-mid">中</span></td><td>服务沟通规范（B5/C2/C3/C4）共5次违规，制作SOP检查单，强化归档时机和等待跟进标准</td><td>TL</td><td>5月19日</td></tr>
         <tr><td><span class="priority p-high">高</span></td><td>差错上涨人员（nuzulhakeem 7单、bavani 8单）实施1-on-1辅导，明确改进计划</td><td>TL</td><td>5月15日</td></tr>
         <tr><td><span class="priority p-mid">中</span></td><td>研究邮件零差错经验，评估可否移植到在线渠道</td><td>QC</td><td>5月19日</td></tr>
       </tbody>
@@ -870,14 +888,15 @@ new Chart(document.getElementById('cErrRate'),{
 
 new Chart(document.getElementById('cErrCause'),{
   type:'doughnut',
-  data:{labels:['合规类解答','交易业务','资金业务','账户业务','漏答问题','承诺未回复','无法定位问题'],
-    datasets:[{data:[20,20,20,10,10,10,10],
-      backgroundColor:['#dc2626','#1e40af','#7c3aed','#059669','#d97706','#0891b2','#6b7280'],
+  data:{labels:['专业解答-J2','服务沟通规范','服务用语-A7','操作规范-E3','处理流程-H1'],
+    datasets:[{data:[8,4,1,1,1],
+      backgroundColor:['#dc2626','#1e40af','#d97706','#7c3aed','#059669'],
       borderWidth:2,borderColor:'#fff'}]},
   options:{responsive:true,maintainAspectRatio:false,cutout:'55%',
     plugins:{legend:{position:'bottom',labels:{font:{...F,size:10},boxWidth:10,padding:5}},
-      datalabels:{color:'#fff',font:{...F,weight:'700'},formatter:v=>v+'%',
-        display:ctx=>ctx.dataset.data[ctx.dataIndex]>=15}}}
+      datalabels:{color:'#fff',font:{...F,weight:'700'},
+        formatter:(v,ctx)=>{const t=ctx.dataset.data.reduce((a,b)=>a+b,0);return Math.round(v/t*100)+'%'},
+        display:ctx=>ctx.dataset.data[ctx.dataIndex]>=2}}}
 });
 
 new Chart(document.getElementById('cErrCausePhone'),{
