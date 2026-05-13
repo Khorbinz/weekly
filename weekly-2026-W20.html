@@ -458,6 +458,11 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </div>
   </div>
 
+  <div class="chart-card" style="margin-bottom:12px">
+    <div class="chart-title">大马人均工单趋势（4周）</div>
+    <div class="chart-wrap"><canvas id="cPhonePerAgent"></canvas></div>
+  </div>
+
   <div class="analysis-block">
     <div class="analysis-title">📊 电话咨询业务前3（4周）<span class="badge badge-blue">Trade持续首位</span></div>
     <table class="data-table">
@@ -885,6 +890,16 @@ new Chart(document.getElementById('cEmailSla'),{
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:86,max:100,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cPhonePerAgent'),{
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'大马人均工单',data:[24.5,21.6,24.73,25.55],backgroundColor:['rgba(124,58,237,.5)','rgba(124,58,237,.5)','rgba(124,58,237,.5)','rgba(124,58,237,.85)'],borderRadius:5,
+      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'#374151',formatter:v=>v}},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:15,max:32,ticks:{font:F},grid:GRID}}}
 });
 
 new Chart(document.getElementById('cOnlineShift'),{
