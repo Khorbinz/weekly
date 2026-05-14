@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Call Connection Rate Weekly Report · May 7 – May 13, 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f6fa; color: #2d3436; }
+  .header { background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; padding: 32px 40px; }
+  .header h1 { font-size: 22px; font-weight: 600; }
+  .header p { margin-top: 6px; opacity: 0.85; font-size: 13px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  .kpi-card { background: white; border-radius: 12px; padding: 18px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .kpi-card .label { font-size: 12px; color: #636e72; margin-bottom: 6px; }
+  .kpi-card .value { font-size: 26px; font-weight: 700; color: #2d3436; }
+  .kpi-card .change { font-size: 12px; margin-top: 5px; }
+  .change.up { color: #00b894; } .change.down { color: #d63031; } .change.neutral { color: #636e72; }
+  .section { background: white; border-radius: 12px; padding: 22px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { font-size: 15px; font-weight: 600; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #f8f9fa; padding: 9px 12px; text-align: left; font-weight: 600; color: #636e72; }
+  td { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; }
+  tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .badge.green { background: #d4edda; color: #155724; }
+  .badge.red { background: #f8d7da; color: #721c24; }
+  .badge.yellow { background: #fff3cd; color: #856404; }
+  .tag-up { color: #00b894; font-size: 12px; }
+  .tag-down { color: #d63031; font-size: 12px; }
+  .tag-neutral { color: #636e72; font-size: 12px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 0; }
+  .chart-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 20px; }
+  .chart-card h2 { font-size: 15px; font-weight: 600; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
+  .chart-card canvas { max-height: 220px; }
+  .note { background: #fff8e1; border-left: 3px solid #ffc107; padding: 9px 13px; font-size: 12px; color: #636e72; border-radius: 0 6px 6px 0; margin-top: 12px; line-height: 1.7; }
+  .team-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-right: 4px; }
+  .team-us { background: #e8f0fe; color: #1a73e8; }
+  .team-cn-trade { background: #e6f9f0; color: #00796b; }
+  .team-cn-cs { background: #fce4ec; color: #c62828; }
+  .team-total { background: #f3e5f5; color: #7b1fa2; }
+  .footer { text-align: center; color: #b2bec3; font-size: 12px; padding: 20px; }
+  .highlight-red { color: #d63031; font-weight: 600; }
+  .highlight-green { color: #00b894; font-weight: 600; }
+  /* ── Deep Analysis ── */
+  .analysis-section { background: white; border-radius: 12px; padding: 26px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .analysis-section > h2 { font-size: 15px; font-weight: 600; margin-bottom: 6px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
+  .analysis-subtitle { font-size: 12px; color: #b2bec3; margin-bottom: 20px; }
+  .summary-box { background: linear-gradient(135deg,#1a73e8 0%,#0d47a1 100%); color: white; border-radius: 10px; padding: 18px 20px; margin-bottom: 22px; }
+  .summary-box .sb-title { font-size: 12px; font-weight: 600; opacity: .7; letter-spacing:.05em; margin-bottom: 10px; text-transform: uppercase; }
+  .summary-box ul { list-style: none; font-size: 13px; line-height: 2; }
+  .summary-box ul li::before { content: "▶ "; opacity: .6; }
+  .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+  .ig-card { border-radius: 10px; padding: 16px 18px; border: 1.5px solid #f0f0f0; background: #fafbfc; }
+  .ig-card.red { border-color: #fde8e8; background: #fff8f8; }
+  .ig-card.green { border-color: #e0f5ee; background: #f6fffe; }
+  .ig-card.amber { border-color: #fdf3e0; background: #fffcf5; }
+  .ig-card.blue { border-color: #e3eefe; background: #f7faff; }
+  .ig-label { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 7px; }
+  .ig-card.red .ig-label { color: #c0392b; }
+  .ig-card.green .ig-label { color: #00796b; }
+  .ig-card.amber .ig-label { color: #e67e22; }
+  .ig-card.blue .ig-label { color: #1a73e8; }
+  .ig-title { font-size: 13px; font-weight: 600; color: #2d3436; margin-bottom: 6px; line-height: 1.4; }
+  .ig-body { font-size: 12px; color: #636e72; line-height: 1.75; }
+  .ig-body b { color: #2d3436; }
+  .reco-section { margin-bottom: 22px; }
+  .reco-section h3 { font-size: 13px; font-weight: 700; color: #2d3436; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .reco-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .reco-col-title { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; padding: 4px 10px; border-radius: 4px; display: inline-block; }
+  .reco-col-title.now { background: #fde8e8; color: #c0392b; }
+  .reco-col-title.long { background: #e3eefe; color: #1a73e8; }
+  .reco-list { list-style: none; font-size: 12px; color: #2d3436; line-height: 1.9; padding: 0; }
+  .reco-list li { padding-left: 16px; position: relative; }
+  .reco-list li::before { content: "•"; position: absolute; left: 4px; color: #b2bec3; }
+  .sop-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 22px; }
+  .sop-card { background: #f8f9fa; border-radius: 10px; padding: 14px 16px; border-top: 3px solid #1a73e8; }
+  .sop-card.amber { border-top-color: #e67e22; }
+  .sop-card.green { border-top-color: #00796b; }
+  .sop-card .sc-no { font-size: 10px; font-weight: 700; color: #b2bec3; margin-bottom: 4px; }
+  .sop-card .sc-title { font-size: 12px; font-weight: 700; color: #2d3436; margin-bottom: 8px; }
+  .sop-card .sc-body { font-size: 11px; color: #636e72; line-height: 1.75; }
+  .sop-card .sc-body b { color: #2d3436; }
+  .edit-block { margin-bottom: 18px; }
+  .edit-block-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .edit-block-header span { font-size: 12px; font-weight: 600; color: #636e72; }
+  .edit-tag { font-size: 10px; background: #e8f0fe; color: #1a73e8; padding: 2px 8px; border-radius: 10px; margin-left: 6px; }
+  .editable-area { min-height: 64px; padding: 11px 14px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 13px; line-height: 1.75; color: #2d3436; outline: none; transition: border-color .2s, box-shadow .2s; background: #fafbfc; }
+  .editable-area:focus { border-color: #1a73e8; box-shadow: 0 0 0 3px rgba(26,115,232,0.1); background: white; }
+  .editable-area[data-placeholder]:empty::before { content: attr(data-placeholder); color: #b2bec3; pointer-events: none; display: block; }
+  .analysis-toolbar { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-bottom: 20px; }
+  .save-indicator { font-size: 11px; color: #b2bec3; transition: color .3s; }
+  .save-indicator.saved { color: #00b894; }
+  .btn-reset { font-size: 11px; color: #b2bec3; background: none; border: 1px solid #e0e0e0; border-radius: 4px; padding: 3px 10px; cursor: pointer; }
+  .btn-reset:hover { color: #636e72; border-color: #b2bec3; }
+  .divider { border: none; border-top: 1.5px solid #f0f0f0; margin: 20px 0; }
+  @media (max-width: 700px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .chart-row, .insight-grid, .reco-cols, .sop-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📞 Call Connection Rate Weekly Report · May 7 – May 13, 2026</h1>
+  <p>Report Period: 2026-05-07 ~ 2026-05-13 (W19) &nbsp;|&nbsp; vs. Last Week (W18: Apr 30 – May 6) &nbsp;|&nbsp; Source: Lighthouse (GrowingData)</p>
+</div>
+
+<div class="container">
+
+  <!-- KPI Summary -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="label">Total Inbound Calls (All Teams)</div>
+      <div class="value">1,992</div>
+      <div class="change up">▲ +297 calls / +17.5% WoW</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Weekly Avg CCR (All Teams)</div>
+      <div class="value">84.64%</div>
+      <div class="change down">▼ 0.03pp WoW &nbsp;<span style="color:#636e72">Target ≥90%</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Weekly Avg SLA 20s (All Teams)</div>
+      <div class="value">65.51%</div>
+      <div class="change neutral">— <span style="color:#636e72">Target ≥80% &nbsp;·&nbsp; 20s threshold</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Top CCR Team (Assigned)</div>
+      <div class="value" style="font-size:20px">MY CS</div>
+      <div class="change neutral">— 93.11% weekly avg</div>
+    </div>
+  </div>
+
+  <!-- Team Comparison -->
+  <div class="section">
+    <h2>📊 Team Weekly Summary Comparison</h2>
+    <table>
+      <tr>
+        <th>Team</th>
+        <th>This Week's Calls</th>
+        <th>WoW</th>
+        <th>Avg CCR</th>
+        <th>CCR WoW</th>
+        <th>CCR Status</th>
+        <th>Avg SLA (20s)</th>
+        <th>SLA Status</th>
+      </tr>
+      <tr>
+        <td><span class="team-tag team-total">In Total</span></td>
+        <td>1,992</td>
+        <td class="tag-up">▲ +297 (+17.5%)</td>
+        <td>84.64%</td>
+        <td class="tag-down">▼ 0.03pp</td>
+        <td><span class="badge red">Below Target</span></td>
+        <td>65.51%</td>
+        <td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td><span class="team-tag team-us">US Trade</span></td>
+        <td>484</td>
+        <td class="tag-up">▲ +75 (+18.3%)</td>
+        <td>90.91%</td>
+        <td class="tag-up">▲ +7.99pp</td>
+        <td><span class="badge green">On Target</span></td>
+        <td>71.69%</td>
+        <td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td><span class="team-tag team-cn-trade">CN Trade</span></td>
+        <td>313</td>
+        <td class="tag-up">▲ +84 (+36.7%)</td>
+        <td>91.37%</td>
+        <td class="tag-down">▼ 0.96pp</td>
+        <td><span class="badge green">On Target</span></td>
+        <td>70.29%</td>
+        <td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td><span class="team-tag team-cn-cs">MY CS</span></td>
+        <td>944</td>
+        <td class="tag-down">▼ −104 (−9.9%)</td>
+        <td>93.11%</td>
+        <td class="tag-up">▲ +9.66pp</td>
+        <td><span class="badge green">On Target</span></td>
+        <td>71.61%</td>
+        <td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr style="background:#fff8e1">
+        <td><span class="team-tag" style="background:#ffeeba;color:#856404">Unassigned</span></td>
+        <td>251</td>
+        <td>—</td>
+        <td class="highlight-red">32.27%</td>
+        <td>—</td>
+        <td><span class="badge red">Critical</span></td>
+        <td>24.70%</td>
+        <td><span class="badge red">Critical</span></td>
+      </tr>
+    </table>
+    <div class="note">⚠️ <b>Root cause of the overall CCR gap:</b> 251 "Unassigned" calls achieved only 32.27% CCR, dragging the overall rate from ~91% (across assigned teams) down to 84.64%. All three assigned business teams individually met the ≥90% CCR target this week. The problem is concentrated in call routing / queue assignment — not team performance.</div>
+  </div>
+
+  <!-- Daily Detail Tables -->
+  <div class="section">
+    <h2>📋 Daily Breakdown</h2>
+
+    <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ In Total (All Teams)</p>
+    <table style="margin-bottom:20px">
+      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (20s)</th><th>SLA Status</th></tr>
+      <tr>
+        <td>May 7</td><td>Thu</td><td>331</td>
+        <td style="color:#856404;font-weight:600">87.92%</td><td><span class="badge yellow">Monitor</span></td>
+        <td style="color:#856404;font-weight:600">71.90%</td><td><span class="badge yellow">Monitor</span></td>
+      </tr>
+      <tr>
+        <td>May 8</td><td>Fri</td><td>417</td>
+        <td class="highlight-red">84.41%</td><td><span class="badge red">Below Target</span></td>
+        <td style="color:#856404;font-weight:600">70.74%</td><td><span class="badge yellow">Monitor</span></td>
+      </tr>
+      <tr>
+        <td>May 11</td><td>Mon</td><td>453</td>
+        <td class="highlight-red">83.66%</td><td><span class="badge red">Below Target</span></td>
+        <td class="highlight-red">59.82%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 12</td><td>Tue</td><td>436</td>
+        <td class="highlight-red">79.59%</td><td><span class="badge red">Below Target</span></td>
+        <td class="highlight-red">59.63%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 13</td><td>Wed</td><td>355</td>
+        <td style="color:#856404;font-weight:600">89.30%</td><td><span class="badge yellow">Monitor</span></td>
+        <td class="highlight-red">67.89%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+    </table>
+
+    <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ US Trade</p>
+    <table style="margin-bottom:20px">
+      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (20s)</th><th>SLA Status</th></tr>
+      <tr>
+        <td>May 7</td><td>Thu</td><td>81</td>
+        <td class="highlight-green">91.36%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-red">69.14%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 8</td><td>Fri</td><td>102</td>
+        <td style="color:#856404;font-weight:600">86.27%</td><td><span class="badge yellow">Monitor</span></td>
+        <td class="highlight-red">64.71%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 11</td><td>Mon</td><td>101</td>
+        <td style="color:#856404;font-weight:600">89.11%</td><td><span class="badge yellow">Monitor</span></td>
+        <td style="color:#856404;font-weight:600">74.26%</td><td><span class="badge yellow">Monitor</span></td>
+      </tr>
+      <tr>
+        <td>May 12</td><td>Tue</td><td>102</td>
+        <td class="highlight-green">92.16%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-red">69.61%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 13</td><td>Wed</td><td>98</td>
+        <td class="highlight-green">95.92%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">80.61%</td><td><span class="badge green">On Target</span></td>
+      </tr>
+    </table>
+
+    <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ CN Trade</p>
+    <table style="margin-bottom:20px">
+      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (20s)</th><th>SLA Status</th></tr>
+      <tr>
+        <td>May 7</td><td>Thu</td><td>53</td>
+        <td class="highlight-green">96.23%</td><td><span class="badge green">On Target</span></td>
+        <td style="color:#856404;font-weight:600">77.36%</td><td><span class="badge yellow">Monitor</span></td>
+      </tr>
+      <tr>
+        <td>May 8</td><td>Fri</td><td>73</td>
+        <td style="color:#856404;font-weight:600">87.67%</td><td><span class="badge yellow">Monitor</span></td>
+        <td class="highlight-red">69.86%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 11</td><td>Mon</td><td>66</td>
+        <td class="highlight-green">96.97%</td><td><span class="badge green">On Target</span></td>
+        <td style="color:#856404;font-weight:600">71.21%</td><td><span class="badge yellow">Monitor</span></td>
+      </tr>
+      <tr>
+        <td>May 12</td><td>Tue</td><td>63</td>
+        <td class="highlight-red">82.54%</td><td><span class="badge red">Below Target</span></td>
+        <td class="highlight-red">57.14%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 13</td><td>Wed</td><td>58</td>
+        <td class="highlight-green">94.83%</td><td><span class="badge green">On Target</span></td>
+        <td style="color:#856404;font-weight:600">77.59%</td><td><span class="badge yellow">Monitor</span></td>
+      </tr>
+    </table>
+
+    <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ MY CS</p>
+    <table>
+      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (20s)</th><th>SLA Status</th></tr>
+      <tr>
+        <td>May 7</td><td>Thu</td><td>154</td>
+        <td class="highlight-green">97.40%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">81.82%</td><td><span class="badge green">On Target</span></td>
+      </tr>
+      <tr>
+        <td>May 8</td><td>Fri</td><td>196</td>
+        <td class="highlight-green">95.41%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">84.69%</td><td><span class="badge green">On Target</span></td>
+      </tr>
+      <tr>
+        <td>May 11</td><td>Mon</td><td>219</td>
+        <td class="highlight-green">91.32%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-red">60.27%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 12</td><td>Tue</td><td>208</td>
+        <td style="color:#856404;font-weight:600">89.90%</td><td><span class="badge yellow">Monitor</span></td>
+        <td class="highlight-red">68.27%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+      <tr>
+        <td>May 13</td><td>Wed</td><td>167</td>
+        <td class="highlight-green">92.81%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-red">65.87%</td><td><span class="badge red">Below Target</span></td>
+      </tr>
+    </table>
+    <div class="note">MY CS SLA dropped sharply on Mon May 11 (60.27%) — coinciding with the week's peak volume (219 calls). CCR held above 91%, but the speed-of-answer deteriorated significantly, suggesting a Monday morning staffing concentration gap.</div>
+  </div>
+
+  <!-- Charts -->
+  <div class="chart-row">
+    <div class="chart-card">
+      <h2>📈 Daily CCR Trend (By Team)</h2>
+      <canvas id="chartCCR"></canvas>
+    </div>
+    <div class="chart-card">
+      <h2>📈 Daily SLA 20s Trend (By Team)</h2>
+      <canvas id="chartSLA"></canvas>
+    </div>
+  </div>
+  <div class="chart-card">
+    <h2>📊 Daily Call Volume (By Team)</h2>
+    <canvas id="chartVolume" style="max-height:180px"></canvas>
+  </div>
+
+  <!-- Deep Analysis -->
+  <div class="analysis-section">
+    <h2>🧠 Strategic Insights · Recommendations · SOP Framework</h2>
+    <p class="analysis-subtitle">Systematic analysis of this week's key issues · Click areas tagged "Editable" to modify · Auto-saved locally</p>
+
+    <div class="analysis-toolbar">
+      <button class="btn-reset" onclick="resetAnalysis()">↩ Restore defaults</button>
+      <span class="save-indicator" id="saveIndicator">— Not modified</span>
+    </div>
+
+    <!-- ① Executive Summary -->
+    <div class="summary-box">
+      <div class="sb-title">📢 Executive Summary — 3 Key Points</div>
+      <ul>
+        <li>All three assigned teams (US Trade, CN Trade, MY CS) met the ≥90% CCR target this week — but 251 unassigned calls at 32.27% CCR dragged the overall rate to 84.64%;</li>
+        <li>US Trade showed a strong intra-week recovery trajectory (Thu 91.36% → Wed 95.92%), its best weekly close since tracking began;</li>
+        <li>MY CS SLA collapsed on Monday May 11 (60.27%) despite maintaining CCR above 91% — a peak-volume speed gap that needs structural scheduling attention.</li>
+      </ul>
+    </div>
+
+    <!-- ② Core Insights -->
+    <div class="reco-section">
+      <h3>🔍 Core Insights</h3>
+      <div class="insight-grid">
+
+        <div class="ig-card red">
+          <div class="ig-label">Insight 1 · Routing Black Hole</div>
+          <div class="ig-title">251 unassigned calls at 32.27% CCR — the single largest lever to close the overall target gap</div>
+          <div class="ig-body">
+            Assigned teams averaged <b>~91.8% CCR</b> this week. Without the unassigned pool, overall CCR would have been ~91%.
+            The 251 unassigned calls alone accounted for a <b>−6.4pp drag</b> on the headline figure.
+            <br>This is a routing/IVR configuration issue, not a staffing issue. Fixing queue assignment would bring the overall CCR in line with the ≥90% target without any headcount change.
+          </div>
+        </div>
+
+        <div class="ig-card amber">
+          <div class="ig-label">Insight 2 · Tuesday Pattern Across Teams</div>
+          <div class="ig-title">May 12 (Tue) was the worst day for both In Total and CN Trade — a cross-team signal worth investigating</div>
+          <div class="ig-body">
+            Overall CCR hit its weekly low on May 12 at <b>79.59%</b> (SLA: 59.63%). CN Trade also dipped to <b>82.54%</b> on the same day — its only sub-90% day.
+            <br>US Trade and MY CS were marginally better but still below weekly peak. A recurring Tuesday pattern could indicate intra-week scheduling under-coverage or a recurring external demand spike.
+          </div>
+        </div>
+
+        <div class="ig-card green">
+          <div class="ig-label">Insight 3 · US Trade Strong Recovery Trend</div>
+          <div class="ig-title">US Trade reversed last week's underperformance with a consistent 5-day upward trajectory</div>
+          <div class="ig-body">
+            W18 US Trade CCR was 82.92% (below target). W19: <b>+7.99pp to 90.91%</b>.
+            Daily trajectory: Thu 91.36% → Fri 86.27% → Mon 89.11% → Tue 92.16% → Wed <b>95.92%</b>.
+            <br>The Friday dip (86.27%) is the only outlier. This recovery pattern is worth documenting as a playbook for performance turnarounds.
+          </div>
+        </div>
+
+        <div class="ig-card red">
+          <div class="ig-label">Insight 4 · MY CS SLA / CCR Decoupling</div>
+          <div class="ig-title">CCR held above target all week but SLA dropped as low as 60.27% — calls answered slowly, not missed</div>
+          <div class="ig-body">
+            MY CS CCR ranged <b>89.9%–97.4%</b> across the week. But SLA (20s) ranged <b>60.27%–84.69%</b> — a 24pp intra-week swing.
+            Peak volume day (Mon May 11, 219 calls) coincided with the SLA floor. CCR remained 91.32% — agents answered, just slowly.
+            <br>This points to adequate headcount but poor intra-day call distribution coverage, not an overall staffing shortfall.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ③ Recommendations -->
+    <div class="reco-section">
+      <h3>🎯 Recommendations</h3>
+      <div class="reco-cols">
+        <div>
+          <div class="reco-col-title now">⚡ Immediate Actions (This Week)</div>
+          <ul class="reco-list">
+            <li>Audit the IVR / queue routing config to identify why 251 calls land in the unassigned pool — confirm if it is a configuration gap or an intentional overflow bucket</li>
+            <li>Investigate CN Trade May 12 (CCR 82.54%) — check for absences or external demand spikes that day</li>
+            <li>Review MY CS Monday morning scheduling — May 11 saw the highest volume (219 calls) with the worst SLA (60.27%); verify whether Mon 9–11am is systematically under-staffed</li>
+            <li>Document the US Trade recovery playbook from this week as a reference for future performance dips</li>
+          </ul>
+        </div>
+        <div>
+          <div class="reco-col-title long">🏗 Longer-Term Improvements (Starting Next Month)</div>
+          <ul class="reco-list">
+            <li>Eliminate or properly route the unassigned call pool — this single fix would close the entire CCR gap to target without additional headcount</li>
+            <li>Introduce Tuesday intra-day monitoring as a standard watch-day across all teams — repeat dip pattern suggests structural under-coverage</li>
+            <li>Build a SLA / CCR decoupling alert: if a team's CCR meets target but SLA drops &gt;15pp, flag for intra-day scheduling review</li>
+            <li>Formalize MY CS peak-volume scheduling protocol: activate flex coverage when daily volume forecast exceeds 200 calls</li>
+            <li>Set a joint CCR + SLA recovery target for W20: overall CCR ≥87%, overall SLA (20s) ≥68%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ④ SOP Framework -->
+    <div class="reco-section">
+      <h3>⚙️ SOP Framework — Standardization Proposals</h3>
+      <div class="sop-grid">
+
+        <div class="sop-card">
+          <div class="sc-no">SOP-01</div>
+          <div class="sc-title">Unassigned Call Routing Remediation</div>
+          <div class="sc-body">
+            <b>Trigger:</b> Any week where unassigned call pool exceeds 5% of total inbound volume<br>
+            <b>Response:</b> ① Routing team audits IVR logic within 2 business days → ② Confirm overflow rules and queue assignment gaps → ③ Apply fix or temporary fallback routing within 1 week<br>
+            <b>Goal:</b> Unassigned pool &lt;2% of total inbound; CCR contribution gap &lt;1pp on overall rate
+          </div>
+        </div>
+
+        <div class="sop-card amber">
+          <div class="sc-no">SOP-02</div>
+          <div class="sc-title">SLA / CCR Decoupling Detection</div>
+          <div class="sc-body">
+            <b>Trigger:</b> Team achieves CCR ≥90% but SLA (20s) &lt;70% on the same day<br>
+            <b>Response:</b> ① TL reviews intra-day call distribution (peak-hour volume vs. staff online) → ② Identify if volume spike coincided with shift gap → ③ Propose schedule adjustment within same week<br>
+            <b>Rationale:</b> CCR passing masks a speed-of-answer problem invisible to binary pass/fail monitoring
+          </div>
+        </div>
+
+        <div class="sop-card green">
+          <div class="sc-no">SOP-03</div>
+          <div class="sc-title">Monday Peak-Volume Pre-Positioning</div>
+          <div class="sc-body">
+            <b>Observation:</b> Monday is consistently the highest-volume day for MY CS (Mon May 11: 219 calls)<br>
+            <b>Standard:</b> MY CS TL confirms Mon staffing by Friday EOD; activate flex coverage if projected Mon volume &gt;190 calls<br>
+            <b>Measurement:</b> Mon SLA (20s) ≥72% as a minimum acceptable threshold; track weekly
+          </div>
+        </div>
+
+        <div class="sop-card">
+          <div class="sc-no">SOP-04</div>
+          <div class="sc-title">Daily CCR Alert & Same-Day Response</div>
+          <div class="sc-body">
+            <b>Trigger:</b> Any team's daily CCR &lt;80% or SLA &lt;60%<br>
+            <b>Response:</b> ① Auto-detect (system/duty officer) → ② TL confirms staffing within 30 min → ③ Cover gap or coordinate cross-team support within 1h → ④ Brief management by 18:00 same day<br>
+            <b>Goal:</b> Shift problem detection from "next week's review" to "same-day resolution"
+          </div>
+        </div>
+
+        <div class="sop-card amber">
+          <div class="sc-no">SOP-05</div>
+          <div class="sc-title">Tuesday Watch Protocol</div>
+          <div class="sc-body">
+            <b>Pattern:</b> Tuesday has now been the worst or second-worst CCR day in consecutive weeks<br>
+            <b>Proposed:</b> Designate Tuesday as a "watch day" — duty officer checks live CCR by 10:30am; any team below 88% triggers 15-min TL check-in<br>
+            <b>Review:</b> After 4 weeks, assess whether the Tuesday pattern is structural or coincidental
+          </div>
+        </div>
+
+        <div class="sop-card green">
+          <div class="sc-no">SOP-06</div>
+          <div class="sc-title">Three-Tier KPI Alert System</div>
+          <div class="sc-body">
+            <b>Current gap:</b> Binary pass/fail only — no early-warning zone<br>
+            <b>Proposed tiers:</b><br>
+            🟢 <b>On Track:</b> CCR ≥90%, SLA ≥80%<br>
+            🟡 <b>Watch:</b> CCR 85–89%, SLA 65–79% → trigger investigation<br>
+            🔴 <b>Alert:</b> CCR &lt;85%, SLA &lt;65% → trigger escalation response<br>
+            <b>Implementation:</b> Update weekly report traffic-light standards starting next month
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ⑤ Editable notes -->
+    <div class="reco-section">
+      <h3>✏️ Action Confirmation · Notes (Editable, auto-saved)</h3>
+
+      <div class="edit-block">
+        <div class="edit-block-header">
+          <span>📋 This Week's Follow-Up Action Items <span class="edit-tag">Editable</span></span>
+        </div>
+        <div class="editable-area" id="edit-actions" contenteditable="true"
+          data-key="w19-en-actions"
+          data-placeholder="Log confirmed action items, owners, and deadlines…">Pending:
+① [Routing/IVR Team] Audit unassigned call pool (251 calls, 32.27% CCR) — confirm root cause — deadline: May 19
+② [CN Trade TL] May 12 CCR dip (82.54%) root-cause investigation — deadline: May 19
+③ [MY CS TL] Monday scheduling review — validate Mon 9–11am coverage vs. historical volume — deadline: May 19
+④ [Management] US Trade W19 recovery playbook documentation — deadline: May 23</div>
+      </div>
+
+      <div class="edit-block">
+        <div class="edit-block-header">
+          <span>💬 Meeting Conclusions / Context Notes <span class="edit-tag">Editable</span></span>
+        </div>
+        <div class="editable-area" id="edit-notes" contenteditable="true"
+          data-key="w19-en-notes"
+          data-placeholder="Add context: holidays, system outages, headcount changes, external policy factors…" style="min-height:52px;"></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">Call Connection Rate Weekly Report · May 7 – May 13, 2026 (W19) · Jiannbin</div>
+
+<script>
+const shortDays = ['5/7','5/8','5/11','5/12','5/13'];
+
+const lineOpts = () => ({
+  responsive: true,
+  plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+  scales: {
+    x: { ticks: { font: { size: 11 } } },
+    y: {
+      min: 20, max: 105,
+      ticks: { font: { size: 11 }, callback: v => v + '%' }
+    }
+  }
+});
+
+new Chart(document.getElementById('chartCCR'), {
+  type: 'line',
+  data: {
+    labels: shortDays,
+    datasets: [
+      { label: 'In Total', data: [87.92,84.41,83.66,79.59,89.30], borderColor:'#7c3aed', backgroundColor:'rgba(124,58,237,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'US Trade', data: [91.36,86.27,89.11,92.16,95.92], borderColor:'#1a73e8', backgroundColor:'rgba(26,115,232,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'CN Trade', data: [96.23,87.67,96.97,82.54,94.83], borderColor:'#00796b', backgroundColor:'rgba(0,121,107,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'MY CS',    data: [97.40,95.41,91.32,89.90,92.81], borderColor:'#d63031', backgroundColor:'rgba(214,48,49,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'Target 90%', data: [90,90,90,90,90], borderColor:'#b2bec3', borderDash:[6,3], pointRadius:0, borderWidth:1 }
+    ]
+  },
+  options: lineOpts()
+});
+
+new Chart(document.getElementById('chartSLA'), {
+  type: 'line',
+  data: {
+    labels: shortDays,
+    datasets: [
+      { label: 'In Total', data: [71.90,70.74,59.82,59.63,67.89], borderColor:'#7c3aed', backgroundColor:'rgba(124,58,237,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'US Trade', data: [69.14,64.71,74.26,69.61,80.61], borderColor:'#1a73e8', backgroundColor:'rgba(26,115,232,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'CN Trade', data: [77.36,69.86,71.21,57.14,77.59], borderColor:'#00796b', backgroundColor:'rgba(0,121,107,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'MY CS',    data: [81.82,84.69,60.27,68.27,65.87], borderColor:'#d63031', backgroundColor:'rgba(214,48,49,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'Target 80%', data: [80,80,80,80,80], borderColor:'#b2bec3', borderDash:[6,3], pointRadius:0, borderWidth:1 }
+    ]
+  },
+  options: lineOpts()
+});
+
+new Chart(document.getElementById('chartVolume'), {
+  type: 'bar',
+  data: {
+    labels: shortDays,
+    datasets: [
+      { label: 'US Trade', data: [81,102,101,102,98],      backgroundColor:'rgba(26,115,232,0.75)' },
+      { label: 'CN Trade', data: [53,73,66,63,58],          backgroundColor:'rgba(0,121,107,0.75)' },
+      { label: 'MY CS',    data: [154,196,219,208,167],     backgroundColor:'rgba(214,48,49,0.75)' }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+    scales: {
+      x: { stacked: true, ticks: { font: { size: 11 } } },
+      y: { stacked: true, ticks: { font: { size: 11 } } }
+    }
+  }
+});
+</script>
+
+<script>
+const DEFAULTS = {};
+document.querySelectorAll('.editable-area[data-key]').forEach(el => {
+  const key = el.dataset.key;
+  DEFAULTS[key] = el.innerHTML;
+  const saved = localStorage.getItem(key);
+  if (saved !== null) el.innerHTML = saved;
+
+  let timer;
+  el.addEventListener('input', () => {
+    clearTimeout(timer);
+    const ind = document.getElementById('saveIndicator');
+    ind.textContent = 'Saving…'; ind.className = 'save-indicator';
+    timer = setTimeout(() => {
+      localStorage.setItem(key, el.innerHTML);
+      ind.textContent = '✓ Auto-saved'; ind.className = 'save-indicator saved';
+      setTimeout(() => { ind.textContent = '— Saved'; ind.className = 'save-indicator'; }, 2000);
+    }, 600);
+  });
+});
+
+function resetAnalysis() {
+  if (!confirm('Reset all analysis sections to default content? Local edits will be lost.')) return;
+  document.querySelectorAll('.editable-area[data-key]').forEach(el => {
+    const key = el.dataset.key;
+    el.innerHTML = DEFAULTS[key];
+    localStorage.removeItem(key);
+  });
+  const ind = document.getElementById('saveIndicator');
+  ind.textContent = '↩ Restored defaults'; ind.className = 'save-indicator';
+}
+</script>
+
+</body>
+</html>
