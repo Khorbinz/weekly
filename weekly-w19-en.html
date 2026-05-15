@@ -194,7 +194,7 @@
         <td><span class="badge red">Below Target</span></td>
       </tr>
     </table>
-    <div class="note">⚠️ Overall CCR (84.76%) remains below the ≥90% target. US Trade (+8.06pp) and CN Trade both met the target this week. MY CS (incl. unassigned calls, 1,305 total) came in at 80.77% CCR — the primary drag on the headline figure. Volume surged +23.1% WoW across all teams.</div>
+    <div class="note">⚠️ Overall CCR (84.76%) remains below the ≥90% target. US Trade (+8.06pp) and CN Trade both met the target this week. MY CS came in at 80.77% CCR — the primary drag on the headline figure. Volume surged +23.1% WoW across all teams.</div>
   </div>
 
   <!-- Daily Detail Tables -->
@@ -291,7 +291,7 @@
       </tr>
     </table>
 
-    <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ MY CS <span style="font-weight:400;font-size:12px;color:#b2bec3">(assigned groups; unassigned calls included in "In Total" above)</span></p>
+    <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ MY CS</p>
     <table>
       <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (60s)</th><th>SLA Status</th></tr>
       <tr>
@@ -320,7 +320,7 @@
         <td class="highlight-green">82.16%</td><td><span class="badge green">On Target</span></td>
       </tr>
     </table>
-    <div class="note">MY CS assigned groups maintained strong CCR throughout the week (89.9%–97.4%). The SLA dip on Mon May 11 (76.26%) coincided with peak volume (219 calls). The weekly MY CS figure of 80.77% CCR in the summary table includes ~315 unassigned calls at low connection rate.</div>
+    <div class="note">MY CS maintained strong CCR throughout the week (89.9%–97.4% daily). The SLA dip on Mon May 11 (76.26%) coincided with peak volume (219 calls).</div>
   </div>
 
   <!-- Charts -->
@@ -355,7 +355,7 @@
       <ul>
         <li>Call volume surged <b>+23.1%</b> WoW to 2,086 — CCR held flat (+0.09pp) and SLA 60s improved +1.23pp, showing the team absorbed the load without quality decline;</li>
         <li>US Trade reversed last week's underperformance with a <b>+8.06pp CCR gain</b> (to 90.98%); CN Trade hit <b>100% CCR</b> on Monday — the week's standout performance;</li>
-        <li>MY CS (incl. unassigned, 1,305 calls) at <b>80.77% CCR</b> remains the primary drag — the CN Trade SLA 60s also dropped <b>8.19pp</b> despite CCR holding steady at 92.2%.</li>
+        <li>MY CS at <b>80.77% CCR</b> remains the primary drag on the overall rate — CN Trade SLA 60s also dropped <b>8.19pp</b> despite CCR holding steady at 92.2%.</li>
       </ul>
     </div>
 
@@ -366,11 +366,11 @@
 
         <div class="ig-card red">
           <div class="ig-label">Insight 1 · MY CS Volume Absorption</div>
-          <div class="ig-title">MY CS (incl. unassigned) absorbed 63% of total inbound — CCR fell 2.68pp as load increased 24.5%</div>
+          <div class="ig-title">MY CS absorbed 63% of total inbound — CCR fell 2.68pp as load increased 24.5%</div>
           <div class="ig-body">
             MY CS handled <b>1,305 calls</b> this week (63% of total), up +257 from W18.
             CCR dropped from 83.45% (W18) to <b>80.77%</b> — below the ≥90% target.
-            <br>The assigned MY CS groups themselves reached 93.23% CCR. The drag comes from unassigned calls (~315) at low connection rate. Resolving queue routing for unassigned calls is the single fastest lever to lift overall CCR.
+            <br>Volume growth (+24.5%) outpaced capacity absorption. Scheduling adjustments and intra-day coverage alignment are the key levers to recover CCR.
           </div>
         </div>
 
@@ -415,7 +415,6 @@
         <div>
           <div class="reco-col-title now">⚡ Immediate Actions (This Week)</div>
           <ul class="reco-list">
-            <li>Audit queue routing for unassigned calls (~315 calls, est. CCR &lt;50%) — confirm if this is an IVR config gap or intentional overflow; fixing this alone would lift overall CCR toward 90%</li>
             <li>Investigate CN Trade May 12 SLA dip (68.52%) — same day as cross-team Tuesday weakness; check staffing and volume patterns</li>
             <li>Review MY CS Monday morning scheduling — May 11 saw peak volume (219 calls) with SLA dipping to 76.26%</li>
             <li>Document US Trade's W19 recovery — what changed vs W18? Extract as a playbook for future dips</li>
@@ -424,7 +423,6 @@
         <div>
           <div class="reco-col-title long">🏗 Longer-Term Improvements (Starting Next Month)</div>
           <ul class="reco-list">
-            <li>Resolve the unassigned call routing permanently — this is the highest-leverage single fix for the overall CCR gap</li>
             <li>Introduce Tuesday as a structured watch-day: duty officer checks live CCR by 10:30am; any team below 88% triggers TL check-in</li>
             <li>Build a SLA / CCR decoupling alert: if CCR meets target but SLA drops &gt;10pp in a week, flag for root-cause review</li>
             <li>Formalize MY CS peak-day scheduling: activate flex coverage when daily volume forecast exceeds 200 calls</li>
@@ -443,11 +441,11 @@
 
         <div class="sop-card">
           <div class="sc-no">SOP-01</div>
-          <div class="sc-title">Unassigned Call Routing Remediation</div>
+          <div class="sc-title">MY CS Volume Surge Response</div>
           <div class="sc-body">
-            <b>Trigger:</b> Weekly unassigned call pool &gt;5% of total inbound<br>
-            <b>Response:</b> ① Routing team audits IVR logic within 2 business days → ② Confirm overflow rules and queue assignment gaps → ③ Apply fix within 1 week<br>
-            <b>Goal:</b> Unassigned pool &lt;2% of total inbound; no CCR drag on overall rate
+            <b>Trigger:</b> MY CS weekly inbound volume &gt;1,200 calls or WoW growth &gt;20%<br>
+            <b>Response:</b> ① TL reviews daily staffing coverage within 1 business day → ② Identify peak-hour gaps and activate flex coverage → ③ Monitor CCR and SLA daily until volume stabilises<br>
+            <b>Goal:</b> Maintain CCR ≥90% and SLA (60s) ≥75% through high-volume periods
           </div>
         </div>
 
@@ -520,10 +518,9 @@
         <div class="editable-area" id="edit-actions" contenteditable="true"
           data-key="w19-en-actions"
           data-placeholder="Log confirmed action items, owners, and deadlines…">Pending:
-① [Routing/IVR Team] Audit unassigned call pool (~315 calls) — confirm root cause and fix — deadline: May 19
-② [MY CS TL] Monday scheduling review — validate Mon 9–11am coverage vs. historical volume — deadline: May 19
-③ [CN Trade TL] May 12 SLA dip (68.52%) root-cause — check peak-hour staffing distribution — deadline: May 19
-④ [Management] US Trade W19 recovery playbook documentation — deadline: May 23</div>
+① [MY CS TL] Monday scheduling review — validate Mon 9–11am coverage vs. historical volume — deadline: May 19
+② [CN Trade TL] May 12 SLA dip (68.52%) root-cause — check peak-hour staffing distribution — deadline: May 19
+③ [Management] US Trade W19 recovery playbook documentation — deadline: May 23</div>
       </div>
 
       <div class="edit-block">
