@@ -130,9 +130,9 @@
       <div class="change neutral">— <span style="color:#636e72">Target ≥80% &nbsp;·&nbsp; 20s threshold</span></div>
     </div>
     <div class="kpi-card">
-      <div class="label">Top CCR Team (Assigned)</div>
-      <div class="value" style="font-size:20px">MY CS</div>
-      <div class="change neutral">— 93.11% weekly avg</div>
+      <div class="label">Top CCR Team</div>
+      <div class="value" style="font-size:20px">CN Trade</div>
+      <div class="change neutral">— 91.37% weekly avg</div>
     </div>
   </div>
 
@@ -182,26 +182,16 @@
       </tr>
       <tr>
         <td><span class="team-tag team-cn-cs">MY CS</span></td>
-        <td>944</td>
-        <td class="tag-down">▼ −104 (−9.9%)</td>
-        <td>93.11%</td>
-        <td class="tag-up">▲ +9.66pp</td>
-        <td><span class="badge green">On Target</span></td>
-        <td>71.61%</td>
+        <td>1,195</td>
+        <td class="tag-up">▲ +147 (+14.0%)</td>
+        <td>80.33%</td>
+        <td class="tag-down">▼ 3.12pp</td>
+        <td><span class="badge red">Below Target</span></td>
+        <td>61.76%</td>
         <td><span class="badge red">Below Target</span></td>
       </tr>
-      <tr style="background:#fff8e1">
-        <td><span class="team-tag" style="background:#ffeeba;color:#856404">Unassigned</span></td>
-        <td>251</td>
-        <td>—</td>
-        <td class="highlight-red">32.27%</td>
-        <td>—</td>
-        <td><span class="badge red">Critical</span></td>
-        <td>24.70%</td>
-        <td><span class="badge red">Critical</span></td>
-      </tr>
     </table>
-    <div class="note">⚠️ <b>Root cause of the overall CCR gap:</b> 251 "Unassigned" calls achieved only 32.27% CCR, dragging the overall rate from ~91% (across assigned teams) down to 84.64%. All three assigned business teams individually met the ≥90% CCR target this week. The problem is concentrated in call routing / queue assignment — not team performance.</div>
+    <div class="note">⚠️ Overall CCR (84.64%) remains below the ≥90% target. US Trade and CN Trade both met the target this week. MY CS (incl. unassigned calls) came in at 80.33%, the primary drag on the overall figure. Call volume rose +17.5% WoW across all teams.</div>
   </div>
 
   <!-- Daily Detail Tables -->
@@ -360,9 +350,9 @@
     <div class="summary-box">
       <div class="sb-title">📢 Executive Summary — 3 Key Points</div>
       <ul>
-        <li>All three assigned teams (US Trade, CN Trade, MY CS) met the ≥90% CCR target this week — but 251 unassigned calls at 32.27% CCR dragged the overall rate to 84.64%;</li>
-        <li>US Trade showed a strong intra-week recovery trajectory (Thu 91.36% → Wed 95.92%), its best weekly close since tracking began;</li>
-        <li>MY CS SLA collapsed on Monday May 11 (60.27%) despite maintaining CCR above 91% — a peak-volume speed gap that needs structural scheduling attention.</li>
+        <li>Call volume surged <b>+17.5%</b> WoW to 1,992 — but CCR held flat at 84.64%, meaning quality did not deteriorate despite the load increase;</li>
+        <li>US Trade reversed last week's underperformance with a +7.99pp CCR gain, closing the week at 95.92% on Wednesday — the strongest single-day result across all teams;</li>
+        <li>MY CS (incl. unassigned calls) came in at 80.33% CCR / 61.76% SLA, the primary drag on the overall figure — peak-volume days (Mon 219 calls) drove the SLA floor to 60.27%.</li>
       </ul>
     </div>
 
@@ -372,12 +362,12 @@
       <div class="insight-grid">
 
         <div class="ig-card red">
-          <div class="ig-label">Insight 1 · Routing Black Hole</div>
-          <div class="ig-title">251 unassigned calls at 32.27% CCR — the single largest lever to close the overall target gap</div>
+          <div class="ig-label">Insight 1 · MY CS Volume Absorption</div>
+          <div class="ig-title">MY CS absorbed 60% of total inbound volume — CCR fell 3.12pp WoW as load increased 14%</div>
           <div class="ig-body">
-            Assigned teams averaged <b>~91.8% CCR</b> this week. Without the unassigned pool, overall CCR would have been ~91%.
-            The 251 unassigned calls alone accounted for a <b>−6.4pp drag</b> on the headline figure.
-            <br>This is a routing/IVR configuration issue, not a staffing issue. Fixing queue assignment would bring the overall CCR in line with the ≥90% target without any headcount change.
+            MY CS handled <b>1,195 calls</b> this week (60% of total inbound), up +147 from W18.
+            CCR dropped from 83.45% (W18) to <b>80.33%</b> — below the ≥90% target for the second consecutive week.
+            <br>With volume growing faster than capacity, each incremental call adds disproportionate pressure. Addressing MY CS staffing density is the single largest lever to close the overall CCR gap.
           </div>
         </div>
 
@@ -401,12 +391,12 @@
         </div>
 
         <div class="ig-card red">
-          <div class="ig-label">Insight 4 · MY CS SLA / CCR Decoupling</div>
-          <div class="ig-title">CCR held above target all week but SLA dropped as low as 60.27% — calls answered slowly, not missed</div>
+          <div class="ig-label">Insight 4 · MY CS SLA Collapse on Peak Days</div>
+          <div class="ig-title">SLA dropped to 60.27% on Monday (219 calls) — a 24pp intra-week swing signals scheduling concentration gap</div>
           <div class="ig-body">
-            MY CS CCR ranged <b>89.9%–97.4%</b> across the week. But SLA (20s) ranged <b>60.27%–84.69%</b> — a 24pp intra-week swing.
-            Peak volume day (Mon May 11, 219 calls) coincided with the SLA floor. CCR remained 91.32% — agents answered, just slowly.
-            <br>This points to adequate headcount but poor intra-day call distribution coverage, not an overall staffing shortfall.
+            MY CS SLA (20s) ranged from <b>84.69%</b> (Fri) to <b>60.27%</b> (Mon) — a 24pp swing within the same week.
+            Peak volume (Mon 219 calls) aligned with the SLA floor. CCR was 91.32% that day — agents answered, just slowly.
+            <br>The pattern suggests adequate total headcount but poor intra-day distribution on Mondays. The fix is scheduling, not hiring.
           </div>
         </div>
 
@@ -422,20 +412,20 @@
         <div>
           <div class="reco-col-title now">⚡ Immediate Actions (This Week)</div>
           <ul class="reco-list">
-            <li>Audit the IVR / queue routing config to identify why 251 calls land in the unassigned pool — confirm if it is a configuration gap or an intentional overflow bucket</li>
-            <li>Investigate CN Trade May 12 (CCR 82.54%) — check for absences or external demand spikes that day</li>
             <li>Review MY CS Monday morning scheduling — May 11 saw the highest volume (219 calls) with the worst SLA (60.27%); verify whether Mon 9–11am is systematically under-staffed</li>
+            <li>Investigate CN Trade May 12 (CCR 82.54%) — check for absences or external demand spikes that day</li>
+            <li>Assess MY CS overall staffing capacity vs. growing volume (+14.0% WoW) — determine whether headcount adjustment is needed</li>
             <li>Document the US Trade recovery playbook from this week as a reference for future performance dips</li>
           </ul>
         </div>
         <div>
           <div class="reco-col-title long">🏗 Longer-Term Improvements (Starting Next Month)</div>
           <ul class="reco-list">
-            <li>Eliminate or properly route the unassigned call pool — this single fix would close the entire CCR gap to target without additional headcount</li>
+            <li>Build a MY CS volume forecast model — if weekly volume consistently exceeds 1,100 calls, initiate a headcount review</li>
             <li>Introduce Tuesday intra-day monitoring as a standard watch-day across all teams — repeat dip pattern suggests structural under-coverage</li>
             <li>Build a SLA / CCR decoupling alert: if a team's CCR meets target but SLA drops &gt;15pp, flag for intra-day scheduling review</li>
             <li>Formalize MY CS peak-volume scheduling protocol: activate flex coverage when daily volume forecast exceeds 200 calls</li>
-            <li>Set a joint CCR + SLA recovery target for W20: overall CCR ≥87%, overall SLA (20s) ≥68%</li>
+            <li>Set a joint CCR + SLA recovery target for W20: overall CCR ≥87%, MY CS CCR ≥83%, overall SLA (20s) ≥68%</li>
           </ul>
         </div>
       </div>
@@ -450,11 +440,11 @@
 
         <div class="sop-card">
           <div class="sc-no">SOP-01</div>
-          <div class="sc-title">Unassigned Call Routing Remediation</div>
+          <div class="sc-title">MY CS Volume Capacity Review Protocol</div>
           <div class="sc-body">
-            <b>Trigger:</b> Any week where unassigned call pool exceeds 5% of total inbound volume<br>
-            <b>Response:</b> ① Routing team audits IVR logic within 2 business days → ② Confirm overflow rules and queue assignment gaps → ③ Apply fix or temporary fallback routing within 1 week<br>
-            <b>Goal:</b> Unassigned pool &lt;2% of total inbound; CCR contribution gap &lt;1pp on overall rate
+            <b>Trigger:</b> MY CS weekly inbound exceeds 1,100 calls, or CCR drops below 83% for two consecutive weeks<br>
+            <b>Response:</b> ① TL submits capacity review request within 2 business days → ② Management evaluates headcount vs. volume trajectory → ③ Staffing decision within 2 weeks<br>
+            <b>Goal:</b> Prevent volume growth from outpacing team capacity; maintain MY CS CCR ≥90%
           </div>
         </div>
 
@@ -462,7 +452,7 @@
           <div class="sc-no">SOP-02</div>
           <div class="sc-title">SLA / CCR Decoupling Detection</div>
           <div class="sc-body">
-            <b>Trigger:</b> Team achieves CCR ≥90% but SLA (20s) &lt;70% on the same day<br>
+            <b>Trigger:</b> Team's CCR meets target (≥90%) but SLA (20s) &lt;70% on the same day<br>
             <b>Response:</b> ① TL reviews intra-day call distribution (peak-hour volume vs. staff online) → ② Identify if volume spike coincided with shift gap → ③ Propose schedule adjustment within same week<br>
             <b>Rationale:</b> CCR passing masks a speed-of-answer problem invisible to binary pass/fail monitoring
           </div>
@@ -527,9 +517,9 @@
         <div class="editable-area" id="edit-actions" contenteditable="true"
           data-key="w19-en-actions"
           data-placeholder="Log confirmed action items, owners, and deadlines…">Pending:
-① [Routing/IVR Team] Audit unassigned call pool (251 calls, 32.27% CCR) — confirm root cause — deadline: May 19
+① [MY CS TL] Monday scheduling review — validate Mon 9–11am coverage vs. historical volume — deadline: May 19
 ② [CN Trade TL] May 12 CCR dip (82.54%) root-cause investigation — deadline: May 19
-③ [MY CS TL] Monday scheduling review — validate Mon 9–11am coverage vs. historical volume — deadline: May 19
+③ [Management] MY CS capacity assessment — weekly volume +14% WoW, evaluate headcount vs. target — deadline: May 23
 ④ [Management] US Trade W19 recovery playbook documentation — deadline: May 23</div>
       </div>
 
