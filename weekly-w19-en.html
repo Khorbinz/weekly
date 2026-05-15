@@ -31,7 +31,6 @@
   .tag-up { color: #00b894; font-size: 12px; }
   .tag-down { color: #d63031; font-size: 12px; }
   .tag-neutral { color: #636e72; font-size: 12px; }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 0; }
   .chart-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 20px; }
   .chart-card h2 { font-size: 15px; font-weight: 600; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
@@ -45,7 +44,6 @@
   .footer { text-align: center; color: #b2bec3; font-size: 12px; padding: 20px; }
   .highlight-red { color: #d63031; font-weight: 600; }
   .highlight-green { color: #00b894; font-weight: 600; }
-  /* ── Deep Analysis ── */
   .analysis-section { background: white; border-radius: 12px; padding: 26px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
   .analysis-section > h2 { font-size: 15px; font-weight: 600; margin-bottom: 6px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
   .analysis-subtitle { font-size: 12px; color: #b2bec3; margin-bottom: 20px; }
@@ -116,23 +114,23 @@
   <div class="kpi-grid">
     <div class="kpi-card">
       <div class="label">Total Inbound Calls (All Teams)</div>
-      <div class="value">1,992</div>
-      <div class="change up">▲ +297 calls / +17.5% WoW</div>
+      <div class="value">2,086</div>
+      <div class="change up">▲ +391 calls / +23.1% WoW</div>
     </div>
     <div class="kpi-card">
       <div class="label">Weekly Avg CCR (All Teams)</div>
-      <div class="value">84.64%</div>
-      <div class="change down">▼ 0.03pp WoW &nbsp;<span style="color:#636e72">Target ≥90%</span></div>
+      <div class="value">84.76%</div>
+      <div class="change up">▲ +0.09pp WoW &nbsp;<span style="color:#636e72">Target ≥90%</span></div>
     </div>
     <div class="kpi-card">
-      <div class="label">Weekly Avg SLA 20s (All Teams)</div>
-      <div class="value">65.51%</div>
-      <div class="change neutral">— <span style="color:#636e72">Target ≥80% &nbsp;·&nbsp; 20s threshold</span></div>
+      <div class="label">Weekly Avg SLA 60s (All Teams)</div>
+      <div class="value">73.25%</div>
+      <div class="change up">▲ +1.23pp WoW &nbsp;<span style="color:#636e72">Target ≥80%</span></div>
     </div>
     <div class="kpi-card">
-      <div class="label">Top CCR Team</div>
+      <div class="label">Top CCR Team (Assigned)</div>
       <div class="value" style="font-size:20px">CN Trade</div>
-      <div class="change neutral">— 91.37% weekly avg</div>
+      <div class="change neutral">— 92.20% weekly avg</div>
     </div>
   </div>
 
@@ -147,51 +145,56 @@
         <th>Avg CCR</th>
         <th>CCR WoW</th>
         <th>CCR Status</th>
-        <th>Avg SLA (20s)</th>
+        <th>Avg SLA (60s)</th>
+        <th>SLA WoW</th>
         <th>SLA Status</th>
       </tr>
       <tr>
         <td><span class="team-tag team-total">In Total</span></td>
-        <td>1,992</td>
-        <td class="tag-up">▲ +297 (+17.5%)</td>
-        <td>84.64%</td>
-        <td class="tag-down">▼ 0.03pp</td>
+        <td>2,086</td>
+        <td class="tag-up">▲ +391 (+23.1%)</td>
+        <td>84.76%</td>
+        <td class="tag-up">▲ +0.09pp</td>
         <td><span class="badge red">Below Target</span></td>
-        <td>65.51%</td>
+        <td>73.25%</td>
+        <td class="tag-up">▲ +1.23pp</td>
         <td><span class="badge red">Below Target</span></td>
       </tr>
       <tr>
         <td><span class="team-tag team-us">US Trade</span></td>
-        <td>484</td>
-        <td class="tag-up">▲ +75 (+18.3%)</td>
-        <td>90.91%</td>
-        <td class="tag-up">▲ +7.99pp</td>
+        <td>499</td>
+        <td class="tag-up">▲ +90 (+22.0%)</td>
+        <td>90.98%</td>
+        <td class="tag-up">▲ +8.06pp</td>
         <td><span class="badge green">On Target</span></td>
-        <td>71.69%</td>
+        <td>75.15%</td>
+        <td class="tag-up">▲ +7.89pp</td>
         <td><span class="badge red">Below Target</span></td>
       </tr>
       <tr>
         <td><span class="team-tag team-cn-trade">CN Trade</span></td>
-        <td>313</td>
-        <td class="tag-up">▲ +84 (+36.7%)</td>
-        <td>91.37%</td>
-        <td class="tag-down">▼ 0.96pp</td>
+        <td>282</td>
+        <td class="tag-up">▲ +53 (+23.1%)</td>
+        <td>92.20%</td>
+        <td class="tag-down">▼ 0.13pp</td>
         <td><span class="badge green">On Target</span></td>
-        <td>70.29%</td>
-        <td><span class="badge red">Below Target</span></td>
+        <td>80.85%</td>
+        <td class="tag-down">▼ 8.19pp</td>
+        <td><span class="badge green">On Target</span></td>
       </tr>
       <tr>
         <td><span class="team-tag team-cn-cs">MY CS</span></td>
-        <td>1,195</td>
-        <td class="tag-up">▲ +147 (+14.0%)</td>
-        <td>80.33%</td>
-        <td class="tag-down">▼ 3.12pp</td>
+        <td>1,305</td>
+        <td class="tag-up">▲ +257 (+24.5%)</td>
+        <td>80.77%</td>
+        <td class="tag-down">▼ 2.68pp</td>
         <td><span class="badge red">Below Target</span></td>
-        <td>61.76%</td>
+        <td>70.60%</td>
+        <td class="tag-up">▲ +0.17pp</td>
         <td><span class="badge red">Below Target</span></td>
       </tr>
     </table>
-    <div class="note">⚠️ Overall CCR (84.64%) remains below the ≥90% target. US Trade and CN Trade both met the target this week. MY CS (incl. unassigned calls) came in at 80.33%, the primary drag on the overall figure. Call volume rose +17.5% WoW across all teams.</div>
+    <div class="note">⚠️ Overall CCR (84.76%) remains below the ≥90% target. US Trade (+8.06pp) and CN Trade both met the target this week. MY CS (incl. unassigned calls, 1,305 total) came in at 80.77% CCR — the primary drag on the headline figure. Volume surged +23.1% WoW across all teams.</div>
   </div>
 
   <!-- Daily Detail Tables -->
@@ -200,37 +203,37 @@
 
     <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ In Total (All Teams)</p>
     <table style="margin-bottom:20px">
-      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (20s)</th><th>SLA Status</th></tr>
+      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (60s)</th><th>SLA Status</th></tr>
       <tr>
         <td>May 7</td><td>Thu</td><td>331</td>
         <td style="color:#856404;font-weight:600">87.92%</td><td><span class="badge yellow">Monitor</span></td>
-        <td style="color:#856404;font-weight:600">71.90%</td><td><span class="badge yellow">Monitor</span></td>
+        <td style="color:#856404;font-weight:600">76.74%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
       <tr>
         <td>May 8</td><td>Fri</td><td>417</td>
         <td class="highlight-red">84.41%</td><td><span class="badge red">Below Target</span></td>
-        <td style="color:#856404;font-weight:600">70.74%</td><td><span class="badge yellow">Monitor</span></td>
+        <td style="color:#856404;font-weight:600">74.10%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
       <tr>
         <td>May 11</td><td>Mon</td><td>453</td>
         <td class="highlight-red">83.66%</td><td><span class="badge red">Below Target</span></td>
-        <td class="highlight-red">59.82%</td><td><span class="badge red">Below Target</span></td>
+        <td style="color:#856404;font-weight:600">71.08%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
       <tr>
         <td>May 12</td><td>Tue</td><td>436</td>
         <td class="highlight-red">79.59%</td><td><span class="badge red">Below Target</span></td>
-        <td class="highlight-red">59.63%</td><td><span class="badge red">Below Target</span></td>
+        <td class="highlight-red">66.97%</td><td><span class="badge red">Below Target</span></td>
       </tr>
       <tr>
-        <td>May 13</td><td>Wed</td><td>355</td>
-        <td style="color:#856404;font-weight:600">89.30%</td><td><span class="badge yellow">Monitor</span></td>
-        <td class="highlight-red">67.89%</td><td><span class="badge red">Below Target</span></td>
+        <td>May 13</td><td>Wed</td><td>449</td>
+        <td style="color:#856404;font-weight:600">88.86%</td><td><span class="badge yellow">Monitor</span></td>
+        <td style="color:#856404;font-weight:600">78.17%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
     </table>
 
     <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ US Trade</p>
     <table style="margin-bottom:20px">
-      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (20s)</th><th>SLA Status</th></tr>
+      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (60s)</th><th>SLA Status</th></tr>
       <tr>
         <td>May 7</td><td>Thu</td><td>81</td>
         <td class="highlight-green">91.36%</td><td><span class="badge green">On Target</span></td>
@@ -239,85 +242,85 @@
       <tr>
         <td>May 8</td><td>Fri</td><td>102</td>
         <td style="color:#856404;font-weight:600">86.27%</td><td><span class="badge yellow">Monitor</span></td>
-        <td class="highlight-red">64.71%</td><td><span class="badge red">Below Target</span></td>
+        <td class="highlight-red">68.63%</td><td><span class="badge red">Below Target</span></td>
       </tr>
       <tr>
         <td>May 11</td><td>Mon</td><td>101</td>
         <td style="color:#856404;font-weight:600">89.11%</td><td><span class="badge yellow">Monitor</span></td>
-        <td style="color:#856404;font-weight:600">74.26%</td><td><span class="badge yellow">Monitor</span></td>
+        <td style="color:#856404;font-weight:600">79.21%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
       <tr>
         <td>May 12</td><td>Tue</td><td>102</td>
         <td class="highlight-green">92.16%</td><td><span class="badge green">On Target</span></td>
-        <td class="highlight-red">69.61%</td><td><span class="badge red">Below Target</span></td>
+        <td style="color:#856404;font-weight:600">74.51%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
       <tr>
-        <td>May 13</td><td>Wed</td><td>98</td>
-        <td class="highlight-green">95.92%</td><td><span class="badge green">On Target</span></td>
-        <td class="highlight-green">80.61%</td><td><span class="badge green">On Target</span></td>
+        <td>May 13</td><td>Wed</td><td>113</td>
+        <td class="highlight-green">95.58%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">82.30%</td><td><span class="badge green">On Target</span></td>
       </tr>
     </table>
 
     <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ CN Trade</p>
     <table style="margin-bottom:20px">
-      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (20s)</th><th>SLA Status</th></tr>
+      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (60s)</th><th>SLA Status</th></tr>
       <tr>
-        <td>May 7</td><td>Thu</td><td>53</td>
-        <td class="highlight-green">96.23%</td><td><span class="badge green">On Target</span></td>
-        <td style="color:#856404;font-weight:600">77.36%</td><td><span class="badge yellow">Monitor</span></td>
+        <td>May 7</td><td>Thu</td><td>47</td>
+        <td class="highlight-green">97.87%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">87.23%</td><td><span class="badge green">On Target</span></td>
       </tr>
       <tr>
-        <td>May 8</td><td>Fri</td><td>73</td>
-        <td style="color:#856404;font-weight:600">87.67%</td><td><span class="badge yellow">Monitor</span></td>
-        <td class="highlight-red">69.86%</td><td><span class="badge red">Below Target</span></td>
+        <td>May 8</td><td>Fri</td><td>58</td>
+        <td style="color:#856404;font-weight:600">86.21%</td><td><span class="badge yellow">Monitor</span></td>
+        <td style="color:#856404;font-weight:600">75.86%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
       <tr>
-        <td>May 11</td><td>Mon</td><td>66</td>
-        <td class="highlight-green">96.97%</td><td><span class="badge green">On Target</span></td>
-        <td style="color:#856404;font-weight:600">71.21%</td><td><span class="badge yellow">Monitor</span></td>
+        <td>May 11</td><td>Mon</td><td>57</td>
+        <td class="highlight-green">100%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">85.96%</td><td><span class="badge green">On Target</span></td>
       </tr>
       <tr>
-        <td>May 12</td><td>Tue</td><td>63</td>
-        <td class="highlight-red">82.54%</td><td><span class="badge red">Below Target</span></td>
-        <td class="highlight-red">57.14%</td><td><span class="badge red">Below Target</span></td>
+        <td>May 12</td><td>Tue</td><td>54</td>
+        <td class="highlight-red">83.33%</td><td><span class="badge red">Below Target</span></td>
+        <td class="highlight-red">68.52%</td><td><span class="badge red">Below Target</span></td>
       </tr>
       <tr>
-        <td>May 13</td><td>Wed</td><td>58</td>
-        <td class="highlight-green">94.83%</td><td><span class="badge green">On Target</span></td>
-        <td style="color:#856404;font-weight:600">77.59%</td><td><span class="badge yellow">Monitor</span></td>
+        <td>May 13</td><td>Wed</td><td>66</td>
+        <td class="highlight-green">93.94%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">86.36%</td><td><span class="badge green">On Target</span></td>
       </tr>
     </table>
 
-    <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ MY CS</p>
+    <p style="font-size:13px;color:#636e72;margin-bottom:10px;font-weight:600;">▍ MY CS <span style="font-weight:400;font-size:12px;color:#b2bec3">(assigned groups; unassigned calls included in "In Total" above)</span></p>
     <table>
-      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (20s)</th><th>SLA Status</th></tr>
+      <tr><th>Date</th><th>Day</th><th>Calls</th><th>CCR</th><th>CCR Status</th><th>SLA (60s)</th><th>SLA Status</th></tr>
       <tr>
         <td>May 7</td><td>Thu</td><td>154</td>
         <td class="highlight-green">97.40%</td><td><span class="badge green">On Target</span></td>
-        <td class="highlight-green">81.82%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">90.91%</td><td><span class="badge green">On Target</span></td>
       </tr>
       <tr>
         <td>May 8</td><td>Fri</td><td>196</td>
         <td class="highlight-green">95.41%</td><td><span class="badge green">On Target</span></td>
-        <td class="highlight-green">84.69%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">86.73%</td><td><span class="badge green">On Target</span></td>
       </tr>
       <tr>
         <td>May 11</td><td>Mon</td><td>219</td>
         <td class="highlight-green">91.32%</td><td><span class="badge green">On Target</span></td>
-        <td class="highlight-red">60.27%</td><td><span class="badge red">Below Target</span></td>
+        <td style="color:#856404;font-weight:600">76.26%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
       <tr>
         <td>May 12</td><td>Tue</td><td>208</td>
         <td style="color:#856404;font-weight:600">89.90%</td><td><span class="badge yellow">Monitor</span></td>
-        <td class="highlight-red">68.27%</td><td><span class="badge red">Below Target</span></td>
+        <td style="color:#856404;font-weight:600">77.88%</td><td><span class="badge yellow">Monitor</span></td>
       </tr>
       <tr>
-        <td>May 13</td><td>Wed</td><td>167</td>
-        <td class="highlight-green">92.81%</td><td><span class="badge green">On Target</span></td>
-        <td class="highlight-red">65.87%</td><td><span class="badge red">Below Target</span></td>
+        <td>May 13</td><td>Wed</td><td>213</td>
+        <td class="highlight-green">93.43%</td><td><span class="badge green">On Target</span></td>
+        <td class="highlight-green">82.16%</td><td><span class="badge green">On Target</span></td>
       </tr>
     </table>
-    <div class="note">MY CS SLA dropped sharply on Mon May 11 (60.27%) — coinciding with the week's peak volume (219 calls). CCR held above 91%, but the speed-of-answer deteriorated significantly, suggesting a Monday morning staffing concentration gap.</div>
+    <div class="note">MY CS assigned groups maintained strong CCR throughout the week (89.9%–97.4%). The SLA dip on Mon May 11 (76.26%) coincided with peak volume (219 calls). The weekly MY CS figure of 80.77% CCR in the summary table includes ~315 unassigned calls at low connection rate.</div>
   </div>
 
   <!-- Charts -->
@@ -327,7 +330,7 @@
       <canvas id="chartCCR"></canvas>
     </div>
     <div class="chart-card">
-      <h2>📈 Daily SLA 20s Trend (By Team)</h2>
+      <h2>📈 Daily SLA 60s Trend (By Team)</h2>
       <canvas id="chartSLA"></canvas>
     </div>
   </div>
@@ -350,9 +353,9 @@
     <div class="summary-box">
       <div class="sb-title">📢 Executive Summary — 3 Key Points</div>
       <ul>
-        <li>Call volume surged <b>+17.5%</b> WoW to 1,992 — but CCR held flat at 84.64%, meaning quality did not deteriorate despite the load increase;</li>
-        <li>US Trade reversed last week's underperformance with a +7.99pp CCR gain, closing the week at 95.92% on Wednesday — the strongest single-day result across all teams;</li>
-        <li>MY CS (incl. unassigned calls) came in at 80.33% CCR / 61.76% SLA, the primary drag on the overall figure — peak-volume days (Mon 219 calls) drove the SLA floor to 60.27%.</li>
+        <li>Call volume surged <b>+23.1%</b> WoW to 2,086 — CCR held flat (+0.09pp) and SLA 60s improved +1.23pp, showing the team absorbed the load without quality decline;</li>
+        <li>US Trade reversed last week's underperformance with a <b>+8.06pp CCR gain</b> (to 90.98%); CN Trade hit <b>100% CCR</b> on Monday — the week's standout performance;</li>
+        <li>MY CS (incl. unassigned, 1,305 calls) at <b>80.77% CCR</b> remains the primary drag — the CN Trade SLA 60s also dropped <b>8.19pp</b> despite CCR holding steady at 92.2%.</li>
       </ul>
     </div>
 
@@ -363,40 +366,40 @@
 
         <div class="ig-card red">
           <div class="ig-label">Insight 1 · MY CS Volume Absorption</div>
-          <div class="ig-title">MY CS absorbed 60% of total inbound volume — CCR fell 3.12pp WoW as load increased 14%</div>
+          <div class="ig-title">MY CS (incl. unassigned) absorbed 63% of total inbound — CCR fell 2.68pp as load increased 24.5%</div>
           <div class="ig-body">
-            MY CS handled <b>1,195 calls</b> this week (60% of total inbound), up +147 from W18.
-            CCR dropped from 83.45% (W18) to <b>80.33%</b> — below the ≥90% target for the second consecutive week.
-            <br>With volume growing faster than capacity, each incremental call adds disproportionate pressure. Addressing MY CS staffing density is the single largest lever to close the overall CCR gap.
+            MY CS handled <b>1,305 calls</b> this week (63% of total), up +257 from W18.
+            CCR dropped from 83.45% (W18) to <b>80.77%</b> — below the ≥90% target.
+            <br>The assigned MY CS groups themselves reached 93.23% CCR. The drag comes from unassigned calls (~315) at low connection rate. Resolving queue routing for unassigned calls is the single fastest lever to lift overall CCR.
           </div>
         </div>
 
         <div class="ig-card amber">
-          <div class="ig-label">Insight 2 · Tuesday Pattern Across Teams</div>
-          <div class="ig-title">May 12 (Tue) was the worst day for both In Total and CN Trade — a cross-team signal worth investigating</div>
+          <div class="ig-label">Insight 2 · Tuesday Cross-Team Dip</div>
+          <div class="ig-title">May 12 (Tue) was the worst day globally — CCR 79.59%, SLA 66.97% — a recurring pattern worth monitoring</div>
           <div class="ig-body">
-            Overall CCR hit its weekly low on May 12 at <b>79.59%</b> (SLA: 59.63%). CN Trade also dipped to <b>82.54%</b> on the same day — its only sub-90% day.
-            <br>US Trade and MY CS were marginally better but still below weekly peak. A recurring Tuesday pattern could indicate intra-week scheduling under-coverage or a recurring external demand spike.
+            Overall CCR hit its weekly low on May 12 at <b>79.59%</b> (SLA: 66.97%). CN Trade also dipped to <b>83.33%</b> on the same day — its only below-target day.
+            <br>US Trade and MY CS were also softer on Tuesday. A recurring Tuesday dip across teams could indicate intra-week scheduling under-coverage or a recurring external demand spike.
           </div>
         </div>
 
         <div class="ig-card green">
-          <div class="ig-label">Insight 3 · US Trade Strong Recovery Trend</div>
-          <div class="ig-title">US Trade reversed last week's underperformance with a consistent 5-day upward trajectory</div>
+          <div class="ig-label">Insight 3 · US Trade Strong Week-Long Recovery</div>
+          <div class="ig-title">US Trade added +8.06pp CCR and +7.89pp SLA WoW — closing the week at 95.58% CCR on Wednesday</div>
           <div class="ig-body">
-            W18 US Trade CCR was 82.92% (below target). W19: <b>+7.99pp to 90.91%</b>.
-            Daily trajectory: Thu 91.36% → Fri 86.27% → Mon 89.11% → Tue 92.16% → Wed <b>95.92%</b>.
-            <br>The Friday dip (86.27%) is the only outlier. This recovery pattern is worth documenting as a playbook for performance turnarounds.
+            W18 US Trade CCR was 82.92% (below target). W19: <b>+8.06pp to 90.98%</b>, SLA60 from 67.26% to <b>75.15%</b>.
+            Daily trajectory: Thu 91.36% → Mon 89.11% → Tue 92.16% → Wed <b>95.58%</b>.
+            <br>This recovery pattern is worth documenting — the scheduling or process changes that drove this turnaround should be shared cross-team.
           </div>
         </div>
 
         <div class="ig-card red">
-          <div class="ig-label">Insight 4 · MY CS SLA Collapse on Peak Days</div>
-          <div class="ig-title">SLA dropped to 60.27% on Monday (219 calls) — a 24pp intra-week swing signals scheduling concentration gap</div>
+          <div class="ig-label">Insight 4 · CN Trade SLA / CCR Divergence</div>
+          <div class="ig-title">CN Trade CCR held at 92.2% but SLA 60s dropped 8.19pp — speed-of-answer eroded while total answered stayed strong</div>
           <div class="ig-body">
-            MY CS SLA (20s) ranged from <b>84.69%</b> (Fri) to <b>60.27%</b> (Mon) — a 24pp swing within the same week.
-            Peak volume (Mon 219 calls) aligned with the SLA floor. CCR was 91.32% that day — agents answered, just slowly.
-            <br>The pattern suggests adequate total headcount but poor intra-day distribution on Mondays. The fix is scheduling, not hiring.
+            CN Trade CCR: W18 92.33% → W19 <b>92.20%</b> (essentially flat). But SLA60: W18 89.04% → W19 <b>80.85%</b> (−8.19pp).
+            Calls are still being answered, but slower. May 12 was the SLA floor at 68.52%.
+            <br>This points to a peak-hour staffing distribution issue, not an overall headcount problem. Intra-day SLA monitoring would surface this pattern earlier.
           </div>
         </div>
 
@@ -412,20 +415,20 @@
         <div>
           <div class="reco-col-title now">⚡ Immediate Actions (This Week)</div>
           <ul class="reco-list">
-            <li>Review MY CS Monday morning scheduling — May 11 saw the highest volume (219 calls) with the worst SLA (60.27%); verify whether Mon 9–11am is systematically under-staffed</li>
-            <li>Investigate CN Trade May 12 (CCR 82.54%) — check for absences or external demand spikes that day</li>
-            <li>Assess MY CS overall staffing capacity vs. growing volume (+14.0% WoW) — determine whether headcount adjustment is needed</li>
-            <li>Document the US Trade recovery playbook from this week as a reference for future performance dips</li>
+            <li>Audit queue routing for unassigned calls (~315 calls, est. CCR &lt;50%) — confirm if this is an IVR config gap or intentional overflow; fixing this alone would lift overall CCR toward 90%</li>
+            <li>Investigate CN Trade May 12 SLA dip (68.52%) — same day as cross-team Tuesday weakness; check staffing and volume patterns</li>
+            <li>Review MY CS Monday morning scheduling — May 11 saw peak volume (219 calls) with SLA dipping to 76.26%</li>
+            <li>Document US Trade's W19 recovery — what changed vs W18? Extract as a playbook for future dips</li>
           </ul>
         </div>
         <div>
           <div class="reco-col-title long">🏗 Longer-Term Improvements (Starting Next Month)</div>
           <ul class="reco-list">
-            <li>Build a MY CS volume forecast model — if weekly volume consistently exceeds 1,100 calls, initiate a headcount review</li>
-            <li>Introduce Tuesday intra-day monitoring as a standard watch-day across all teams — repeat dip pattern suggests structural under-coverage</li>
-            <li>Build a SLA / CCR decoupling alert: if a team's CCR meets target but SLA drops &gt;15pp, flag for intra-day scheduling review</li>
-            <li>Formalize MY CS peak-volume scheduling protocol: activate flex coverage when daily volume forecast exceeds 200 calls</li>
-            <li>Set a joint CCR + SLA recovery target for W20: overall CCR ≥87%, MY CS CCR ≥83%, overall SLA (20s) ≥68%</li>
+            <li>Resolve the unassigned call routing permanently — this is the highest-leverage single fix for the overall CCR gap</li>
+            <li>Introduce Tuesday as a structured watch-day: duty officer checks live CCR by 10:30am; any team below 88% triggers TL check-in</li>
+            <li>Build a SLA / CCR decoupling alert: if CCR meets target but SLA drops &gt;10pp in a week, flag for root-cause review</li>
+            <li>Formalize MY CS peak-day scheduling: activate flex coverage when daily volume forecast exceeds 200 calls</li>
+            <li>Set W20 recovery targets: overall CCR ≥87%, MY CS CCR ≥83%, overall SLA (60s) ≥75%</li>
           </ul>
         </div>
       </div>
@@ -440,11 +443,11 @@
 
         <div class="sop-card">
           <div class="sc-no">SOP-01</div>
-          <div class="sc-title">MY CS Volume Capacity Review Protocol</div>
+          <div class="sc-title">Unassigned Call Routing Remediation</div>
           <div class="sc-body">
-            <b>Trigger:</b> MY CS weekly inbound exceeds 1,100 calls, or CCR drops below 83% for two consecutive weeks<br>
-            <b>Response:</b> ① TL submits capacity review request within 2 business days → ② Management evaluates headcount vs. volume trajectory → ③ Staffing decision within 2 weeks<br>
-            <b>Goal:</b> Prevent volume growth from outpacing team capacity; maintain MY CS CCR ≥90%
+            <b>Trigger:</b> Weekly unassigned call pool &gt;5% of total inbound<br>
+            <b>Response:</b> ① Routing team audits IVR logic within 2 business days → ② Confirm overflow rules and queue assignment gaps → ③ Apply fix within 1 week<br>
+            <b>Goal:</b> Unassigned pool &lt;2% of total inbound; no CCR drag on overall rate
           </div>
         </div>
 
@@ -452,8 +455,8 @@
           <div class="sc-no">SOP-02</div>
           <div class="sc-title">SLA / CCR Decoupling Detection</div>
           <div class="sc-body">
-            <b>Trigger:</b> Team's CCR meets target (≥90%) but SLA (20s) &lt;70% on the same day<br>
-            <b>Response:</b> ① TL reviews intra-day call distribution (peak-hour volume vs. staff online) → ② Identify if volume spike coincided with shift gap → ③ Propose schedule adjustment within same week<br>
+            <b>Trigger:</b> Team CCR meets target (≥90%) but SLA (60s) drops &gt;8pp in same week vs. prior week<br>
+            <b>Response:</b> ① TL reviews intra-day call distribution → ② Identify peak-hour volume vs. staff online → ③ Propose schedule adjustment within same week<br>
             <b>Rationale:</b> CCR passing masks a speed-of-answer problem invisible to binary pass/fail monitoring
           </div>
         </div>
@@ -462,9 +465,9 @@
           <div class="sc-no">SOP-03</div>
           <div class="sc-title">Monday Peak-Volume Pre-Positioning</div>
           <div class="sc-body">
-            <b>Observation:</b> Monday is consistently the highest-volume day for MY CS (Mon May 11: 219 calls)<br>
+            <b>Observation:</b> Monday is consistently the highest-volume day for MY CS (May 11: 219 calls)<br>
             <b>Standard:</b> MY CS TL confirms Mon staffing by Friday EOD; activate flex coverage if projected Mon volume &gt;190 calls<br>
-            <b>Measurement:</b> Mon SLA (20s) ≥72% as a minimum acceptable threshold; track weekly
+            <b>Measurement:</b> Mon SLA (60s) ≥75% as the minimum acceptable threshold; track weekly
           </div>
         </div>
 
@@ -472,9 +475,9 @@
           <div class="sc-no">SOP-04</div>
           <div class="sc-title">Daily CCR Alert & Same-Day Response</div>
           <div class="sc-body">
-            <b>Trigger:</b> Any team's daily CCR &lt;80% or SLA &lt;60%<br>
-            <b>Response:</b> ① Auto-detect (system/duty officer) → ② TL confirms staffing within 30 min → ③ Cover gap or coordinate cross-team support within 1h → ④ Brief management by 18:00 same day<br>
-            <b>Goal:</b> Shift problem detection from "next week's review" to "same-day resolution"
+            <b>Trigger:</b> Any team's daily CCR &lt;80% or SLA (60s) &lt;65%<br>
+            <b>Response:</b> ① Auto-detect (system/duty officer) → ② TL confirms staffing within 30 min → ③ Cover gap or cross-team support within 1h → ④ Brief management by 18:00 same day<br>
+            <b>Goal:</b> Shift detection from "next week's review" to "same-day resolution"
           </div>
         </div>
 
@@ -482,7 +485,7 @@
           <div class="sc-no">SOP-05</div>
           <div class="sc-title">Tuesday Watch Protocol</div>
           <div class="sc-body">
-            <b>Pattern:</b> Tuesday has now been the worst or second-worst CCR day in consecutive weeks<br>
+            <b>Pattern:</b> Tuesday has been the worst or second-worst CCR day in consecutive weeks<br>
             <b>Proposed:</b> Designate Tuesday as a "watch day" — duty officer checks live CCR by 10:30am; any team below 88% triggers 15-min TL check-in<br>
             <b>Review:</b> After 4 weeks, assess whether the Tuesday pattern is structural or coincidental
           </div>
@@ -494,9 +497,9 @@
           <div class="sc-body">
             <b>Current gap:</b> Binary pass/fail only — no early-warning zone<br>
             <b>Proposed tiers:</b><br>
-            🟢 <b>On Track:</b> CCR ≥90%, SLA ≥80%<br>
-            🟡 <b>Watch:</b> CCR 85–89%, SLA 65–79% → trigger investigation<br>
-            🔴 <b>Alert:</b> CCR &lt;85%, SLA &lt;65% → trigger escalation response<br>
+            🟢 <b>On Track:</b> CCR ≥90%, SLA (60s) ≥80%<br>
+            🟡 <b>Watch:</b> CCR 85–89%, SLA 70–79% → trigger investigation<br>
+            🔴 <b>Alert:</b> CCR &lt;85%, SLA &lt;70% → trigger escalation response<br>
             <b>Implementation:</b> Update weekly report traffic-light standards starting next month
           </div>
         </div>
@@ -517,9 +520,9 @@
         <div class="editable-area" id="edit-actions" contenteditable="true"
           data-key="w19-en-actions"
           data-placeholder="Log confirmed action items, owners, and deadlines…">Pending:
-① [MY CS TL] Monday scheduling review — validate Mon 9–11am coverage vs. historical volume — deadline: May 19
-② [CN Trade TL] May 12 CCR dip (82.54%) root-cause investigation — deadline: May 19
-③ [Management] MY CS capacity assessment — weekly volume +14% WoW, evaluate headcount vs. target — deadline: May 23
+① [Routing/IVR Team] Audit unassigned call pool (~315 calls) — confirm root cause and fix — deadline: May 19
+② [MY CS TL] Monday scheduling review — validate Mon 9–11am coverage vs. historical volume — deadline: May 19
+③ [CN Trade TL] May 12 SLA dip (68.52%) root-cause — check peak-hour staffing distribution — deadline: May 19
 ④ [Management] US Trade W19 recovery playbook documentation — deadline: May 23</div>
       </div>
 
@@ -559,10 +562,10 @@ new Chart(document.getElementById('chartCCR'), {
   data: {
     labels: shortDays,
     datasets: [
-      { label: 'In Total', data: [87.92,84.41,83.66,79.59,89.30], borderColor:'#7c3aed', backgroundColor:'rgba(124,58,237,0.06)', tension:0.3, pointRadius:5 },
-      { label: 'US Trade', data: [91.36,86.27,89.11,92.16,95.92], borderColor:'#1a73e8', backgroundColor:'rgba(26,115,232,0.06)', tension:0.3, pointRadius:5 },
-      { label: 'CN Trade', data: [96.23,87.67,96.97,82.54,94.83], borderColor:'#00796b', backgroundColor:'rgba(0,121,107,0.06)', tension:0.3, pointRadius:5 },
-      { label: 'MY CS',    data: [97.40,95.41,91.32,89.90,92.81], borderColor:'#d63031', backgroundColor:'rgba(214,48,49,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'In Total', data: [87.92,84.41,83.66,79.59,88.86], borderColor:'#7c3aed', backgroundColor:'rgba(124,58,237,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'US Trade', data: [91.36,86.27,89.11,92.16,95.58], borderColor:'#1a73e8', backgroundColor:'rgba(26,115,232,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'CN Trade', data: [97.87,86.21,100,83.33,93.94],   borderColor:'#00796b', backgroundColor:'rgba(0,121,107,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'MY CS',    data: [97.40,95.41,91.32,89.90,93.43], borderColor:'#d63031', backgroundColor:'rgba(214,48,49,0.06)', tension:0.3, pointRadius:5 },
       { label: 'Target 90%', data: [90,90,90,90,90], borderColor:'#b2bec3', borderDash:[6,3], pointRadius:0, borderWidth:1 }
     ]
   },
@@ -574,10 +577,10 @@ new Chart(document.getElementById('chartSLA'), {
   data: {
     labels: shortDays,
     datasets: [
-      { label: 'In Total', data: [71.90,70.74,59.82,59.63,67.89], borderColor:'#7c3aed', backgroundColor:'rgba(124,58,237,0.06)', tension:0.3, pointRadius:5 },
-      { label: 'US Trade', data: [69.14,64.71,74.26,69.61,80.61], borderColor:'#1a73e8', backgroundColor:'rgba(26,115,232,0.06)', tension:0.3, pointRadius:5 },
-      { label: 'CN Trade', data: [77.36,69.86,71.21,57.14,77.59], borderColor:'#00796b', backgroundColor:'rgba(0,121,107,0.06)', tension:0.3, pointRadius:5 },
-      { label: 'MY CS',    data: [81.82,84.69,60.27,68.27,65.87], borderColor:'#d63031', backgroundColor:'rgba(214,48,49,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'In Total', data: [76.74,74.10,71.08,66.97,78.17], borderColor:'#7c3aed', backgroundColor:'rgba(124,58,237,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'US Trade', data: [69.14,68.63,79.21,74.51,82.30], borderColor:'#1a73e8', backgroundColor:'rgba(26,115,232,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'CN Trade', data: [87.23,75.86,85.96,68.52,86.36], borderColor:'#00796b', backgroundColor:'rgba(0,121,107,0.06)', tension:0.3, pointRadius:5 },
+      { label: 'MY CS',    data: [90.91,86.73,76.26,77.88,82.16], borderColor:'#d63031', backgroundColor:'rgba(214,48,49,0.06)', tension:0.3, pointRadius:5 },
       { label: 'Target 80%', data: [80,80,80,80,80], borderColor:'#b2bec3', borderDash:[6,3], pointRadius:0, borderWidth:1 }
     ]
   },
@@ -589,9 +592,9 @@ new Chart(document.getElementById('chartVolume'), {
   data: {
     labels: shortDays,
     datasets: [
-      { label: 'US Trade', data: [81,102,101,102,98],      backgroundColor:'rgba(26,115,232,0.75)' },
-      { label: 'CN Trade', data: [53,73,66,63,58],          backgroundColor:'rgba(0,121,107,0.75)' },
-      { label: 'MY CS',    data: [154,196,219,208,167],     backgroundColor:'rgba(214,48,49,0.75)' }
+      { label: 'US Trade', data: [81,102,101,102,113],    backgroundColor:'rgba(26,115,232,0.75)' },
+      { label: 'CN Trade', data: [47,58,57,54,66],        backgroundColor:'rgba(0,121,107,0.75)' },
+      { label: 'MY CS',    data: [154,196,219,208,213],   backgroundColor:'rgba(214,48,49,0.75)' }
     ]
   },
   options: {
