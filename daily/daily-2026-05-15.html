@@ -46,6 +46,12 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 .data-table th{background:#f1f5f9;font-weight:700;color:var(--muted);font-size:11px;text-align:left}
 .data-table td:first-child{font-weight:600}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.insight{background:#f8fafc;border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 12px}
+.insight.warn{border-left-color:var(--orange)}.insight.ok{border-left-color:var(--green)}.insight.alert{border-left-color:var(--red)}
+.insight-label{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.insight-text{font-size:12px;line-height:1.6}
+.badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:10px;font-weight:700;margin-left:4px}
+.badge-red{background:#fee2e2;color:#dc2626}.badge-orange{background:#fef3c7;color:#92400e}
 @media(max-width:768px){
   .main{padding:12px}
   .kpi-grid-4,.kpi-grid-5{grid-template-columns:repeat(2,1fr)}
@@ -64,6 +70,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <a href="#sec-online">💬 在线</a>
     <a href="#sec-phone">📞 电话</a>
     <a href="#sec-email">✉️ 邮件</a>
+    <a href="#sec-anomaly">⚠️ 异常</a>
   </nav>
 </div>
 
@@ -158,6 +165,17 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
       <div class="analysis-title">客服明细</div>
       <table class="data-table"><thead><tr><th>客服</th><th>工单量</th><th>30min回复率</th></tr></thead><tbody><tr><td>darilynechua</td><td style="text-align:center">170</td><td style="text-align:center">90.5%</td></tr><tr><td>oceantiong</td><td style="text-align:center">40</td><td style="text-align:center">48.8%</td></tr><tr><td>zyonnleong</td><td style="text-align:center">179</td><td style="text-align:center">36.0%</td></tr></tbody></table>
     </div>
+  </div>
+</div>
+
+<!-- 异常分析 -->
+<div class="section" id="sec-anomaly">
+  <div class="section-header">
+    <div class="sdot" style="background:#dc2626"></div>
+    <div class="section-title">四、异常分析</div>
+  </div>
+  <div class="analysis-block">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="insight alert"><div class="insight-label">在线 · 满意度 &nbsp;<span class="badge badge-red">未达标</span></div><div class="insight-text">当前 <strong>83.3%</strong>，目标 90.0%，差距 6.7pp<br>抽查低分工单，识别高频问题并加强针对性培训</div></div><div class="insight alert"><div class="insight-label">在线 · 一次解决率 &nbsp;<span class="badge badge-red">未达标</span></div><div class="insight-text">当前 <strong>89.4%</strong>，目标 95.0%，差距 5.6pp<br>优化知识库覆盖面，减少转单与重复联系</div></div><div class="insight alert"><div class="insight-label">电话 · 接通率 &nbsp;<span class="badge badge-red">未达标</span></div><div class="insight-text">当前 <strong>80.3%</strong>，目标 95.0%，差距 14.7pp<br>分析未接来电时段分布，优化电话排班</div></div><div class="insight alert"><div class="insight-label">电话 · 满意度 &nbsp;<span class="badge badge-red">未达标</span></div><div class="insight-text">当前 <strong>61.5%</strong>，目标 90.0%，差距 28.5pp<br>抽查低分通话录音，对问题客服进行辅导</div></div><div class="insight alert"><div class="insight-label">邮件 · 30min回复率 &nbsp;<span class="badge badge-red">未达标</span></div><div class="insight-text">当前 <strong>60.9%</strong>，目标 90.0%，差距 29.1pp<br>检查邮件积压情况，优化分配流程与响应节奏</div></div></div>
   </div>
 </div>
 
