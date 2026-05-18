@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>US 客服日报 · May 14, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+:root{
+  --blue:#1e40af;--purple:#7c3aed;--green:#059669;--orange:#d97706;--red:#dc2626;
+  --text:#1e293b;--muted:#64748b;--border:#e2e8f0;
+  --sg:#10b981;--sa:#f59e0b;--sr:#ef4444
+}
+.app-header{background:linear-gradient(135deg,#1e3a8a,#1e40af);color:#fff;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.header-nav{display:flex;gap:2px;align-items:center}
+.header-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;transition:all .15s;white-space:nowrap}
+.header-nav a:hover{background:rgba(255,255,255,.2);color:#fff}
+.app-title{font-size:15px;font-weight:700}
+.app-meta{font-size:11px;opacity:.8;margin-top:2px}
+.main{max-width:1100px;margin:0 auto;padding:24px 20px}
+.section{display:block;margin-bottom:40px}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.sdot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.section-title{font-size:16px;font-weight:700}
+.kpi-grid{display:grid;gap:10px;margin-bottom:12px}
+.kpi-grid-4{grid-template-columns:repeat(4,1fr)}
+.kpi-grid-5{grid-template-columns:repeat(5,1fr)}
+.kpi-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi-card.online::before{background:#1e40af}
+.kpi-card.phone::before{background:#7c3aed}
+.kpi-card.email::before{background:#059669}
+.kpi-si{position:absolute;top:11px;right:11px;width:10px;height:10px;border-radius:50%}
+.sg{background:var(--sg);box-shadow:0 0 0 3px rgba(16,185,129,.18)}
+.sa{background:var(--sa);box-shadow:0 0 0 3px rgba(245,158,11,.18)}
+.sr{background:var(--sr);box-shadow:0 0 0 3px rgba(239,68,68,.18)}
+.kpi-label{font-size:10.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;padding-right:18px;line-height:1.3}
+.kpi-value{font-size:20px;font-weight:700;line-height:1}
+.kpi-target{font-size:10px;color:#94a3b8;margin-top:4px;font-weight:500}
+.analysis-block{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.analysis-title{font-size:13px;font-weight:700;margin-bottom:12px}
+.data-table{width:100%;border-collapse:collapse;font-size:12px}
+.data-table th,.data-table td{padding:7px 10px;border:1px solid var(--border)}
+.data-table th{background:#f1f5f9;font-weight:700;color:var(--muted);font-size:11px;text-align:left}
+.data-table td:first-child{font-weight:600}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.insight{background:#f8fafc;border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 12px}
+.insight.warn{border-left-color:var(--orange)}.insight.ok{border-left-color:var(--green)}.insight.alert{border-left-color:var(--red)}
+.insight-label{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.insight-text{font-size:12px;line-height:1.6}
+.badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:10px;font-weight:700;margin-left:4px}
+.badge-red{background:#fee2e2;color:#dc2626}.badge-orange{background:#fef3c7;color:#92400e}
+@media(max-width:768px){
+  .main{padding:12px}
+  .kpi-grid-4,.kpi-grid-5{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="app-header">
+  <div>
+    <div class="app-title">US 客服日报 · May 14, 2026</div>
+    <div class="app-meta">US Advisory Team &nbsp;·&nbsp; 自动生成</div>
+  </div>
+  <nav class="header-nav">
+    <a href="#sec-online">💬 在线</a>
+    <a href="#sec-phone">📞 电话</a>
+    <a href="#sec-email">✉️ 邮件</a>
+    <a href="#sec-anomaly">⚠️ 异常</a>
+  </nav>
+</div>
+
+<div class="main">
+
+<!-- 在线 -->
+<div class="section" id="sec-online">
+  <div class="section-header">
+    <div class="sdot" style="background:#1e40af"></div>
+    <div class="section-title">一、在线客服</div>
+  </div>
+  
+<div class="kpi-grid kpi-grid-5">
+  <div class="kpi-card online"><div class="kpi-label">总工单量</div><div class="kpi-value">494</div></div>
+  <div class="kpi-card online"><div class="kpi-si sg"></div><div class="kpi-label">30s接通率</div><div class="kpi-value">94.5%</div><div class="kpi-target">目标 ≥90%</div></div>
+  <div class="kpi-card online"><div class="kpi-si sr"></div><div class="kpi-label">满意度</div><div class="kpi-value">83.9%</div><div class="kpi-target">目标 ≥90%</div></div>
+  <div class="kpi-card online"><div class="kpi-si sa"></div><div class="kpi-label">一次解决率</div><div class="kpi-value">94.9%</div><div class="kpi-target">目标 ≥95%</div></div>
+  <div class="kpi-card online"><div class="kpi-label">平均处理时长</div><div class="kpi-value">10.9m</div></div>
+</div>
+  <div class="two-col">
+    <div class="analysis-block">
+      <div class="analysis-title">前十咨询类别</div>
+      <table class="data-table" style="max-width:440px"><thead><tr><th>类别</th><th>工单量</th><th>占比</th></tr></thead><tbody><tr><td>1. 账户</td><td style="text-align:center">175</td><td style="text-align:center">35.5%</td></tr><tr><td>2. 交易</td><td style="text-align:center">114</td><td style="text-align:center">23.1%</td></tr><tr><td>3. 资金</td><td style="text-align:center">44</td><td style="text-align:center">8.9%</td></tr><tr><td>4. 转仓</td><td style="text-align:center">27</td><td style="text-align:center">5.5%</td></tr><tr><td>5. 活动</td><td style="text-align:center">22</td><td style="text-align:center">4.5%</td></tr><tr><td>6. 其他</td><td style="text-align:center">19</td><td style="text-align:center">3.9%</td></tr><tr><td>7. 平台基础体验</td><td style="text-align:center">18</td><td style="text-align:center">3.7%</td></tr><tr><td>8. 关于moomoo</td><td style="text-align:center">12</td><td style="text-align:center">2.4%</td></tr><tr><td>9. 税务</td><td style="text-align:center">12</td><td style="text-align:center">2.4%</td></tr><tr><td>10. 财富管理</td><td style="text-align:center">11</td><td style="text-align:center">2.2%</td></tr></tbody></table>
+    </div>
+    <div class="analysis-block">
+      <div class="analysis-title">客服明细</div>
+      <table class="data-table"><thead><tr><th>客服</th><th>工单量</th><th>处理时长</th><th>满意度</th><th>一次解决率</th></tr></thead><tbody><tr><td>bavani</td><td style="text-align:center">6</td><td style="text-align:center">0m</td><td style="text-align:center">0%</td><td style="text-align:center">100%</td></tr><tr><td>cheeenlim</td><td style="text-align:center">54</td><td style="text-align:center">11.5m</td><td style="text-align:center">93.8%</td><td style="text-align:center">90.7%</td></tr><tr><td>ewinng</td><td style="text-align:center">68</td><td style="text-align:center">12.1m</td><td style="text-align:center">84.2%</td><td style="text-align:center">97.1%</td></tr><tr><td>hooiyingtan</td><td style="text-align:center">52</td><td style="text-align:center">11.8m</td><td style="text-align:center">77.8%</td><td style="text-align:center">92.3%</td></tr><tr><td>jacksonyap</td><td style="text-align:center">45</td><td style="text-align:center">10.9m</td><td style="text-align:center">81.8%</td><td style="text-align:center">91.1%</td></tr><tr><td>joeyteoh</td><td style="text-align:center">60</td><td style="text-align:center">12.5m</td><td style="text-align:center">90.0%</td><td style="text-align:center">98.3%</td></tr><tr><td>junhongkhew</td><td style="text-align:center">43</td><td style="text-align:center">12.2m</td><td style="text-align:center">81.8%</td><td style="text-align:center">95.3%</td></tr><tr><td>kaiyangchan</td><td style="text-align:center">46</td><td style="text-align:center">9.0m</td><td style="text-align:center">80.0%</td><td style="text-align:center">97.8%</td></tr><tr><td>weilimchee</td><td style="text-align:center">60</td><td style="text-align:center">9.1m</td><td style="text-align:center">71.4%</td><td style="text-align:center">95.0%</td></tr><tr><td>wilsonwong</td><td style="text-align:center">60</td><td style="text-align:center">10.3m</td><td style="text-align:center">88.9%</td><td style="text-align:center">95.0%</td></tr></tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- 电话 -->
+<div class="section" id="sec-phone">
+  <div class="section-header">
+    <div class="sdot" style="background:#7c3aed"></div>
+    <div class="section-title">二、电话</div>
+  </div>
+  
+<div class="kpi-grid kpi-grid-5">
+  <div class="kpi-card phone"><div class="kpi-label">真实呼入</div><div class="kpi-value">388</div></div>
+  <div class="kpi-card phone"><div class="kpi-si sr"></div><div class="kpi-label">接通率</div><div class="kpi-value">86.8%</div><div class="kpi-target">目标 ≥95%</div></div>
+  <div class="kpi-card phone"><div class="kpi-si sr"></div><div class="kpi-label">满意度</div><div class="kpi-value">80.0%</div><div class="kpi-target">目标 ≥90%</div></div>
+  <div class="kpi-card phone"><div class="kpi-label">一次解决率</div><div class="kpi-value">94.6%</div></div>
+  <div class="kpi-card phone"><div class="kpi-label">平均通话时长</div><div class="kpi-value">4.7m</div></div>
+</div>
+  <div class="two-col">
+    <div class="analysis-block">
+      <div class="analysis-title">前十咨询类别</div>
+      <table class="data-table" style="max-width:440px"><thead><tr><th>类别</th><th>工单量</th><th>占比</th></tr></thead><tbody><tr><td>1. 交易</td><td style="text-align:center">143</td><td style="text-align:center">37.0%</td></tr><tr><td>2. 资金</td><td style="text-align:center">65</td><td style="text-align:center">16.8%</td></tr><tr><td>3. 账户</td><td style="text-align:center">49</td><td style="text-align:center">12.7%</td></tr><tr><td>4. 平台基础体验</td><td style="text-align:center">43</td><td style="text-align:center">11.1%</td></tr><tr><td>5. 股票转移</td><td style="text-align:center">19</td><td style="text-align:center">4.9%</td></tr><tr><td>6. 其他</td><td style="text-align:center">15</td><td style="text-align:center">3.9%</td></tr><tr><td>7. 活动</td><td style="text-align:center">14</td><td style="text-align:center">3.6%</td></tr><tr><td>8. 加密货币</td><td style="text-align:center">7</td><td style="text-align:center">1.8%</td></tr><tr><td>9. 财富管理</td><td style="text-align:center">7</td><td style="text-align:center">1.8%</td></tr><tr><td>10. 销户</td><td style="text-align:center">4</td><td style="text-align:center">1.0%</td></tr></tbody></table>
+    </div>
+    <div class="analysis-block">
+      <div class="analysis-title">客服明细</div>
+      <table class="data-table"><thead><tr><th>客服</th><th>呼入量</th><th>通话时长</th><th>满意度</th></tr></thead><tbody><tr><td>angelicaooi</td><td style="text-align:center">42</td><td style="text-align:center">5.2m</td><td style="text-align:center">50.0%</td></tr><tr><td>apenn</td><td style="text-align:center">37</td><td style="text-align:center">3.7m</td><td style="text-align:center">66.7%</td></tr><tr><td>arulpandian</td><td style="text-align:center">26</td><td style="text-align:center">6.8m</td><td style="text-align:center">100%</td></tr><tr><td>azamuddin</td><td style="text-align:center">29</td><td style="text-align:center">6.4m</td><td style="text-align:center">100%</td></tr><tr><td>dannygoh</td><td style="text-align:center">4</td><td style="text-align:center">5.9m</td><td style="text-align:center">0%</td></tr><tr><td>dylanchai</td><td style="text-align:center">30</td><td style="text-align:center">7.4m</td><td style="text-align:center">33.3%</td></tr><tr><td>engkeatho</td><td style="text-align:center">24</td><td style="text-align:center">5.4m</td><td style="text-align:center">0%</td></tr><tr><td>hbai</td><td style="text-align:center">20</td><td style="text-align:center">4.2m</td><td style="text-align:center">100%</td></tr><tr><td>mjin</td><td style="text-align:center">24</td><td style="text-align:center">3.8m</td><td style="text-align:center">100%</td></tr><tr><td>muhamadfaisal</td><td style="text-align:center">37</td><td style="text-align:center">4.7m</td><td style="text-align:center">100%</td></tr><tr><td>pvinet</td><td style="text-align:center">17</td><td style="text-align:center">4.2m</td><td style="text-align:center">100%</td></tr><tr><td>rhawkins</td><td style="text-align:center">28</td><td style="text-align:center">4.8m</td><td style="text-align:center">100%</td></tr><tr><td>terrychen</td><td style="text-align:center">38</td><td style="text-align:center">3.8m</td><td style="text-align:center">100%</td></tr><tr><td>waimengchee</td><td style="text-align:center">35</td><td style="text-align:center">4.8m</td><td style="text-align:center">100%</td></tr><tr><td>yli</td><td style="text-align:center">13</td><td style="text-align:center">3.6m</td><td style="text-align:center">0%</td></tr></tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- 邮件 -->
+<div class="section" id="sec-email">
+  <div class="section-header">
+    <div class="sdot" style="background:#059669"></div>
+    <div class="section-title">三、邮件</div>
+  </div>
+  
+<div class="kpi-grid kpi-grid-4">
+  <div class="kpi-card email"><div class="kpi-label">总工单量</div><div class="kpi-value">513</div></div>
+  <div class="kpi-card email"><div class="kpi-si sa"></div><div class="kpi-label">SLA达标率</div><div class="kpi-value">89.2%</div><div class="kpi-target">目标 ≥90%</div></div>
+  <div class="kpi-card email"><div class="kpi-label">用户邮件量</div><div class="kpi-value">557</div></div>
+  <div class="kpi-card email"><div class="kpi-label">已回复量</div><div class="kpi-value">487</div></div>
+</div>
+  <div class="two-col">
+    <div class="analysis-block">
+      <div class="analysis-title">前十咨询类别</div>
+      <table class="data-table" style="max-width:440px"><thead><tr><th>类别</th><th>工单量</th><th>占比</th></tr></thead><tbody><tr><td>1. 账户</td><td style="text-align:center">188</td><td style="text-align:center">36.6%</td></tr><tr><td>2. 销户</td><td style="text-align:center">93</td><td style="text-align:center">18.1%</td></tr><tr><td>3. 转仓</td><td style="text-align:center">49</td><td style="text-align:center">9.6%</td></tr><tr><td>4. 税务</td><td style="text-align:center">45</td><td style="text-align:center">8.8%</td></tr><tr><td>5. 其他</td><td style="text-align:center">37</td><td style="text-align:center">7.2%</td></tr><tr><td>6. 交易</td><td style="text-align:center">25</td><td style="text-align:center">4.9%</td></tr><tr><td>7. 资金</td><td style="text-align:center">23</td><td style="text-align:center">4.5%</td></tr><tr><td>8. 垃圾邮件</td><td style="text-align:center">11</td><td style="text-align:center">2.1%</td></tr><tr><td>9. 用户营销工具</td><td style="text-align:center">11</td><td style="text-align:center">2.1%</td></tr><tr><td>10. 客户体验回访</td><td style="text-align:center">10</td><td style="text-align:center">1.9%</td></tr></tbody></table>
+    </div>
+    <div class="analysis-block">
+      <div class="analysis-title">客服明细</div>
+      <table class="data-table"><thead><tr><th>客服</th><th>工单量</th><th>SLA达标率</th></tr></thead><tbody><tr><td>dannygoh</td><td style="text-align:center">1</td><td style="text-align:center">93.3%</td></tr><tr><td>darilynechua</td><td style="text-align:center">138</td><td style="text-align:center">84.1%</td></tr><tr><td>oceantiong</td><td style="text-align:center">74</td><td style="text-align:center">47.5%</td></tr><tr><td>ralphchang</td><td style="text-align:center">172</td><td style="text-align:center">74.3%</td></tr><tr><td>zyonnleong</td><td style="text-align:center">128</td><td style="text-align:center">77.6%</td></tr></tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- 异常分析 -->
+<div class="section" id="sec-anomaly">
+  <div class="section-header">
+    <div class="sdot" style="background:#dc2626"></div>
+    <div class="section-title">四、异常分析</div>
+  </div>
+  <div class="analysis-block">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div class="insight alert"><div class="insight-label">在线 · 满意度 &nbsp;<span class="badge badge-red">未达标</span></div><div class="insight-text">当前 <strong>83.9%</strong>，目标 90.0%，差距 6.1pp<br>抽查低分工单，识别高频问题并加强针对性培训</div></div><div class="insight alert"><div class="insight-label">电话 · 接通率 &nbsp;<span class="badge badge-red">未达标</span></div><div class="insight-text">当前 <strong>86.8%</strong>，目标 95.0%，差距 8.2pp<br>分析未接来电时段分布，优化电话排班</div></div><div class="insight alert"><div class="insight-label">电话 · 满意度 &nbsp;<span class="badge badge-red">未达标</span></div><div class="insight-text">当前 <strong>80.0%</strong>，目标 90.0%，差距 10.0pp<br>抽查低分通话录音，对问题客服进行辅导</div></div><div class="insight warn"><div class="insight-label">在线 · 一次解决率 &nbsp;<span class="badge badge-orange">接近目标</span></div><div class="insight-text">当前 <strong>94.9%</strong>，目标 95.0%，差距 0.1pp<br>优化知识库覆盖面，减少转单与重复联系</div></div><div class="insight warn"><div class="insight-label">邮件 · SLA达标率 &nbsp;<span class="badge badge-orange">接近目标</span></div><div class="insight-text">当前 <strong>89.2%</strong>，目标 90.0%，差距 0.8pp<br>检查邮件积压情况，优化分配流程与响应节奏</div></div></div>
+  </div>
+</div>
+
+</div><!-- /main -->
+</body>
+</html>
