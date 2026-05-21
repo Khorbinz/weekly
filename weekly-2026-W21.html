@@ -203,17 +203,11 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </div>
   </div>
 
-  <div class="analysis-block">
-    <div class="analysis-title">👥 持牌 vs 非持牌 接待量 &amp; 满意度（4周）</div>
-    <table class="data-table">
-      <thead><tr><th>类别</th><th>W18</th><th>W19</th><th>W20</th><th>W21</th></tr></thead>
-      <tbody>
-        <tr><td>持牌 接待量</td><td>1,049</td><td>988</td><td>1,509</td><td><strong>1,643</strong></td></tr>
-        <tr><td>持牌 满意度</td><td>78.7%</td><td>82.1%</td><td>86.4%</td><td><strong>82.6%</strong></td></tr>
-        <tr style="border-top:1px solid #e2e8f0"><td>非持牌 接待量</td><td>572</td><td>588</td><td>530</td><td><strong>378</strong></td></tr>
-        <tr><td>非持牌 满意度</td><td>85.7%</td><td>75.7%</td><td>84.5%</td><td><strong>80.9%</strong></td></tr>
-      </tbody>
-    </table>
+  <div class="charts-row" style="grid-template-columns:1fr">
+    <div class="chart-card">
+      <div class="chart-title">👥 持牌 vs 非持牌 接待量 &amp; 满意度（4周）</div>
+      <div class="chart-wrap"><canvas id="cLicensed"></canvas></div>
+    </div>
   </div>
 
   <div class="analysis-block">
@@ -669,6 +663,29 @@ new Chart(document.getElementById('cErrType'),{
     plugins:{legend:{position:'bottom',labels:{font:{...F,size:10},boxWidth:10,padding:4}},
       datalabels:{color:'#fff',font:{...F,weight:'700'},formatter:v=>v,
         display:ctx=>ctx.dataset.data[ctx.dataIndex]>=2}}}
+});
+
+new Chart(document.getElementById('cLicensed'),{
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'持牌 接待量',data:[1049,988,1509,1643],
+      backgroundColor:'rgba(30,64,175,.5)',borderRadius:4,yAxisID:'y',
+      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'rgba(30,64,175,.9)',formatter:v=>v.toLocaleString()}},
+    {type:'bar',label:'非持牌 接待量',data:[572,588,530,378],
+      backgroundColor:'rgba(124,58,237,.4)',borderRadius:4,yAxisID:'y',
+      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'rgba(124,58,237,.9)',formatter:v=>v.toLocaleString()}},
+    {type:'line',label:'持牌 满意度%',data:[78.7,82.1,86.4,82.6],borderColor:'#0891b2',tension:.3,borderWidth:2.5,pointRadius:5,yAxisID:'y1',
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#0891b2',formatter:v=>v+'%'}},
+    {type:'line',label:'非持牌 满意度%',data:[85.7,75.7,84.5,80.9],borderColor:'#d97706',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],yAxisID:'y1',
+      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#d97706',formatter:v=>v+'%'}},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:30,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{
+      x:{ticks:{font:F},grid:{display:false}},
+      y:{min:0,max:2200,ticks:{font:F},grid:GRID,title:{display:true,text:'接待量（单）',font:F}},
+      y1:{min:65,max:100,position:'right',ticks:{font:F,callback:v=>v+'%'},grid:{display:false},
+          title:{display:true,text:'满意度%',font:F}}},
+  }
 });
 </script>
 </body>
