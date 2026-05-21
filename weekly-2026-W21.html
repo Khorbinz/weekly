@@ -173,7 +173,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">📊 在线咨询业务前5（4周）<span class="badge badge-blue">交易持续首位</span></div>
+    <div class="analysis-title">📊 在线咨询业务前5（4周）<span class="badge badge-blue">账户本周跃升首位</span></div>
     <table class="data-table">
       <thead><tr><th>咨询业务</th><th>4月W4</th><th>5月W1</th><th>W20</th><th>本周</th><th>环比</th></tr></thead>
       <tbody>
@@ -449,7 +449,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
         <div class="insight-label">⚠ 邮件1.09%：致命2单，连续超标</div>
         <div class="insight-text">邮件差错率1.09%（致命2+非致命1），与在线相同超标幅度。上周W20邮件零差错，本周反弹需注意，建议核查致命单业务场景。</div>
       </div>
-      <div class="insight ok">
+      <div class="insight ok" style="grid-column:1/-1">
         <div class="insight-label">✓ 电话0.53%，表现最佳</div>
         <div class="insight-text">电话差错率0.53%，仅2单（致命1+非致命1），在三个渠道中表现最好。建议电话质检经验可参考推广至其他渠道。</div>
       </div>
@@ -561,7 +561,7 @@ new Chart(document.getElementById('cPhoneVol'),{
   data:{labels:L4,datasets:[
     {type:'bar',label:'呼入量',data:[1772,1768,2086,1905],
       backgroundColor:['rgba(124,58,237,.4)','rgba(124,58,237,.4)','rgba(124,58,237,.4)','rgba(124,58,237,.85)'],borderRadius:4,yAxisID:'y',
-      datalabels:{display:true,anchor:'end',align:'top',font:{...F,size:9,weight:'600'},color:'#7c3aed',formatter:v=>v}},
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,size:9,weight:'600'},color:'rgba(255,255,255,.95)',formatter:v=>v}},
     {type:'line',label:'总接通率%',data:[86.96,86.26,84.76,87.35],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
       datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#dc2626',formatter:v=>v+'%'}},
     {type:'line',label:'20s接通率%',data:[71.22,64.31,65.72,69.76],borderColor:'#f97316',tension:.3,borderWidth:1.5,pointRadius:3,borderDash:[4,3],yAxisID:'y1',
@@ -611,7 +611,7 @@ new Chart(document.getElementById('cEmailSla'),{
 new Chart(document.getElementById('cErrRate'),{
   data:{labels:['在线','电话','邮件'],datasets:[
     {type:'bar',label:'W20%',data:[1.72,0.76,0],backgroundColor:'rgba(148,163,184,.5)',borderRadius:4,
-      datalabels:{display:true,anchor:'end',align:'top',font:{...F,size:9},color:'#64748b',formatter:v=>v+'%'}},
+      datalabels:{display:ctx=>ctx.dataset.data[ctx.dataIndex]>0,anchor:'end',align:'top',font:{...F,size:9},color:'#64748b',formatter:v=>v+'%'}},
     {type:'bar',label:'W21%',data:[1.09,0.53,1.09],backgroundColor:['rgba(220,38,38,.7)','rgba(5,150,105,.7)','rgba(220,38,38,.7)'],borderRadius:4,
       datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'#374151',formatter:v=>v+'%'}},
   ]},
