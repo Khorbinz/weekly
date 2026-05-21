@@ -153,12 +153,22 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
   <div class="charts-row">
     <div class="chart-card">
-      <div class="chart-title">工单量趋势（W20 vs W21）</div>
+      <div class="chart-title">工单量趋势（4周）</div>
       <div class="chart-wrap"><canvas id="cOnlineVol"></canvas></div>
     </div>
     <div class="chart-card">
-      <div class="chart-title">满意度 / 30s接通率趋势</div>
+      <div class="chart-title">满意度 / 30s接通率趋势（4周）</div>
       <div class="chart-wrap"><canvas id="cOnlineRates"></canvas></div>
+    </div>
+  </div>
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">一次解决率趋势（4周）</div>
+      <div class="chart-wrap"><canvas id="cOnlineFCR"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">处理时长趋势（分钟，4周）</div>
+      <div class="chart-wrap"><canvas id="cOnlineAHT"></canvas></div>
     </div>
   </div>
 
@@ -240,11 +250,11 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
   <div class="charts-row">
     <div class="chart-card">
-      <div class="chart-title">呼入量 &amp; 接通率趋势（W20 vs W21）</div>
+      <div class="chart-title">呼入量 &amp; 接通率趋势（4周）</div>
       <div class="chart-wrap"><canvas id="cPhoneVol"></canvas></div>
     </div>
     <div class="chart-card">
-      <div class="chart-title">满意度趋势</div>
+      <div class="chart-title">满意度趋势（4周）</div>
       <div class="chart-wrap"><canvas id="cPhoneSat"></canvas></div>
     </div>
   </div>
@@ -310,11 +320,11 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
   <div class="charts-row">
     <div class="chart-card">
-      <div class="chart-title">邮件工单量趋势（W20 vs W21）</div>
+      <div class="chart-title">邮件工单量趋势（4周）</div>
       <div class="chart-wrap"><canvas id="cEmailVol"></canvas></div>
     </div>
     <div class="chart-card">
-      <div class="chart-title">SLA 30m回复率趋势</div>
+      <div class="chart-title">SLA 30m回复率趋势（4周）</div>
       <div class="chart-wrap"><canvas id="cEmailSla"></canvas></div>
     </div>
   </div>
@@ -456,54 +466,78 @@ Chart.register(ChartDataLabels);
 const F={family:"'DM Sans',sans-serif",size:10};
 const GRID={color:'rgba(0,0,0,.05)'};
 const DL_OFF={display:false};
-const L2=['上周\n5.7-5.13','本周\n5.14-5.20'];
+const L4=['4月W4\n4.22-4.28','5月W1\n4.29-5.5','W20\n5.7-5.13','本周\n5.14-5.20'];
 
 new Chart(document.getElementById('cOnlineVol'),{
-  data:{labels:L2,datasets:[
-    {type:'bar',label:'总工单量',data:[2039,2021],backgroundColor:['rgba(30,64,175,.5)','rgba(30,64,175,.85)'],borderRadius:4,
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'总工单量',data:[1621,1576,2039,2021],
+      backgroundColor:['rgba(30,64,175,.4)','rgba(30,64,175,.4)','rgba(30,64,175,.4)','rgba(30,64,175,.85)'],borderRadius:4,
       datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'#374151',formatter:v=>v.toLocaleString()}},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
-    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:1900,max:2200,ticks:{font:F},grid:GRID}}}
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:1400,max:2300,ticks:{font:F},grid:GRID}}}
 });
 
 new Chart(document.getElementById('cOnlineRates'),{
-  data:{labels:L2,datasets:[
-    {type:'line',label:'总满意度%',data:[86.42,82.95],borderColor:'#1e40af',tension:.3,borderWidth:2.5,pointRadius:5,
+  data:{labels:L4,datasets:[
+    {type:'line',label:'总满意度%',data:[80.95,80.48,86.42,82.95],borderColor:'#1e40af',tension:.3,borderWidth:2.5,pointRadius:5,
       datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#1e40af',formatter:v=>v+'%'}},
-    {type:'line',label:'FCR%',data:[96.13,92.97],borderColor:'#7c3aed',tension:.3,borderWidth:1.5,pointRadius:4,borderDash:[4,3],
-      datalabels:{display:true,align:'bottom',offset:4,font:{...F},color:'#7c3aed',formatter:v=>v+'%'}},
-    {type:'line',label:'30s接通率%',data:[98.14,97.67],borderColor:'#059669',tension:.3,borderWidth:1.5,pointRadius:3,borderDash:[4,3],
-      datalabels:{display:true,align:'top',offset:4,font:{...F},color:'#059669',formatter:v=>v+'%'}},
+    {type:'line',label:'30s接通率%',data:[96.79,99.81,98.14,97.67],borderColor:'#059669',tension:.3,borderWidth:1.5,pointRadius:3,borderDash:[4,3],
+      datalabels:{display:true,align:'bottom',offset:3,font:{...F},color:'#059669',formatter:v=>v+'%'}},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20,bottom:10}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},
-      y:{min:75,max:102,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+      y:{min:75,max:105,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cOnlineFCR'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'一次解决率%',data:[94.69,96.00,96.13,92.97],borderColor:'#1e40af',tension:.3,borderWidth:2.5,pointRadius:5,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#1e40af',formatter:v=>v+'%'}},
+    {type:'line',label:'目标95%',data:[95,95,95,95],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:88,max:100,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cOnlineAHT'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'处理时长（分）',data:[11.09,10.77,11.22,10.88],borderColor:'#d97706',tension:.3,borderWidth:2.5,pointRadius:5,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#d97706',formatter:v=>v+'m'}},
+    {type:'line',label:'目标<15m',data:[15,15,15,15],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:9,max:17,ticks:{font:F,callback:v=>v+'m'},grid:GRID}}}
 });
 
 new Chart(document.getElementById('cPhoneVol'),{
-  data:{labels:L2,datasets:[
-    {type:'bar',label:'呼入量',data:[2086,1905],backgroundColor:['rgba(124,58,237,.5)','rgba(124,58,237,.85)'],borderRadius:4,yAxisID:'y',
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'呼入量',data:[1772,1768,2086,1905],
+      backgroundColor:['rgba(124,58,237,.4)','rgba(124,58,237,.4)','rgba(124,58,237,.4)','rgba(124,58,237,.85)'],borderRadius:4,yAxisID:'y',
       datalabels:{display:true,anchor:'end',align:'top',font:{...F,size:9,weight:'600'},color:'#7c3aed',formatter:v=>v}},
-    {type:'line',label:'总接通率%',data:[84.76,87.35],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:5,yAxisID:'y1',
+    {type:'line',label:'总接通率%',data:[86.96,86.26,84.76,87.35],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
       datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#dc2626',formatter:v=>v+'%'}},
-    {type:'line',label:'20s接通率%',data:[65.72,69.76],borderColor:'#f97316',tension:.3,borderWidth:1.5,pointRadius:4,borderDash:[4,3],yAxisID:'y1',
+    {type:'line',label:'20s接通率%',data:[71.22,64.31,65.72,69.76],borderColor:'#f97316',tension:.3,borderWidth:1.5,pointRadius:3,borderDash:[4,3],yAxisID:'y1',
       datalabels:{display:true,align:'bottom',offset:3,font:{...F},color:'#f97316',formatter:v=>v+'%'}},
+    {type:'line',label:'目标95%',data:[95,95,95,95],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20,bottom:10}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},
-      y:{min:1700,max:2300,ticks:{font:F},grid:GRID},
+      y:{min:1500,max:2400,ticks:{font:F},grid:GRID},
       y1:{position:'right',min:55,max:100,ticks:{font:F,callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
 });
 
 new Chart(document.getElementById('cPhoneSat'),{
-  data:{labels:L2,datasets:[
-    {type:'line',label:'总满意度%',data:[90.09,71.84],borderColor:'#7c3aed',tension:.3,borderWidth:2.5,pointRadius:5,
+  data:{labels:L4,datasets:[
+    {type:'line',label:'总满意度%',data:[83.51,84.71,90.09,71.84],borderColor:'#7c3aed',tension:.3,borderWidth:2.5,pointRadius:5,
       datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#7c3aed',formatter:v=>v+'%'}},
-    {type:'line',label:'目标90%',data:[90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
@@ -511,8 +545,9 @@ new Chart(document.getElementById('cPhoneSat'),{
 });
 
 new Chart(document.getElementById('cEmailVol'),{
-  data:{labels:L2,datasets:[
-    {type:'bar',label:'总工单量',data:[1511,2071],backgroundColor:['rgba(5,150,105,.5)','rgba(5,150,105,.85)'],borderRadius:4,
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'总工单量',data:[1331,1681,1511,2071],
+      backgroundColor:['rgba(5,150,105,.4)','rgba(5,150,105,.4)','rgba(5,150,105,.4)','rgba(5,150,105,.85)'],borderRadius:4,
       datalabels:{display:true,anchor:'end',align:'top',font:{...F,size:9,weight:'600'},color:'#059669',formatter:v=>v.toLocaleString()}},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
@@ -521,10 +556,10 @@ new Chart(document.getElementById('cEmailVol'),{
 });
 
 new Chart(document.getElementById('cEmailSla'),{
-  data:{labels:L2,datasets:[
-    {type:'line',label:'SLA 30m回复率%',data:[48.67,52.3],borderColor:'#059669',tension:.3,borderWidth:2.5,pointRadius:5,
+  data:{labels:L4,datasets:[
+    {type:'line',label:'SLA 30m回复率%',data:[72.79,57.89,48.67,52.30],borderColor:'#059669',tension:.3,borderWidth:2.5,pointRadius:5,
       datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
-    {type:'line',label:'目标90%',data:[90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
