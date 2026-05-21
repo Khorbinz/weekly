@@ -203,10 +203,14 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </div>
   </div>
 
-  <div class="charts-row" style="grid-template-columns:1fr">
+  <div class="charts-row">
     <div class="chart-card">
-      <div class="chart-title">👥 持牌 vs 非持牌 接待量 &amp; 满意度（4周）</div>
-      <div class="chart-wrap"><canvas id="cLicensed"></canvas></div>
+      <div class="chart-title">👥 持牌 vs 非持牌 接待量（4周）</div>
+      <div class="chart-wrap"><canvas id="cLicVol"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">👥 持牌 vs 非持牌 满意度（4周）</div>
+      <div class="chart-wrap"><canvas id="cLicSat"></canvas></div>
     </div>
   </div>
 
@@ -665,27 +669,32 @@ new Chart(document.getElementById('cErrType'),{
         display:ctx=>ctx.dataset.data[ctx.dataIndex]>=2}}}
 });
 
-new Chart(document.getElementById('cLicensed'),{
+new Chart(document.getElementById('cLicVol'),{
   data:{labels:L4,datasets:[
-    {type:'bar',label:'持牌 接待量',data:[1049,988,1509,1643],
-      backgroundColor:'rgba(30,64,175,.5)',borderRadius:4,yAxisID:'y',
-      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'rgba(30,64,175,.9)',formatter:v=>v.toLocaleString()}},
-    {type:'bar',label:'非持牌 接待量',data:[572,588,530,378],
-      backgroundColor:'rgba(124,58,237,.4)',borderRadius:4,yAxisID:'y',
-      datalabels:{display:true,anchor:'end',align:'top',font:{...F,weight:'700'},color:'rgba(124,58,237,.9)',formatter:v=>v.toLocaleString()}},
-    {type:'line',label:'持牌 满意度%',data:[78.7,82.1,86.4,82.6],borderColor:'#0891b2',tension:.3,borderWidth:2.5,pointRadius:5,yAxisID:'y1',
-      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#0891b2',formatter:v=>v+'%'}},
-    {type:'line',label:'非持牌 满意度%',data:[85.7,75.7,84.5,80.9],borderColor:'#d97706',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],yAxisID:'y1',
-      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#d97706',formatter:v=>v+'%'}},
+    {type:'bar',label:'持牌',data:[1049,988,1509,1643],
+      backgroundColor:['rgba(30,64,175,.4)','rgba(30,64,175,.4)','rgba(30,64,175,.4)','rgba(30,64,175,.85)'],borderRadius:4,
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'rgba(255,255,255,.95)',formatter:v=>v.toLocaleString()}},
+    {type:'bar',label:'非持牌',data:[572,588,530,378],
+      backgroundColor:['rgba(124,58,237,.35)','rgba(124,58,237,.35)','rgba(124,58,237,.35)','rgba(124,58,237,.8)'],borderRadius:4,
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'rgba(255,255,255,.95)',formatter:v=>v.toLocaleString()}},
   ]},
-  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:30,bottom:4}},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:8,bottom:4}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
-    scales:{
-      x:{ticks:{font:F},grid:{display:false}},
-      y:{min:0,max:2200,ticks:{font:F},grid:GRID,title:{display:true,text:'接待量（单）',font:F}},
-      y1:{min:65,max:100,position:'right',ticks:{font:F,callback:v=>v+'%'},grid:{display:false},
-          title:{display:true,text:'满意度%',font:F}}},
-  }
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,max:2200,ticks:{font:F},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cLicSat'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'持牌',data:[78.7,82.1,86.4,82.6],borderColor:'#1e40af',tension:.3,borderWidth:2.5,pointRadius:5,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#1e40af',formatter:v=>v+'%'}},
+    {type:'line',label:'非持牌',data:[85.7,75.7,84.5,80.9],borderColor:'#d97706',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],
+      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#d97706',formatter:v=>v+'%'}},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},
+      y:{min:65,max:100,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
 });
 </script>
 </body>
