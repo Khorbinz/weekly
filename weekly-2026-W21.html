@@ -556,7 +556,7 @@ new Chart(document.getElementById('cOnlineVol'),{
       backgroundColor:'rgba(30,64,175,.75)',borderRadius:0,yAxisID:'y',
       datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
     {type:'bar',label:'非持牌',data:[572,588,530,378],stack:'vol',
-      backgroundColor:'rgba(124,58,237,.6)',borderRadius:4,yAxisID:'y',
+      backgroundColor:'rgba(217,119,6,.65)',borderRadius:4,yAxisID:'y',
       datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
     {type:'line',label:'30s接通率%',data:[96.79,99.81,98.14,97.67],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
       datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
@@ -571,10 +571,10 @@ new Chart(document.getElementById('cOnlineVol'),{
 
 new Chart(document.getElementById('cOnlineRates'),{
   data:{labels:L4,datasets:[
-    {type:'line',label:'总体',data:[80.95,80.48,86.42,82.95],borderColor:'#1e40af',tension:.3,borderWidth:2.5,pointRadius:5,
-      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#1e40af',formatter:v=>v+'%'}},
-    {type:'line',label:'持牌',data:[78.7,82.1,86.4,82.6],borderColor:'#0891b2',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],
-      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#0891b2',formatter:v=>v+'%'}},
+    {type:'line',label:'总体',data:[80.95,80.48,86.42,82.95],borderColor:'#374151',tension:.3,borderWidth:3,pointRadius:5,
+      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#374151',formatter:v=>v+'%'}},
+    {type:'line',label:'持牌',data:[78.7,82.1,86.4,82.6],borderColor:'#1e40af',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af',formatter:v=>v+'%'}},
     {type:'line',label:'非持牌',data:[85.7,75.7,84.5,80.9],borderColor:'#d97706',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],
       datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#d97706',formatter:v=>v+'%'}},
     {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
@@ -589,10 +589,10 @@ new Chart(document.getElementById('cOnlineRates'),{
 new Chart(document.getElementById('cPhoneVol'),{
   data:{labels:L4,datasets:[
     {type:'bar',label:'MY',data:[639,615,752,645],stack:'pvol',
-      backgroundColor:'rgba(5,150,105,.75)',borderRadius:0,yAxisID:'y',
+      backgroundColor:'rgba(30,64,175,.8)',borderRadius:0,yAxisID:'y',
       datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
     {type:'bar',label:'US',data:[921,940,1044,1049],stack:'pvol',
-      backgroundColor:'rgba(124,58,237,.6)',borderRadius:4,yAxisID:'y',
+      backgroundColor:'rgba(217,119,6,.65)',borderRadius:4,yAxisID:'y',
       datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
     {type:'line',label:'总接通率%',data:[86.96,86.26,84.76,87.35],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
       datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#dc2626',formatter:v=>v+'%'}},
@@ -607,10 +607,10 @@ new Chart(document.getElementById('cPhoneVol'),{
 
 new Chart(document.getElementById('cPhoneSat'),{
   data:{labels:L4,datasets:[
-    {type:'line',label:'总体',data:[83.51,84.71,90.09,71.84],borderColor:'#7c3aed',tension:.3,borderWidth:2.5,pointRadius:5,
-      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#7c3aed',formatter:v=>v+'%'}},
-    {type:'line',label:'MY',data:[85.4,88.2,92.2,69.2],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],
-      datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
+    {type:'line',label:'总体',data:[83.51,84.71,90.09,71.84],borderColor:'#374151',tension:.3,borderWidth:3,pointRadius:5,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#374151',formatter:v=>v+'%'}},
+    {type:'line',label:'MY',data:[85.4,88.2,92.2,69.2],borderColor:'#1e40af',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],
+      datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#1e40af',formatter:v=>v+'%'}},
     {type:'line',label:'US',data:[82.1,82.3,89.7,76.3],borderColor:'#d97706',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],
       datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#d97706',formatter:v=>v+'%'}},
     {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
@@ -623,7 +623,7 @@ new Chart(document.getElementById('cPhoneSat'),{
 new Chart(document.getElementById('cEmailCombo'),{
   data:{labels:L4,datasets:[
     {type:'bar',label:'MY 创建量',data:[1331,1681,1511,2071],
-      backgroundColor:['rgba(5,150,105,.35)','rgba(5,150,105,.35)','rgba(5,150,105,.35)','rgba(5,150,105,.8)'],
+      backgroundColor:['rgba(30,64,175,.35)','rgba(30,64,175,.35)','rgba(30,64,175,.35)','rgba(30,64,175,.85)'],
       borderRadius:4,yAxisID:'y',
       datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'rgba(255,255,255,.95)',formatter:v=>v.toLocaleString()}},
     {type:'bar',label:'US 归档量',data:[229,318,273,371],
