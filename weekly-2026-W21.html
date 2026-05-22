@@ -531,12 +531,82 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </div>
   </div>
 
+  <!-- 差错明细表 -->
+  <div class="analysis-block" style="margin-bottom:14px">
+    <div class="analysis-title">📋 差错明细（W21 · 共6单）</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px">
+      <thead>
+        <tr style="background:#fef3c7;text-align:left">
+          <th style="padding:7px 10px;border-bottom:1px solid #e2e8f0;white-space:nowrap">渠道</th>
+          <th style="padding:7px 10px;border-bottom:1px solid #e2e8f0">一级业务</th>
+          <th style="padding:7px 10px;border-bottom:1px solid #e2e8f0">二/三级</th>
+          <th style="padding:7px 10px;border-bottom:1px solid #e2e8f0;white-space:nowrap">规则</th>
+          <th style="padding:7px 10px;border-bottom:1px solid #e2e8f0;white-space:nowrap">类型</th>
+          <th style="padding:7px 10px;border-bottom:1px solid #e2e8f0">差错简述</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff">
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#1e40af;font-weight:600">在线</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;font-weight:600">交易</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#64748b">订单相关</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9">J2</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9"><span style="background:#fee2e2;color:#dc2626;padding:2px 7px;border-radius:10px;font-weight:600;font-size:11px">致命</span></td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#475569">止损+限价单组合场景解答不准确</td>
+        </tr>
+        <tr style="background:#f8fafc">
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#1e40af;font-weight:600">在线</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;font-weight:600">交易</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#64748b">日内交易 DT CALL</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9">C2</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9"><span style="background:#fef9c3;color:#854d0e;padding:2px 7px;border-radius:10px;font-weight:600;font-size:11px">非致命</span></td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#475569">英文客户未经同意用中文回复</td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#1e40af;font-weight:600">在线</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;font-weight:600">交易</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#64748b">资产分析 · 盈亏页面</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9">K1</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9"><span style="background:#fef9c3;color:#854d0e;padding:2px 7px;border-radius:10px;font-weight:600;font-size:11px">非致命</span></td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#475569">盈亏计算回复不准确，引发客户不满</td>
+        </tr>
+        <tr style="background:#f8fafc">
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#1e40af;font-weight:600">在线</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;font-weight:600">财富管理</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#64748b">Cash Sweep</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9">K1</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9"><span style="background:#fef9c3;color:#854d0e;padding:2px 7px;border-radius:10px;font-weight:600;font-size:11px">非致命</span></td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#475569">Cash Sweep 加入状态解答有误</td>
+        </tr>
+        <tr style="background:#fff">
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#059669;font-weight:600">邮件</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;font-weight:600">出金</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#64748b">借记卡</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9">C2</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9"><span style="background:#fef9c3;color:#854d0e;padding:2px 7px;border-radius:10px;font-weight:600;font-size:11px">非致命</span></td>
+          <td style="padding:6px 10px;border-bottom:1px solid #f1f5f9;color:#475569">称呼拼写错误（DDear client）</td>
+        </tr>
+        <tr style="background:#f8fafc">
+          <td style="padding:6px 10px;color:#7c3aed;font-weight:600">电话</td>
+          <td style="padding:6px 10px;font-weight:600">开户后咨询</td>
+          <td style="padding:6px 10px;color:#64748b">账户被锁</td>
+          <td style="padding:6px 10px">C3</td>
+          <td style="padding:6px 10px"><span style="background:#fef9c3;color:#854d0e;padding:2px 7px;border-radius:10px;font-weight:600;font-size:11px">非致命</span></td>
+          <td style="padding:6px 10px;color:#475569">电话等待超1分钟未跟进客户</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:8px;font-size:11.5px;color:#64748b;padding:0 2px">
+      <strong style="color:#dc2626">交易类占比最高（3/6 · 50%）</strong>，含唯一一条致命差错（J2专业解答）；主要失误类型：专业解答不准确（K1/J2）3单、服务沟通规范（C2/C3）3单。
+    </div>
+  </div>
+
   <div class="analysis-block">
     <div class="analysis-title">🔎 质检深度分析</div>
     <div class="insight-row">
       <div class="insight ok">
         <div class="insight-label">✓ 在线0.97%：首次达标，致命仅1单</div>
-        <div class="insight-text">在线共4次差错（致命1+非致命3），差错率0.97%首次低于1%目标。建议持续关注致命单场景，巩固改善成果。</div>
+        <div class="insight-text">在线共4次差错（致命1+非致命3），差错率0.97%首次低于1%目标。交易类占在线差错75%，致命单为订单组合场景解答错误（J2），建议重点培训。</div>
       </div>
       <div class="insight ok">
         <div class="insight-label">✓ 邮件0.39%：大幅改善，零致命</div>
