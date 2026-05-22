@@ -77,6 +77,13 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 .sum-card{border-radius:10px;padding:14px}
 .sum-card-title{font-size:12px;font-weight:700;margin-bottom:8px}
 .sum-item{font-size:11px;line-height:1.8;display:flex;gap:5px}
+.percap-tbl{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:4px}
+.percap-tbl th{background:#f1f5f9;font-weight:700;color:var(--muted);font-size:10.5px;text-transform:uppercase;padding:5px 8px;text-align:center;border:1px solid var(--border)}
+.percap-tbl th:first-child{text-align:left}
+.percap-tbl td{padding:4px 8px;border:1px solid var(--border);text-align:center;color:#334155}
+.percap-tbl td:first-child{text-align:left;font-weight:600;color:#1e293b}
+.percap-tbl tr.row-section td{background:#f8fafc;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;padding:3px 8px}
+.percap-tbl tr.row-percap td{background:#eff6ff;font-weight:700;color:#1e40af}
 @media(max-width:768px){
   .main{padding:12px}
   .kpi-grid-4,.kpi-grid-5,.kpi-grid-6{grid-template-columns:repeat(2,1fr)}
@@ -205,15 +212,40 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 在线 不满意工单 TOP5（本周）</div>
+    <div class="analysis-title">👎 在线 不满意工单 TOP5（4周）</div>
     <table class="data-table">
-      <thead><tr><th>业务类别</th><th>不满意工单数</th><th>占比</th></tr></thead>
+      <thead><tr><th>业务类别</th><th>W18</th><th>W19</th><th>W20</th><th>W21</th></tr></thead>
       <tbody>
-        <tr><td>账户</td><td>18</td><td>31.0%</td></tr>
-        <tr><td>交易</td><td>17</td><td>29.3%</td></tr>
-        <tr><td>资金</td><td>10</td><td>17.2%</td></tr>
-        <tr><td>活动</td><td>8</td><td>13.8%</td></tr>
-        <tr><td>平台基础体验</td><td>5</td><td>8.6%</td></tr>
+        <tr><td>账户</td><td>8<br><small style="color:var(--muted)">12.5%</small></td><td>10<br><small style="color:var(--muted)">15.4%</small></td><td>14<br><small style="color:var(--muted)">21.2%</small></td><td><strong>18</strong><br><small style="color:var(--muted)">24.0%</small></td></tr>
+        <tr><td>交易</td><td>16<br><small style="color:var(--muted)">25.0%</small></td><td>13<br><small style="color:var(--muted)">20.0%</small></td><td>18<br><small style="color:var(--muted)">27.3%</small></td><td><strong>17</strong><br><small style="color:var(--muted)">22.7%</small></td></tr>
+        <tr><td>资金</td><td>17<br><small style="color:var(--muted)">26.6%</small></td><td>9<br><small style="color:var(--muted)">13.8%</small></td><td>7<br><small style="color:var(--muted)">10.6%</small></td><td><strong>10</strong><br><small style="color:var(--muted)">13.3%</small></td></tr>
+        <tr><td>活动</td><td>7<br><small style="color:var(--muted)">10.9%</small></td><td>5<br><small style="color:var(--muted)">7.7%</small></td><td>0<br><small style="color:var(--muted)">0%</small></td><td><strong>8</strong><br><small style="color:var(--muted)">10.7%</small></td></tr>
+        <tr><td>平台基础体验</td><td>0<br><small style="color:var(--muted)">0%</small></td><td>0<br><small style="color:var(--muted)">0%</small></td><td>5<br><small style="color:var(--muted)">7.6%</small></td><td><strong>5</strong><br><small style="color:var(--muted)">6.7%</small></td></tr>
+        <tr style="border-top:2px solid var(--border);font-weight:700;color:var(--muted);font-size:10.5px"><td>总计</td><td>64</td><td>65</td><td>66</td><td><strong>75</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="charts-row" style="margin-top:12px">
+    <div class="chart-card">
+      <div class="chart-title">📊 人均工单量 · 普通天（剔除六日）US</div>
+      <div class="chart-wrap" style="height:190px"><canvas id="cPcOnlineWD"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">📊 人均工单量 · 周末 US</div>
+      <div class="chart-wrap" style="height:190px"><canvas id="cPcOnlineWE"></canvas></div>
+    </div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">⏱ 在线 人效（4周）</div>
+    <table class="percap-tbl" style="max-width:480px">
+      <thead><tr><th>指标</th><th>W18</th><th>W19</th><th>W20</th><th>W21</th></tr></thead>
+      <tbody>
+        <tr><td>工时利用率</td><td>95.48%</td><td>95.03%</td><td>94.31%</td><td>90.89%</td></tr>
+        <tr><td>处理时长（分）</td><td>11.72</td><td>11.09</td><td>10.77</td><td>11.09</td></tr>
+        <tr class="row-percap"><td>人效（天）</td><td>156</td><td>165</td><td>168</td><td>157</td></tr>
+        <tr class="row-percap"><td>人效（小时）</td><td>20</td><td>21</td><td>21</td><td>20</td></tr>
       </tbody>
     </table>
   </div>
@@ -325,15 +357,34 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 电话 不满意工单 TOP5（本周）</div>
+    <div class="analysis-title">👎 电话 不满意工单 TOP5（4周）</div>
     <table class="data-table">
-      <thead><tr><th>业务类别</th><th>不满意评价数</th><th>占比</th></tr></thead>
+      <thead><tr><th>业务类别</th><th>W18</th><th>W19</th><th>W20</th><th>W21</th></tr></thead>
       <tbody>
-        <tr><td>资金</td><td>7</td><td>26.9%</td></tr>
-        <tr><td>账户</td><td>7</td><td>26.9%</td></tr>
-        <tr><td>交易</td><td>6</td><td>23.1%</td></tr>
-        <tr><td>其他</td><td>4</td><td>15.4%</td></tr>
-        <tr><td>营销</td><td>2</td><td>7.7%</td></tr>
+        <tr><td>资金</td><td>1<br><small style="color:var(--muted)">6.3%</small></td><td>3<br><small style="color:var(--muted)">23.1%</small></td><td>2<br><small style="color:var(--muted)">18.2%</small></td><td><strong>8</strong><br><small style="color:var(--muted)">26.7%</small></td></tr>
+        <tr><td>账户</td><td>2<br><small style="color:var(--muted)">12.5%</small></td><td>2<br><small style="color:var(--muted)">15.4%</small></td><td>2<br><small style="color:var(--muted)">18.2%</small></td><td><strong>7</strong><br><small style="color:var(--muted)">23.3%</small></td></tr>
+        <tr><td>交易</td><td>4<br><small style="color:var(--muted)">25.0%</small></td><td>2<br><small style="color:var(--muted)">15.4%</small></td><td>2<br><small style="color:var(--muted)">18.2%</small></td><td><strong>6</strong><br><small style="color:var(--muted)">20.0%</small></td></tr>
+        <tr><td>其他</td><td>4<br><small style="color:var(--muted)">25.0%</small></td><td>2<br><small style="color:var(--muted)">15.4%</small></td><td>2<br><small style="color:var(--muted)">18.2%</small></td><td><strong>4</strong><br><small style="color:var(--muted)">13.3%</small></td></tr>
+        <tr><td>活动</td><td>0<br><small style="color:var(--muted)">0%</small></td><td>1<br><small style="color:var(--muted)">7.7%</small></td><td>0<br><small style="color:var(--muted)">0%</small></td><td><strong>2</strong><br><small style="color:var(--muted)">6.7%</small></td></tr>
+        <tr style="border-top:2px solid var(--border);font-weight:700;color:var(--muted);font-size:10.5px"><td>总计</td><td>16</td><td>13</td><td>11</td><td><strong>30</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chart-card" style="margin-top:12px">
+    <div class="chart-title">📊 人均接通量（4周）</div>
+    <div class="chart-wrap" style="height:190px"><canvas id="cPcPhone"></canvas></div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">⏱ 电话 人效（4周）</div>
+    <table class="percap-tbl" style="max-width:480px">
+      <thead><tr><th>指标</th><th>W18</th><th>W19</th><th>W20</th><th>W21</th></tr></thead>
+      <tbody>
+        <tr><td>工时利用率</td><td>91.06%</td><td>91.02%</td><td>92.54%</td><td>89.02%</td></tr>
+        <tr><td>通话时长（分）</td><td>5.42</td><td>5.07</td><td>5.37</td><td>5.42</td></tr>
+        <tr class="row-percap"><td>人效（天）</td><td>81</td><td>86</td><td>83</td><td>79</td></tr>
+        <tr class="row-percap"><td>人效（小时）</td><td>10</td><td>11</td><td>10</td><td>10</td></tr>
       </tbody>
     </table>
   </div>
@@ -423,6 +474,9 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
         <div class="insight-text">邮件渠道本周总工单 2,071 单，但满意度参评率极低（多数业务类别参评率 &lt;1%），导致按业务分类的不满意工单数统计样本不足，暂不提供TOP5排名。建议后续评估是否推动邮件渠道提升满意度调查参与率。</div>
       </div>
     </div>
+
+    <div class="analysis-title">📊 邮件 人均工单量（4周）</div>
+    <div class="chart-wrap" style="height:200px"><canvas id="cPcEmailWD"></canvas></div>
   </div>
 </div>
 
@@ -596,13 +650,16 @@ new Chart(document.getElementById('cPhoneVol'),{
       datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
     {type:'line',label:'总接通率%',data:[86.96,86.26,84.76,87.35],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
       datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#dc2626',formatter:v=>v+'%'}},
+    {type:'line',label:'20s接通率%',data:[71.22,64.31,65.72,69.80],borderColor:'#7c3aed',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],yAxisID:'y1',
+      datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#7c3aed',formatter:v=>v+'%'}},
     {type:'line',label:'目标95%',data:[95,95,95,95],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF},
+    {type:'line',label:'20s目标80%',data:[80,80,80,80],borderColor:'#7c3aed',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},
       y:{min:0,max:2400,stacked:true,ticks:{font:F},grid:GRID},
-      y1:{position:'right',min:70,max:102,ticks:{font:F,callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
+      y1:{position:'right',min:60,max:102,ticks:{font:F,callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
 });
 
 new Chart(document.getElementById('cPhoneSat'),{
@@ -655,6 +712,69 @@ new Chart(document.getElementById('cErrRate'),{
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:20}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,max:3,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+const PC_OPT = (ymax) => ({
+  responsive:true, maintainAspectRatio:false, layout:{padding:{top:20,bottom:4}},
+  plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:DL_OFF},
+  scales:{x:{ticks:{font:F},grid:{display:false}},
+    y:{min:0,max:ymax,ticks:{font:F},grid:GRID}}
+});
+new Chart(document.getElementById('cPcOnlineWD'),{
+  type:'line',
+  data:{labels:L4,datasets:[
+    {label:'大夜',data:[54.2,46.9,58.5,62.0],borderColor:'#1e40af',backgroundColor:'rgba(30,64,175,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af'}},
+    {label:'小夜',data:[32.0,31.1,43.6,46.7],borderColor:'#d97706',backgroundColor:'rgba(217,119,6,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#d97706'}},
+    {label:'早班',data:[77.8,63.5,85.0,134.8],borderColor:'#374151',backgroundColor:'rgba(55,65,81,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#374151'}},
+  ]},
+  options:{...PC_OPT(160),plugins:{...PC_OPT(160).plugins,datalabels:{display:true}}}
+});
+new Chart(document.getElementById('cPcOnlineWE'),{
+  type:'line',
+  data:{labels:L4,datasets:[
+    {label:'大夜',data:[21.3,29.0,28.0,52.5],borderColor:'#1e40af',backgroundColor:'rgba(30,64,175,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af'}},
+    {label:'小夜',data:[19.0,20.0,21.5,22.0],borderColor:'#d97706',backgroundColor:'rgba(217,119,6,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#d97706'}},
+    {label:'早班',data:[44.5,52.5,30.0,28.0],borderColor:'#374151',backgroundColor:'rgba(55,65,81,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#374151'}},
+  ]},
+  options:{...PC_OPT(70),plugins:{...PC_OPT(70).plugins,datalabels:{display:true}}}
+});
+
+new Chart(document.getElementById('cPcPhone'),{
+  type:'line',
+  data:{labels:L4,datasets:[
+    {label:'人均接通量（日均）',data:[20.7,21.0,22.5,24.5],borderColor:'#7c3aed',backgroundColor:'rgba(124,58,237,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#7c3aed'}},
+  ]},
+  options:{...PC_OPT(35),plugins:{...PC_OPT(35).plugins,datalabels:{display:true}}}
+});
+
+new Chart(document.getElementById('cPcEmailWD'),{
+  type:'line',
+  data:{labels:L4,datasets:[
+    {label:'普通天-大夜',data:[108.2,112.5,99.7,131.3],borderColor:'#1e40af',backgroundColor:'rgba(30,64,175,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af'}},
+    {label:'普通天-小夜',data:[156.5,108.2,105.7,187.6],borderColor:'#d97706',backgroundColor:'rgba(217,119,6,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#d97706'}},
+    {label:'周末-大夜',data:[61.0,144.0,178.0,223.0],borderColor:'#059669',backgroundColor:'rgba(5,150,105,.08)',
+      tension:.3,borderWidth:2.5,pointRadius:5,fill:false,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#059669'}},
+  ]},
+  options:{...PC_OPT(230),plugins:{...PC_OPT(230).plugins,datalabels:{display:true}}}
 });
 
 new Chart(document.getElementById('cErrType'),{
