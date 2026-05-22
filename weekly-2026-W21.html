@@ -377,10 +377,14 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </div>
   </div>
 
-  <div class="charts-row" style="grid-template-columns:1fr">
+  <div class="charts-row">
     <div class="chart-card">
-      <div class="chart-title">工单量 &amp; 整体SLA达标率 / MY SLA达标率（4周）</div>
+      <div class="chart-title">工单量（MY创建 / US归档）（4周）</div>
       <div class="chart-wrap"><canvas id="cEmailVol"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">整体SLA &amp; MY SLA达标率（4周）</div>
+      <div class="chart-wrap"><canvas id="cEmailSla"></canvas></div>
     </div>
   </div>
 
@@ -624,20 +628,31 @@ new Chart(document.getElementById('cPhoneSat'),{
 
 new Chart(document.getElementById('cEmailVol'),{
   data:{labels:L4,datasets:[
-    {type:'bar',label:'工单量',data:[1331,1681,1511,2071],
-      backgroundColor:['rgba(5,150,105,.4)','rgba(5,150,105,.4)','rgba(5,150,105,.4)','rgba(5,150,105,.85)'],borderRadius:4,yAxisID:'y',
-      datalabels:{display:true,anchor:'center',align:'center',font:{...F,size:9,weight:'600'},color:'rgba(255,255,255,.95)',formatter:v=>v.toLocaleString()}},
-    {type:'line',label:'整体SLA%',data:[95.82,92.07,94.05,91.01],borderColor:'#059669',tension:.3,borderWidth:2.5,pointRadius:5,yAxisID:'y1',
-      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
-    {type:'line',label:'MY SLA%',data:[97.63,92.95,94.96,91.19],borderColor:'#0891b2',tension:.3,borderWidth:2,pointRadius:5,yAxisID:'y1',
-      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#0891b2',formatter:v=>v+'%'}},
-    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF},
+    {type:'bar',label:'MY 创建量',data:[1331,1681,1511,2071],
+      backgroundColor:['rgba(5,150,105,.45)','rgba(5,150,105,.45)','rgba(5,150,105,.45)','rgba(5,150,105,.85)'],borderRadius:4,
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'rgba(255,255,255,.95)',formatter:v=>v.toLocaleString()}},
+    {type:'bar',label:'US 归档量',data:[229,318,273,371],
+      backgroundColor:['rgba(217,119,6,.45)','rgba(217,119,6,.45)','rgba(217,119,6,.45)','rgba(217,119,6,.85)'],borderRadius:4,
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'rgba(255,255,255,.95)',formatter:v=>v.toLocaleString()}},
   ]},
-  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4}},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:12,bottom:4}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},
-      y:{min:1000,max:2700,ticks:{font:F},grid:GRID},
-      y1:{position:'right',min:84,max:102,ticks:{font:F,callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
+      y:{min:0,max:2500,ticks:{font:F},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cEmailSla'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'整体SLA%',data:[95.82,92.07,94.05,91.01],borderColor:'#059669',tension:.3,borderWidth:2.5,pointRadius:5,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
+    {type:'line',label:'MY SLA%',data:[97.63,92.95,94.96,91.19],borderColor:'#0891b2',tension:.3,borderWidth:2,pointRadius:5,borderDash:[4,2],
+      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#0891b2',formatter:v=>v+'%'}},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},
+      y:{min:84,max:102,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
 });
 
 new Chart(document.getElementById('cErrRate'),{
