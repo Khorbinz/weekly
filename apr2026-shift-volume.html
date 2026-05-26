@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026年4月 班次接待量 · US MY CS</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+.app-header{background:linear-gradient(135deg,#312e81,#4338ca);color:#fff;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.app-title{font-size:16px;font-weight:700}
+.app-meta{font-size:11px;opacity:.8;margin-top:2px}
+.badge{display:inline-block;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;background:rgba(255,255,255,.2);color:#fff}
+.main{max-width:1100px;margin:0 auto;padding:28px 20px}
+.section{margin-bottom:36px}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #e2e8f0}
+.sdot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.section-title{font-size:15px;font-weight:700}
+.sec-note{margin-left:auto;font-size:11px;color:#64748b;font-weight:600}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.kpi-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi-card.online::before{background:#4338ca}
+.kpi-card.phone::before{background:#7c3aed}
+.kpi-card.email::before{background:#059669}
+.kpi-card.total::before{background:#1e293b}
+.kpi-label{font-size:10.5px;color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.kpi-value{font-size:22px;font-weight:700;line-height:1}
+.kpi-sub{font-size:11px;color:#94a3b8;margin-top:4px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+thead tr{background:#f8fafc}
+th{text-align:left;padding:10px 12px;font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid #e2e8f0}
+th.num,td.num{text-align:right}
+td{padding:8px 12px;border-bottom:1px solid #f1f5f9;font-size:12.5px}
+td.name{font-weight:600;color:#1e293b;white-space:nowrap}
+td.sh{color:#475569;font-size:12px}
+td.num{color:#374151;font-variant-numeric:tabular-nums}
+td.bold{font-weight:700}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#f8fafc}
+.agent-hdr td{background:#f1f5f9;font-size:11px;color:#64748b}
+.subtotal-label{font-size:11px;color:#94a3b8;padding-left:8px}
+.note-box{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:12px 16px;margin-top:12px;font-size:12px;color:#78350f;line-height:1.6}
+.tag{display:inline-block;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600;margin-left:4px;vertical-align:middle}
+.tag-blue{background:#dbeafe;color:#1e40af}
+.tag-amber{background:#fef3c7;color:#92400e}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.kpi-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app-header">
+  <div>
+    <div class="app-title">2026年4月 班次接待量分析</div>
+    <div class="app-meta">US MY CS · 班次天数按实际排班计算</div>
+  </div>
+  <span class="badge">Apr 1–30, 2026</span>
+</div>
+<div class="main">
+
+<!-- KPI Overview -->
+<div class="section">
+  <div class="section-header">
+    <span class="sdot" style="background:#1e293b"></span>
+    <span class="section-title">总览</span>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi-card online">
+      <div class="kpi-label">在线接待量</div>
+      <div class="kpi-value">6,461</div>
+      <div class="kpi-sub">19 名客服</div>
+    </div>
+    <div class="kpi-card phone">
+      <div class="kpi-label">电话接待量</div>
+      <div class="kpi-value">4,716</div>
+      <div class="kpi-sub">14 名客服 · 呼入+回拨</div>
+    </div>
+    <div class="kpi-card email">
+      <div class="kpi-label">邮件接待量</div>
+      <div class="kpi-value">5,511</div>
+      <div class="kpi-sub">7 名客服</div>
+    </div>
+    <div class="kpi-card total">
+      <div class="kpi-label">全渠道合计</div>
+      <div class="kpi-value">16,688</div>
+      <div class="kpi-sub">4月全月</div>
+    </div>
+  </div>
+</div>
+
+<!-- Online -->
+<div class="section">
+  <div class="section-header">
+    <span class="sdot" style="background:#4338ca"></span>
+    <span class="section-title">💬 在线渠道</span>
+    <span class="sec-note">天数 = 班表实际排班天数 &nbsp;|&nbsp; 日均 = 接待量 ÷ 班次天数</span>
+  </div>
+  <table>
+    <thead><tr>
+      <th>客服</th><th>班次</th><th class="num">天数</th><th class="num">接待量</th><th class="num">日均</th>
+    </tr></thead>
+    <tbody>
+<tr><td class="name">aurorayang</td><td class="sh">普通天-早班</td><td class="num">22</td><td class="num">1</td><td class="num">0.0</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="4">bavani*中级</td><td colspan="3" class="subtotal-label">合计 40</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">22</td><td class="num">10</td><td class="num">0.5</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">22</td><td class="num">16</td><td class="num">0.7</td></tr>
+<tr><td class="sh">周末-小夜</td><td class="num">8</td><td class="num">14</td><td class="num">1.8</td></tr>
+<tr><td class="name">calventan</td><td class="sh">普通天-大夜</td><td class="num">2</td><td class="num">8</td><td class="num">4.0</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">chaineeloh</td><td colspan="3" class="subtotal-label">合计 652</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">10</td><td class="num">313</td><td class="num">31.3</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">10</td><td class="num">339</td><td class="num">33.9</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="4">cheeenlim</td><td colspan="3" class="subtotal-label">合计 388</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">1</td><td class="num">34</td><td class="num">34.0</td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">11</td><td class="num">307</td><td class="num">27.9</td></tr>
+<tr><td class="sh">周末-小夜</td><td class="num">8</td><td class="num">47</td><td class="num">5.9</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="4">elwinhue</td><td colspan="3" class="subtotal-label">合计 446</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">18</td><td class="num">372</td><td class="num">20.7</td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">2</td><td class="num">58</td><td class="num">29.0</td></tr>
+<tr><td class="sh">周末-早班</td><td class="num">1</td><td class="num">16</td><td class="num">16.0</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">ewinng</td><td colspan="3" class="subtotal-label">合计 277</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">3</td><td class="num">20</td><td class="num">6.7</td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">19</td><td class="num">257</td><td class="num">13.5</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">hooiyingtan</td><td colspan="3" class="subtotal-label">合计 269</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">15</td><td class="num">206</td><td class="num">13.7</td></tr>
+<tr><td class="sh">周末-早班</td><td class="num">5</td><td class="num">63</td><td class="num">12.6</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">jacksonyap</td><td colspan="3" class="subtotal-label">合计 532</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">19</td><td class="num">468</td><td class="num">24.6</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">3</td><td class="num">64</td><td class="num">21.3</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="6">joeyteoh</td><td colspan="3" class="subtotal-label">合计 531</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">5</td><td class="num">76</td><td class="num">15.2</td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">9</td><td class="num">310</td><td class="num">34.4</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">4</td><td class="num">119</td><td class="num">29.8</td></tr>
+<tr><td class="sh">周末-早班</td><td class="num">2</td><td class="num">15</td><td class="num">7.5</td></tr>
+<tr><td class="sh">周末-大夜</td><td class="num">2</td><td class="num">11</td><td class="num">5.5</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="4">junhongkhew</td><td colspan="3" class="subtotal-label">合计 583</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">3</td><td class="num">82</td><td class="num">27.3</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">13</td><td class="num">426</td><td class="num">32.8</td></tr>
+<tr><td class="sh">周末-大夜</td><td class="num">6</td><td class="num">75</td><td class="num">12.5</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="4">kaiyangchan</td><td colspan="3" class="subtotal-label">合计 650</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">13</td><td class="num">403</td><td class="num">31.0</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">1</td><td class="num">54</td><td class="num">54.0</td></tr>
+<tr><td class="sh">周末-早班</td><td class="num">8</td><td class="num">193</td><td class="num">24.1</td></tr>
+<tr><td class="name">marcuschan</td><td class="sh">普通天-大夜</td><td class="num">6</td><td class="num">198</td><td class="num">33.0</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">ralphchang*中级</td><td colspan="3" class="subtotal-label">合计 3</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">22</td><td class="num">1</td><td class="num">0.0</td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">22</td><td class="num">2</td><td class="num">0.1</td></tr>
+<tr><td class="name">wardxu</td><td class="sh">普通天-小夜</td><td class="num">22</td><td class="num">2</td><td class="num">0.1</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="4">weilimchee</td><td colspan="3" class="subtotal-label">合计 486</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">1</td><td class="num">67</td><td class="num">67.0</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">17</td><td class="num">394</td><td class="num">23.2</td></tr>
+<tr><td class="sh">周末-大夜</td><td class="num">4</td><td class="num">25</td><td class="num">6.2</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="5">wilsonwong</td><td colspan="3" class="subtotal-label">合计 553</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">1</td><td class="num">38</td><td class="num">38.0</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">14</td><td class="num">391</td><td class="num">27.9</td></tr>
+<tr><td class="sh">周末-小夜</td><td class="num">2</td><td class="num">9</td><td class="num">4.5</td></tr>
+<tr><td class="sh">周末-大夜</td><td class="num">3</td><td class="num">115</td><td class="num">38.3</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="4">zaydentan</td><td colspan="3" class="subtotal-label">合计 705</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">9</td><td class="num">349</td><td class="num">38.8</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">4</td><td class="num">209</td><td class="num">52.2</td></tr>
+<tr><td class="sh">周末-小夜</td><td class="num">6</td><td class="num">147</td><td class="num">24.5</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">zyonnleong</td><td colspan="3" class="subtotal-label">合计 137</td><td></td></tr>
+<tr><td class="sh">普通天-早班</td><td class="num">3</td><td class="num">71</td><td class="num">23.7</td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">4</td><td class="num">66</td><td class="num">16.5</td></tr>
+    </tbody>
+    <tfoot><tr style="background:#f1f5f9;font-weight:700">
+      <td colspan="3">合计</td><td class="num">6,461</td><td></td>
+    </tr></tfoot>
+  </table>
+  <div class="note-box">
+    ⚠ 标注 *中级 的客服（bavani、ralphchang）班次归属待确认，天数沿用日历计算。<br>
+    以下客服按班表归属电话，在线有少量溢出接待未计入（angelicaooi 35、arulpandian 15、azamuddin 9、dannygoh 5、dylanchai 2、muhamadfaisal 7、waimengchee 4）。
+  </div>
+</div>
+
+<!-- Phone -->
+<div class="section">
+  <div class="section-header">
+    <span class="sdot" style="background:#7c3aed"></span>
+    <span class="section-title">📞 电话渠道</span>
+    <span class="sec-note">天数 = 班表 Us 1 工作日天数</span>
+  </div>
+  <table>
+    <thead><tr>
+      <th>客服</th><th class="num">天数</th>
+      <th class="num">呼入接通</th><th class="num">呼入日均</th>
+      <th class="num">回拨</th><th class="num">回拨日均</th>
+      <th class="num">合计</th>
+    </tr></thead>
+    <tbody>
+<tr><td class="name">dylanchai</td><td class="num">22</td><td class="num">508</td><td class="num">23.1</td><td class="num">64</td><td class="num">2.9</td><td class="num bold">572</td></tr>
+<tr><td class="name">azamuddin</td><td class="num">22</td><td class="num">490</td><td class="num">22.3</td><td class="num">25</td><td class="num">1.1</td><td class="num bold">515</td></tr>
+<tr><td class="name">arulpandian</td><td class="num">22</td><td class="num">462</td><td class="num">21.0</td><td class="num">22</td><td class="num">1.0</td><td class="num bold">484</td></tr>
+<tr><td class="name">muhamadfaisal</td><td class="num">22</td><td class="num">455</td><td class="num">20.7</td><td class="num">20</td><td class="num">0.9</td><td class="num bold">475</td></tr>
+<tr><td class="name">aizatfarhan</td><td class="num">22</td><td class="num">438</td><td class="num">19.9</td><td class="num">27</td><td class="num">1.2</td><td class="num bold">465</td></tr>
+<tr><td class="name">angelicaooi</td><td class="num">22</td><td class="num">357</td><td class="num">16.2</td><td class="num">42</td><td class="num">1.9</td><td class="num bold">399</td></tr>
+<tr><td class="name">engkeatho</td><td class="num">22</td><td class="num">335</td><td class="num">15.2</td><td class="num">34</td><td class="num">1.5</td><td class="num bold">369</td></tr>
+<tr><td class="name">waimengchee</td><td class="num">22</td><td class="num">344</td><td class="num">15.6</td><td class="num">25</td><td class="num">1.1</td><td class="num bold">369</td></tr>
+<tr><td class="name">terrychen</td><td class="num">22</td><td class="num">317</td><td class="num">14.4</td><td class="num">31</td><td class="num">1.4</td><td class="num bold">348</td></tr>
+<tr><td class="name">dannygoh</td><td class="num">22</td><td class="num">299</td><td class="num">13.6</td><td class="num">31</td><td class="num">1.4</td><td class="num bold">330</td></tr>
+<tr><td class="name">norsyifa</td><td class="num">22</td><td class="num">289</td><td class="num">13.1</td><td class="num">8</td><td class="num">0.4</td><td class="num bold">297</td></tr>
+<tr><td class="name">zhenanntan</td><td class="num">20</td><td class="num">71</td><td class="num">3.5</td><td class="num">6</td><td class="num">0.3</td><td class="num bold">77</td></tr>
+<tr><td class="name">bavani*中级</td><td class="num">22</td><td class="num">7</td><td class="num">0.3</td><td class="num">4</td><td class="num">0.2</td><td class="num bold">11</td></tr>
+<tr><td class="name">hanis*中级</td><td class="num">22</td><td class="num">5</td><td class="num">0.2</td><td class="num">0</td><td class="num">0.0</td><td class="num bold">5</td></tr>
+    </tbody>
+    <tfoot><tr style="background:#f1f5f9;font-weight:700">
+      <td colspan="2">合计</td>
+      <td class="num">4,377</td><td></td>
+      <td class="num">339</td><td></td>
+      <td class="num">4,716</td>
+    </tr></tfoot>
+  </table>
+  <div class="note-box">
+    ⚠ bavani（*中级）和 hanis（*中级）天数按22天计算（实际班次待确认）。<br>
+    电话天数由30自然日修正为实际工作日（约22天，zhenanntan 20天）。
+  </div>
+</div>
+
+<!-- Email -->
+<div class="section">
+  <div class="section-header">
+    <span class="sdot" style="background:#059669"></span>
+    <span class="section-title">📧 邮件渠道</span>
+    <span class="sec-note">天数 = 班表实际排班天数</span>
+  </div>
+  <table>
+    <thead><tr>
+      <th>客服</th><th>班次</th><th class="num">天数</th><th class="num">接待量</th><th class="num">日均</th>
+    </tr></thead>
+    <tbody>
+<tr><td class="name">calventan</td><td class="sh">普通天-大夜</td><td class="num">2</td><td class="num">100</td><td class="num">50.0</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">darilynechua</td><td colspan="3" class="subtotal-label">合计 2,215</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">14</td><td class="num">1,652</td><td class="num">118.0</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">8</td><td class="num">563</td><td class="num">70.4</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">marcuschan</td><td colspan="3" class="subtotal-label">合计 693</td><td></td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">11</td><td class="num">612</td><td class="num">55.6</td></tr>
+<tr><td class="sh">周末-大夜</td><td class="num">2</td><td class="num">81</td><td class="num">40.5</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="4">oceantiong</td><td colspan="3" class="subtotal-label">合计 1,305</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">4</td><td class="num">677</td><td class="num">169.2</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">9</td><td class="num">499</td><td class="num">55.4</td></tr>
+<tr><td class="sh">周末-大夜</td><td class="num">5</td><td class="num">129</td><td class="num">25.8</td></tr>
+<tr><td class="name">ralphchang*中级</td><td class="sh">普通天-小夜</td><td class="num">22</td><td class="num">101</td><td class="num">4.6</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">rmcateer</td><td colspan="3" class="subtotal-label">合计 31</td><td></td></tr>
+<tr><td class="sh">普通天-小夜</td><td class="num">22</td><td class="num">20</td><td class="num">0.9</td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">22</td><td class="num">11</td><td class="num">0.5</td></tr>
+<tr class="agent-hdr"><td class="name" rowspan="3">zyonnleong</td><td colspan="3" class="subtotal-label">合计 1,066</td><td></td></tr>
+<tr><td class="sh">普通天-大夜</td><td class="num">12</td><td class="num">1,020</td><td class="num">85.0</td></tr>
+<tr><td class="sh">周末-大夜</td><td class="num">3</td><td class="num">46</td><td class="num">15.3</td></tr>
+    </tbody>
+    <tfoot><tr style="background:#f1f5f9;font-weight:700">
+      <td colspan="3">合计</td><td class="num">5,511</td><td></td>
+    </tr></tfoot>
+  </table>
+  <div class="note-box">
+    ⚠ darilynechua 从 4/2 邮件大夜切换至 4/13 邮件小夜，实际工作天数：大夜8天、小夜14天。<br>
+    zyonnleong 从 4/1 在线切换至 4/10 邮件大夜；普通天-小夜228笔因班表无对应排班天数未纳入。
+  </div>
+</div>
+
+</div><!-- /main -->
+</body>
+</html>
