@@ -175,6 +175,133 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
 </div>
 
+  <!-- 每日工单总量 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sdot" style="background:#0891b2"></div>
+      <div class="section-title">每日媒体报道/公关事件工单总量</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">每日归档工单数（含未使用话术的工单）</div>
+      <div class="chart-wrap">
+        <canvas id="totalChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>总工单数</th>
+            <th>使用话术工单</th>
+            <th>话术使用率</th>
+            <th>满意度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>5月22日（周四）</td><td>382</td><td>216</td><td>57%</td><td>100%</td></tr>
+          <tr><td>5月23日（周五）</td><td>158</td><td>100</td><td>63%</td><td>99%</td></tr>
+          <tr><td>5月24日（周六）</td><td>13</td><td>6</td><td>46%</td><td>100%</td></tr>
+          <tr><td>5月25日（周日）</td><td>40</td><td>37</td><td>93%</td><td>100%</td></tr>
+          <tr><td>合计</td><td>593</td><td>359</td><td>61%</td><td>≈100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 客户常见问题 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sdot" style="background:#dc2626"></div>
+      <div class="section-title">客户常见问题（FAQ）</div>
+    </div>
+    <div class="chart-card" style="padding:18px 20px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+
+        <div style="background:#fef2f2;border-left:3px solid #dc2626;border-radius:0 8px 8px 0;padding:12px 14px">
+          <div style="font-size:10.5px;font-weight:700;color:#dc2626;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px">监管政策影响 · 最高频</div>
+          <div style="font-size:12px;line-height:1.9;color:#334155">
+            · 中国证监会这次政策，对 moomoo / 富途 有影响吗？<br>
+            · 大陆居民还能继续用 moomoo US 交易吗？<br>
+            · moomoo US 受中国大陆监管吗？<br>
+            · 我的账户是否需要卖出股票/转出资金？
+          </div>
+        </div>
+
+        <div style="background:#fff7ed;border-left:3px solid #d97706;border-radius:0 8px 8px 0;padding:12px 14px">
+          <div style="font-size:10.5px;font-weight:700;color:#d97706;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px">moomoo 与富途关系</div>
+          <div style="font-size:12px;line-height:1.9;color:#334155">
+            · 你是 moomoo 客服还是富途客服？<br>
+            · moomoo 和富途香港是同一家吗？<br>
+            · 我的账户是 moomoo US 还是富途香港？<br>
+            · 为什么只能通过富途 App 登录 moomoo US？
+          </div>
+        </div>
+
+        <div style="background:#f0fdf4;border-left:3px solid #059669;border-radius:0 8px 8px 0;padding:12px 14px">
+          <div style="font-size:10.5px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px">开户与资产转移</div>
+          <div style="font-size:12px;line-height:1.9;color:#334155">
+            · 现在还可以新开 moomoo US 账户吗？<br>
+            · 开户有什么要求？<br>
+            · 富途 HK 和 moomoo US 可以直接转仓吗？<br>
+            · 能从香港银行入金 moomoo US 吗？
+          </div>
+        </div>
+
+        <div style="background:#eff6ff;border-left:3px solid #1e40af;border-radius:0 8px 8px 0;padding:12px 14px">
+          <div style="font-size:10.5px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px">资金安全与后续操作</div>
+          <div style="font-size:12px;line-height:1.9;color:#334155">
+            · 我的资金安全吗？如何取出？<br>
+            · 什么时候会有进一步说明？<br>
+            · moomoo US 的税收（W-8BEN）和富途 HK 一致吗？<br>
+            · 账户交易记录是否会经香港上报 CRS？
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 客户反馈 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sdot" style="background:#059669"></div>
+      <div class="section-title">客户反馈</div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card ku">
+        <div class="kpi-label">整体满意度</div>
+        <div class="kpi-value">≈100%</div>
+        <div class="kpi-sub">592 / 593 工单好评</div>
+      </div>
+      <div class="kpi-card k1">
+        <div class="kpi-label">事件当日（5/22）满意度</div>
+        <div class="kpi-value">100%</div>
+        <div class="kpi-sub">382 / 382 工单好评</div>
+      </div>
+      <div class="kpi-card k2">
+        <div class="kpi-label">次日（5/23）满意度</div>
+        <div class="kpi-value">99%</div>
+        <div class="kpi-sub">157 / 158 工单好评</div>
+      </div>
+      <div class="kpi-card kb">
+        <div class="kpi-label">周末（5/24–25）满意度</div>
+        <div class="kpi-value">100%</div>
+        <div class="kpi-sub">53 / 53 工单好评</div>
+      </div>
+    </div>
+    <div class="insight-row">
+      <div class="insight ok">
+        <div class="insight-label">客户情绪</div>
+        <div class="insight-text">大量询问集中在政策影响范围确认，客户整体保持理性。部分客户表示"如无风险就留在moomoo"，显示平台留存意愿积极。</div>
+      </div>
+      <div class="insight warn">
+        <div class="insight-label">主要顾虑</div>
+        <div class="insight-text">客户最关心的是"后续会不会限制操作"和"什么时候有明确说明"，少数客户提到"如果有风险就转 IB"，显示仍存在流失风险。</div>
+      </div>
+    </div>
+  </div>
+
 <div class="footer">
   数据来源：Workspace 在线会话记录 · 媒体报道类工单（category=1747）· 共检查593个工单，0查询错误<br>
   统计口径：客服发送消息（含质检审核消息）中含对应关键词即计入 · 同一工单多次出现只计一次
@@ -196,6 +323,42 @@ new Chart(ctx, {
       {
         label: '话术2「监管动态」',
         data: [207, 26, 1, 35],
+        backgroundColor: '#8b5cf6',
+        borderRadius: 4,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 11 }, boxWidth: 12 } },
+      tooltip: { mode: 'index' }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { beginAtZero: true, ticks: { font: { size: 11 } }, grid: { color: '#f1f5f9' } }
+    }
+  }
+});
+
+const ctx2 = document.getElementById('totalChart').getContext('2d');
+new Chart(ctx2, {
+  type: 'bar',
+  data: {
+    labels: ['5/22', '5/23', '5/24', '5/25'],
+    datasets: [
+      {
+        label: '总工单数',
+        data: [382, 158, 13, 40],
+        backgroundColor: '#e0f2fe',
+        borderColor: '#0891b2',
+        borderWidth: 1.5,
+        borderRadius: 4,
+      },
+      {
+        label: '使用话术工单',
+        data: [216, 100, 6, 37],
         backgroundColor: '#8b5cf6',
         borderRadius: 4,
       }
