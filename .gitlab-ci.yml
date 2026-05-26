@@ -4,6 +4,7 @@ pages:
     - mkdir -p public
     - cp index.html public/index.html
     - cp weekly-*.html public/ 2>/dev/null || true
+    - cp apr*.html public/ 2>/dev/null || true
   artifacts:
     paths:
       - public
