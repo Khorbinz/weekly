@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>监管话术使用统计 · 5月22日–25日</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+:root{--blue:#1e40af;--purple:#7c3aed;--green:#059669;--orange:#d97706;--red:#dc2626;--text:#1e293b;--muted:#64748b;--border:#e2e8f0}
+.app-header{background:linear-gradient(135deg,#1e3a8a,#1e40af);color:#fff;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.app-title{font-size:15px;font-weight:700}
+.app-meta{font-size:11px;opacity:.8;margin-top:2px}
+.week-badge{font-size:11px;background:rgba(255,255,255,.2);color:#fff;padding:4px 12px;border-radius:20px;font-weight:600}
+.main{max-width:960px;margin:0 auto;padding:24px 20px}
+.section{margin-bottom:32px}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.sdot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.section-title{font-size:15px;font-weight:700}
+/* KPI cards */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.kpi-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi-card.k1::before{background:#1e40af}
+.kpi-card.k2::before{background:#7c3aed}
+.kpi-card.ku::before{background:#059669}
+.kpi-card.kb::before{background:#d97706}
+.kpi-label{font-size:10.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;line-height:1.3}
+.kpi-value{font-size:28px;font-weight:700;line-height:1}
+.kpi-sub{font-size:11px;color:var(--muted);margin-top:4px}
+/* Chart */
+.chart-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:14px}
+.chart-title{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:14px}
+.chart-wrap{position:relative;height:220px}
+/* Table */
+.data-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.data-table th{padding:8px 12px;background:#f1f5f9;font-weight:700;color:var(--muted);font-size:11px;text-align:left;border:1px solid var(--border);text-transform:uppercase;letter-spacing:.3px}
+.data-table td{padding:8px 12px;border:1px solid var(--border);text-align:center}
+.data-table td:first-child{text-align:left;font-weight:600}
+.data-table tr:last-child{background:#eff6ff;font-weight:700}
+/* Script blocks */
+.script-blocks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.script-block{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;border-left:4px solid}
+.script-block.s1{border-left-color:#1e40af}
+.script-block.s2{border-left-color:#7c3aed}
+.script-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.script-label.s1{color:#1e40af}.script-label.s2{color:#7c3aed}
+.script-text{font-size:12px;line-height:1.7;color:#334155}
+.kw-badge{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:10px;font-weight:600;margin-top:6px}
+.kw-badge.s1{background:#dbeafe;color:#1e40af}
+.kw-badge.s2{background:#ede9fe;color:#7c3aed}
+/* Insight */
+.insight-row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.insight{background:#f8fafc;border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 13px}
+.insight.warn{border-left-color:var(--orange)}.insight.ok{border-left-color:var(--green)}.insight.note{border-left-color:var(--purple)}
+.insight-label{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:3px}
+.insight-text{font-size:12px;line-height:1.6}
+.footer{text-align:center;padding:24px;font-size:11px;color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="app-header">
+  <div>
+    <div class="app-title">监管话术使用统计报告</div>
+    <div class="app-meta">US MY Advisory · 在线咨询 · 媒体报道类工单</div>
+  </div>
+  <span class="week-badge">2026年5月22日–25日</span>
+</div>
+
+<div class="main">
+
+  <!-- 话术说明 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sdot" style="background:#1e40af"></div>
+      <div class="section-title">话术背景</div>
+    </div>
+    <div class="script-blocks">
+      <div class="script-block s1">
+        <div class="script-label s1">话术1 · 持牌主体</div>
+        <div class="script-text">Moomoo US 是独立的持牌主体，在美国合法合规运营，受到 SEC 的监管……</div>
+        <span class="kw-badge s1">关键词：持牌主体</span>
+      </div>
+      <div class="script-block s2">
+        <div class="script-label s2">话术2 · 监管动态</div>
+        <div class="script-text">您好，我们已关注到相关监管动态，正在仔细研究相关内容，并将持续确保公司业务运营符合相关法律法规……</div>
+        <span class="kw-badge s2">关键词：监管动态</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI 总览 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sdot" style="background:#059669"></div>
+      <div class="section-title">整体使用情况（媒体报道类，5/22–5/25）</div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card k1">
+        <div class="kpi-label">话术1「持牌主体」</div>
+        <div class="kpi-value">155</div>
+        <div class="kpi-sub">个在线工单</div>
+      </div>
+      <div class="kpi-card k2">
+        <div class="kpi-label">话术2「监管动态」</div>
+        <div class="kpi-value">269</div>
+        <div class="kpi-sub">个在线工单</div>
+      </div>
+      <div class="kpi-card ku">
+        <div class="kpi-label">合计工单数（去重）</div>
+        <div class="kpi-value">359</div>
+        <div class="kpi-sub">至少使用一条话术</div>
+      </div>
+      <div class="kpi-card kb">
+        <div class="kpi-label">两条均用</div>
+        <div class="kpi-value">65</div>
+        <div class="kpi-sub">同一工单内使用两条</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 趋势图 + 明细表 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sdot" style="background:#7c3aed"></div>
+      <div class="section-title">每日使用趋势</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">话术1 vs 话术2 · 每日工单数</div>
+      <div class="chart-wrap">
+        <canvas id="trendChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>话术1「持牌主体」</th>
+            <th>话术2「监管动态」</th>
+            <th>合计（去重）</th>
+            <th>两条均用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>5月22日（周四）</td><td>43</td><td>207</td><td>216</td><td>34</td></tr>
+          <tr><td>5月23日（周五）</td><td>99</td><td>26</td><td>100</td><td>25</td></tr>
+          <tr><td>5月24日（周六）</td><td>6</td><td>1</td><td>6</td><td>1</td></tr>
+          <tr><td>5月25日（周日）</td><td>7</td><td>35</td><td>37</td><td>5</td></tr>
+          <tr><td>合计</td><td>155</td><td>269</td><td>359</td><td>65</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insight-row">
+      <div class="insight">
+        <div class="insight-label">5/22 · 事件当日</div>
+        <div class="insight-text">话术2「监管动态」主导（207条，占当日93%）；客服以告知客户"已关注监管动态"为主要应对策略。</div>
+      </div>
+      <div class="insight ok">
+        <div class="insight-label">5/23 · 次日</div>
+        <div class="insight-text">话术1「持牌主体」大幅上升至99条，超过话术2（26条）；重心从"知悉动态"转向"强调合规主体"。</div>
+      </div>
+      <div class="insight warn">
+        <div class="insight-label">5/24 · 周六</div>
+        <div class="insight-text">咨询量骤降至6条，话题热度趋于平息，符合周末低流量规律。</div>
+      </div>
+      <div class="insight note">
+        <div class="insight-label">5/25 · 周日</div>
+        <div class="insight-text">话术2小幅回升至35条，或与部分客户周末看到媒体报道后二次关注有关。</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  数据来源：Workspace 在线会话记录 · 媒体报道类工单（category=1747）· 共检查593个工单，0查询错误<br>
+  统计口径：客服发送消息（含质检审核消息）中含对应关键词即计入 · 同一工单多次出现只计一次
+</div>
+
+<script>
+const ctx = document.getElementById('trendChart').getContext('2d');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['5/22', '5/23', '5/24', '5/25'],
+    datasets: [
+      {
+        label: '话术1「持牌主体」',
+        data: [43, 99, 6, 7],
+        backgroundColor: '#3b82f6',
+        borderRadius: 4,
+      },
+      {
+        label: '话术2「监管动态」',
+        data: [207, 26, 1, 35],
+        backgroundColor: '#8b5cf6',
+        borderRadius: 4,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'top', labels: { font: { size: 11 }, boxWidth: 12 } },
+      tooltip: { mode: 'index' }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { beginAtZero: true, ticks: { font: { size: 11 } }, grid: { color: '#f1f5f9' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
