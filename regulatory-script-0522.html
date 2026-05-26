@@ -71,6 +71,40 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
 <div class="main">
 
+  <!-- 每日工单总量 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="sdot" style="background:#0891b2"></div>
+      <div class="section-title">每日媒体报道/公关事件工单总量</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">每日归档工单数（含未使用话术的工单）</div>
+      <div class="chart-wrap">
+        <canvas id="totalChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-card">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>总工单数</th>
+            <th>使用话术工单</th>
+            <th>话术使用率</th>
+            <th>满意度</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>5月22日（周五）</td><td>382</td><td>216</td><td>57%</td><td>100%</td></tr>
+          <tr><td>5月23日（周六）</td><td>158</td><td>100</td><td>63%</td><td>99%</td></tr>
+          <tr><td>5月24日（周日）</td><td>13</td><td>6</td><td>46%</td><td>100%</td></tr>
+          <tr><td>5月25日（周一）</td><td>40</td><td>37</td><td>93%</td><td>100%</td></tr>
+          <tr><td>合计</td><td>593</td><td>359</td><td>61%</td><td>≈100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
   <!-- 话术说明 -->
   <div class="section">
     <div class="section-header">
@@ -170,42 +204,6 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
         <div class="insight-label">5/25 · 周日</div>
         <div class="insight-text">话术2小幅回升至35条，或与部分客户周末看到媒体报道后二次关注有关。</div>
       </div>
-    </div>
-  </div>
-
-</div>
-
-  <!-- 每日工单总量 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="sdot" style="background:#0891b2"></div>
-      <div class="section-title">每日媒体报道/公关事件工单总量</div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">每日归档工单数（含未使用话术的工单）</div>
-      <div class="chart-wrap">
-        <canvas id="totalChart"></canvas>
-      </div>
-    </div>
-    <div class="chart-card">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>日期</th>
-            <th>总工单数</th>
-            <th>使用话术工单</th>
-            <th>话术使用率</th>
-            <th>满意度</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>5月22日（周五）</td><td>382</td><td>216</td><td>57%</td><td>100%</td></tr>
-          <tr><td>5月23日（周六）</td><td>158</td><td>100</td><td>63%</td><td>99%</td></tr>
-          <tr><td>5月24日（周日）</td><td>13</td><td>6</td><td>46%</td><td>100%</td></tr>
-          <tr><td>5月25日（周一）</td><td>40</td><td>37</td><td>93%</td><td>100%</td></tr>
-          <tr><td>合计</td><td>593</td><td>359</td><td>61%</td><td>≈100%</td></tr>
-        </tbody>
-      </table>
     </div>
   </div>
 
