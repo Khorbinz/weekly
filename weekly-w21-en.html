@@ -2,62 +2,229 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CCR Weekly Report · W21 · May 22–May 28, 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Call Connection Rate Weekly Report · May 22 – May 28, 2026</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f5f6fa;color:#2d3436}
-.header{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;padding:32px 40px}
-.header h1{font-size:22px;font-weight:600}
-.header p{margin-top:6px;opacity:.85;font-size:13px}
-.container{max-width:960px;margin:0 auto;padding:28px 20px}
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
-.kpi{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.kpi .label{font-size:12px;color:#636e72;margin-bottom:6px}
-.kpi .value{font-size:26px;font-weight:700}
-.kpi .sub{font-size:12px;color:#636e72;margin-top:4px}
-.section{background:#fff;border-radius:12px;padding:22px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.section h2{font-size:15px;font-weight:600;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #f0f0f0;color:#1a73e8}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{background:#f8f9fa;padding:9px 12px;text-align:left;font-weight:600;color:#636e72}
-td{padding:9px 12px;border-bottom:1px solid #f0f0f0}
-tr:last-child td{border-bottom:none;background:#f8f9fa}
-.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
-.badge.green{background:#d4edda;color:#155724}.badge.red{background:#f8d7da;color:#721c24}.badge.yellow{background:#fff3cd;color:#856404}
-.change{font-size:11px;margin-left:4px}.change.up{color:#00b894}.change.down{color:#d63031}.change.neutral{color:#636e72}
-.highlights ul{list-style:none;padding:0}
-.highlights li{padding:8px 12px;border-left:3px solid #1a73e8;margin-bottom:8px;background:#f7faff;border-radius:0 6px 6px 0;font-size:13px}
-.footer{text-align:center;color:#b2bec3;font-size:12px;padding:20px}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f6fa; color: #2d3436; }
+  .header { background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; padding: 32px 40px; }
+  .header h1 { font-size: 22px; font-weight: 600; }
+  .header p { margin-top: 6px; opacity: 0.85; font-size: 13px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+  .kpi-card { background: white; border-radius: 12px; padding: 18px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .kpi-card .label { font-size: 12px; color: #636e72; margin-bottom: 6px; }
+  .kpi-card .value { font-size: 26px; font-weight: 700; color: #2d3436; }
+  .kpi-card .change { font-size: 12px; margin-top: 5px; }
+  .change.up, .tag-up { color: #00b894; } .change.down, .tag-down { color: #d63031; } .change.neutral, .tag-neutral { color: #636e72; }
+  .tag-up, .tag-down, .tag-neutral { font-size: 12px; }
+  .section { background: white; border-radius: 12px; padding: 22px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { font-size: 15px; font-weight: 600; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { background: #f8f9fa; padding: 9px 12px; text-align: left; font-weight: 600; color: #636e72; }
+  td { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; }
+  tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .badge.green { background: #d4edda; color: #155724; } .badge.red { background: #f8d7da; color: #721c24; } .badge.yellow { background: #fff3cd; color: #856404; }
+  .team-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .team-us { background: #e8f0fe; color: #1a73e8; } .team-cn-trade { background: #e6f9f0; color: #00796b; }
+  .team-cn-cs { background: #fce4ec; color: #c62828; } .team-total { background: #f3e5f5; color: #7b1fa2; }
+  .note { background: #fff8e1; border-left: 3px solid #ffc107; padding: 9px 13px; font-size: 12px; color: #636e72; border-radius: 0 6px 6px 0; margin-top: 12px; line-height: 1.7; }
+  .highlight-red { color: #d63031; font-weight: 600; } .highlight-green { color: #00b894; font-weight: 600; }
+  .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .chart-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 20px; }
+  .chart-card h2 { font-size: 15px; font-weight: 600; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
+  .chart-card canvas { max-height: 220px; }
+  .highlights-section ul { list-style: none; padding: 0; }
+  .highlights-section li { padding: 8px 12px; border-left: 3px solid #1a73e8; margin-bottom: 8px; background: #f7faff; border-radius: 0 6px 6px 0; font-size: 13px; }
+  .analysis-section { background: white; border-radius: 12px; padding: 26px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .analysis-section > h2 { font-size: 15px; font-weight: 600; margin-bottom: 6px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
+  .analysis-subtitle { font-size: 12px; color: #b2bec3; margin-bottom: 20px; }
+  .summary-box { background: linear-gradient(135deg,#1a73e8 0%,#0d47a1 100%); color: white; border-radius: 10px; padding: 18px 20px; margin-bottom: 22px; }
+  .summary-box .sb-title { font-size: 12px; font-weight: 600; opacity: .7; letter-spacing:.05em; margin-bottom: 10px; text-transform: uppercase; }
+  .summary-box ul { list-style: none; font-size: 13px; line-height: 2; }
+  .summary-box ul li::before { content: "▶ "; opacity: .6; }
+  .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+  .ig-card { border-radius: 10px; padding: 16px 18px; border: 1.5px solid #f0f0f0; background: #fafbfc; }
+  .ig-card.red { border-color: #fde8e8; background: #fff8f8; } .ig-card.green { border-color: #e0f5ee; background: #f6fffe; }
+  .ig-card.amber { border-color: #fdf3e0; background: #fffcf5; } .ig-card.blue { border-color: #e3eefe; background: #f7faff; }
+  .ig-label { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 7px; }
+  .ig-card.red .ig-label { color: #c0392b; } .ig-card.green .ig-label { color: #00796b; } .ig-card.amber .ig-label { color: #e67e22; } .ig-card.blue .ig-label { color: #1a73e8; }
+  .ig-title { font-size: 13px; font-weight: 600; color: #2d3436; margin-bottom: 6px; line-height: 1.4; }
+  .ig-body { font-size: 12px; color: #636e72; line-height: 1.75; }
+  .ig-body b { color: #2d3436; }
+  .reco-section { margin-bottom: 22px; }
+  .reco-section h3 { font-size: 13px; font-weight: 700; color: #2d3436; margin-bottom: 12px; }
+  .reco-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .reco-col-title { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; padding: 4px 10px; border-radius: 4px; display: inline-block; }
+  .reco-col-title.now { background: #fde8e8; color: #c0392b; } .reco-col-title.long { background: #e3eefe; color: #1a73e8; }
+  .reco-list { list-style: none; font-size: 12px; color: #2d3436; line-height: 1.9; padding: 0; }
+  .reco-list li { padding-left: 16px; position: relative; }
+  .reco-list li::before { content: "•"; position: absolute; left: 4px; color: #b2bec3; }
+  .sop-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 22px; }
+  .sop-card { background: #f8f9fa; border-radius: 10px; padding: 14px 16px; border-top: 3px solid #1a73e8; }
+  .sop-card.amber { border-top-color: #e67e22; } .sop-card.green { border-top-color: #00796b; }
+  .sop-card .sc-no { font-size: 10px; font-weight: 700; color: #b2bec3; margin-bottom: 4px; }
+  .sop-card .sc-title { font-size: 12px; font-weight: 700; color: #2d3436; margin-bottom: 8px; }
+  .sop-card .sc-body { font-size: 11px; color: #636e72; line-height: 1.75; }
+  .sop-card .sc-body b { color: #2d3436; }
+  .divider { border: none; border-top: 1.5px solid #f0f0f0; margin: 20px 0; }
+  .footer { text-align: center; color: #b2bec3; font-size: 12px; padding: 20px; }
+  @media (max-width: 700px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .chart-row, .insight-grid, .reco-cols, .sop-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<div class="header">
-  <h1>📞 Call Connection Rate — W21 Report</h1>
-  <p>May 22 – May 28, 2026 &nbsp;|&nbsp; Auto-generated</p>
-</div>
-<div class="container">
-  <div class="kpi-grid">
-    <div class="kpi"><div class="label">Total True Inbound</div><div class="value">1,555</div><div class="sub">vs 1,846 prev week</div></div>
-    <div class="kpi"><div class="label">Overall CCR</div><div class="value">78.2%</div><div class="sub"><span class="badge red">❌ Below Target</span></div></div>
-    <div class="kpi"><div class="label">SLA60 (All)</div><div class="value">63.4%</div><div class="sub">answered within 60s</div></div>
-    <div class="kpi"><div class="label">MY CS Share</div><div class="value">66%</div><div class="sub">1,033 calls handled</div></div>
-  </div>
-  <div class="section">
-    <h2>Regional Breakdown</h2>
-    <table>
-      <tr><th>Region</th><th style="text-align:right">Inbound</th><th style="text-align:right">True Inbound</th><th style="text-align:center">CCR</th><th style="text-align:center">SLA60</th><th style="text-align:center">Status</th></tr>
-      <tr><td>CN Trade</td><td style="text-align:right">217</td><td style="text-align:right">195</td><td style="text-align:center">91.7% <span class="change down">-1.5pp WoW</span></td><td style="text-align:center">77.0%</td><td style="text-align:center"><span class="badge green">✅ On Target</span></td></tr>
-<tr><td>US Trade</td><td style="text-align:right">363</td><td style="text-align:right">327</td><td style="text-align:center">91.2% <span class="change down">-0.4pp WoW</span></td><td style="text-align:center">75.8%</td><td style="text-align:center"><span class="badge green">✅ On Target</span></td></tr>
-<tr><td>MY CS</td><td style="text-align:right">1,174</td><td style="text-align:right">1,033</td><td style="text-align:center">71.6% <span class="change down">-14.0pp WoW</span></td><td style="text-align:center">0%</td><td style="text-align:center"><span class="badge red">❌ Below Target</span></td></tr>
-<tr style="font-weight:700"><td>Total</td><td style="text-align:right">1,754</td><td style="text-align:right">1,555</td><td style="text-align:center">78.2% <span class="change down">-9.7pp WoW</span></td><td style="text-align:center">63.4%</td><td style="text-align:center"><span class="badge red">❌ Below Target</span></td></tr>
 
-    </table>
-  </div>
-  <div class="section highlights">
-    <h2>Key Highlights</h2>
-    <ul><li>US Trade, CN Trade met CCR target ≥90%</li><li>Total true inbound ▼ 15.8% WoW (1,555 calls)</li><li>MY CS CCR dropped 14.0pp WoW to 71.6%</li></ul>
-  </div>
+<div class="header">
+  <h1>📞 Call Connection Rate Weekly Report · May 22 – May 28, 2026</h1>
+  <p>Report Period: 2026-05-22 ~ 2026-05-28 (W21) &nbsp;|&nbsp; vs. Last Week (W20) &nbsp;|&nbsp; Source: Lighthouse (GrowingData)</p>
 </div>
-<div class="footer">Generated by push_weekly_ccr.py · W21 · May 22–May 28, 2026</div>
+
+<div class="container">
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="label">Total True Inbound Calls</div>
+      <div class="value">1,555</div>
+      <div class="change down">▼ -291 calls / -15.8% WoW</div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Weekly Avg CCR (All Teams)</div>
+      <div class="value">78.16%</div>
+      <div class="change down">▼ -9.74pp WoW &nbsp;<span style="color:#636e72">Target ≥90%</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Weekly Avg SLA 60s (All Teams)</div>
+      <div class="value">63.45%</div>
+      <div class="change down">▼ -15.35pp WoW &nbsp;<span style="color:#636e72">Target ≥80%</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="label">Top CCR Team</div>
+      <div class="value" style="font-size:20px">CN Trade</div>
+      <div class="change neutral">— 91.71% weekly avg</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📊 Team Weekly Summary Comparison</h2>
+    <table>
+      <tr><th>Team</th><th>This Week's Calls</th><th>WoW</th><th>Avg CCR</th><th>CCR WoW</th><th>CCR Status</th><th>Avg SLA (60s)</th><th>SLA WoW</th><th>SLA Status</th></tr>
+      <tr style="font-weight:700"><td><span class="team-tag team-total">In Total</span></td><td>1,555</td><td><span class="tag-down">▼ -291 (-15.8%)</span></td><td>78.16%</td><td><span class="tag-down">▼ -9.74pp</span></td><td><span class="badge red">Below Target</span></td><td>63.45%</td><td><span class="tag-down">▼ -15.35pp</span></td><td><span class="badge red">Below Target</span></td></tr><tr><td><span class="team-tag team-us">US Trade</span></td><td>327</td><td><span class="tag-down">▼ -96 (-22.7%)</span></td><td>91.18%</td><td><span class="tag-down">▼ -0.4pp</span></td><td><span class="badge green">On Target</span></td><td>75.76%</td><td><span class="tag-down">▼ -5.45pp</span></td><td><span class="badge yellow">Near Target</span></td></tr><tr><td><span class="team-tag team-cn-trade">CN Trade</span></td><td>195</td><td><span class="tag-down">▼ -19 (-8.9%)</span></td><td>91.71%</td><td><span class="tag-down">▼ -1.45pp</span></td><td><span class="badge green">On Target</span></td><td>76.96%</td><td><span class="tag-down">▼ -4.24pp</span></td><td><span class="badge yellow">Near Target</span></td></tr><tr><td><span class="team-tag team-cn-cs">MY CS</span></td><td>1,033</td><td><span class="tag-down">▼ -176 (-14.6%)</span></td><td>71.64%</td><td><span class="tag-down">▼ -13.95pp</span></td><td><span class="badge red">Below Target</span></td><td>55.41%</td><td><span class="tag-down">▼ -21.97pp</span></td><td><span class="badge red">Below Target</span></td></tr>
+    </table>
+    <div class="note">⚠️ US Trade, CN Trade met the ≥90% CCR target. MY CS came in below target. Total inbound ▼ 15.8% WoW.</div>
+  </div>
+
+  
+
+  
+
+  <div class="section highlights-section">
+    <h2>🔑 Key Highlights</h2>
+    <ul><li>US Trade, CN Trade met CCR target ≥90%</li><li>Total true inbound ▼ 15.8% WoW (1,555 calls)</li><li>MY CS CCR dropped 14.0pp WoW to 71.64%</li></ul>
+  </div>
+
+  <div class="analysis-section">
+    <h2>🧠 Strategic Insights · Recommendations · SOP Framework</h2>
+    <p class="analysis-subtitle">W21 systematic analysis · Auto-generated from weekly data</p>
+
+    <div class="summary-box">
+      <div class="sb-title">📢 Executive Summary</div>
+      <ul><li>Overall CCR was <b>78.16%</b> (below the ≥90% target) — inbound ▼ -291 calls (-15.8%) WoW.</li><li><b>US Trade</b> (91.18%), <b>CN Trade</b> (91.71%) met the CCR target.</li><li>MY CS absorbed <b>66%</b> of total inbound volume at CCR <b>71.64%</b>.</li><li>MY CS was below the ≥90% target — primary drag on the headline figure.</li></ul>
+    </div>
+
+    <div class="reco-section">
+      <h3>🔍 Core Insights</h3>
+      <div class="insight-grid">
+        <div class="ig-card red">
+          <div class="ig-label">Insight 1 · MY CS Volume</div>
+          <div class="ig-title">MY CS handled 66% of total inbound — CCR 71.64% (-13.95pp WoW)</div>
+          <div class="ig-body">MY CS true inbound: <b>1,033 calls</b>. CCR: <b>71.64%</b> — below ≥90% target ❌. SLA (60s): <b>55.41%</b>.</div>
+        </div>
+        <div class="ig-card green">
+          <div class="ig-label">Insight 2 · US Trade</div>
+          <div class="ig-title">US Trade CCR 91.18% — on target ✅</div>
+          <div class="ig-body">True inbound: <b>327</b>. SLA 60s: <b>75.76%</b>. CCR WoW: <b>-0.4pp WoW</b>.</div>
+        </div>
+        <div class="ig-card green">
+          <div class="ig-label">Insight 3 · CN Trade</div>
+          <div class="ig-title">CN Trade CCR 91.71% — on target ✅</div>
+          <div class="ig-body">True inbound: <b>195</b>. SLA 60s: <b>76.96%</b>. CCR WoW: <b>-1.45pp WoW</b>.</div>
+        </div>
+        <div class="ig-card blue">
+          <div class="ig-label">Insight 4 · Volume Trend</div>
+          <div class="ig-title">Overall inbound ▼ 15.8% WoW to 1,555 calls</div>
+          <div class="ig-body">Total inbound: <b>1,555</b> vs 1,846 prev week. MY CS share: <b>66%</b> of volume.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="reco-section">
+      <h3>🎯 Recommendations</h3>
+      <div class="reco-cols">
+        <div>
+          <div class="reco-col-title now">⚡ Immediate Actions (This Week)</div>
+          <ul class="reco-list">
+            <li>Investigate MY CS CCR gap — identify peak-hour coverage issues</li>
+            <li>Review MY CS scheduling and staffing for quick CCR recovery</li>
+            <li>Document what drove CN Trade to 91.71% CCR — extract as cross-team playbook</li>
+            <li>Review any recurring below-target days for structural patterns</li>
+          </ul>
+        </div>
+        <div>
+          <div class="reco-col-title long">🏗 Longer-Term (Next Month)</div>
+          <ul class="reco-list">
+            <li>Build SLA/CCR decoupling alert: flag when CCR meets target but SLA drops &gt;8pp WoW</li>
+            <li>Formalise MY CS peak-day scheduling when projected volume &gt;200 calls</li>
+            <li>Three-tier KPI alert: 🟢 On Track / 🟡 Watch / 🔴 Alert with defined thresholds</li>
+            <li>Set W22 recovery targets: Overall CCR ≥80%, MY CS ≥75%, SLA ≥65%</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="reco-section">
+      <h3>⚙️ SOP Framework</h3>
+      <div class="sop-grid">
+        <div class="sop-card">
+          <div class="sc-no">SOP-01</div><div class="sc-title">MY CS Volume Surge Response</div>
+          <div class="sc-body"><b>Trigger:</b> MY CS weekly inbound &gt;1,200 or WoW growth &gt;20%<br><b>Response:</b> TL reviews staffing → activate flex coverage → monitor daily until stable<br><b>Goal:</b> Maintain CCR ≥90% and SLA (60s) ≥75%</div>
+        </div>
+        <div class="sop-card amber">
+          <div class="sc-no">SOP-02</div><div class="sc-title">SLA / CCR Decoupling Detection</div>
+          <div class="sc-body"><b>Trigger:</b> CCR ≥90% but SLA (60s) drops &gt;8pp WoW<br><b>Response:</b> Review intra-day call distribution → identify peak-hour gap → schedule adjustment same week<br><b>Rationale:</b> CCR pass can mask a speed-of-answer problem</div>
+        </div>
+        <div class="sop-card green">
+          <div class="sc-no">SOP-03</div><div class="sc-title">Daily CCR Alert Protocol</div>
+          <div class="sc-body"><b>Trigger:</b> Any team daily CCR &lt;80% or SLA &lt;65%<br><b>Response:</b> TL confirms staffing within 30 min → cover gap within 1h → brief management by 18:00<br><b>Goal:</b> Same-day resolution</div>
+        </div>
+        <div class="sop-card">
+          <div class="sc-no">SOP-04</div><div class="sc-title">Three-Tier KPI Alert System</div>
+          <div class="sc-body"><b>Tiers:</b><br>🟢 <b>On Track:</b> CCR ≥90%, SLA ≥80%<br>🟡 <b>Watch:</b> CCR 85–89%, SLA 70–79% → investigate<br>🔴 <b>Alert:</b> CCR &lt;85%, SLA &lt;70% → escalate same day</div>
+        </div>
+        <div class="sop-card amber">
+          <div class="sc-no">SOP-05</div><div class="sc-title">Monday Pre-Positioning</div>
+          <div class="sc-body"><b>Observation:</b> Monday is typically the highest-volume day for MY CS<br><b>Standard:</b> MY CS TL confirms Mon staffing by Fri EOD; activate flex if forecast &gt;170 calls<br><b>Threshold:</b> Mon SLA (60s) ≥75%</div>
+        </div>
+        <div class="sop-card green">
+          <div class="sc-no">SOP-06</div><div class="sc-title">Weekly Recovery Target Setting</div>
+          <div class="sc-body"><b>Practice:</b> Set explicit next-week targets at end of each report<br><b>W22 targets:</b> Overall CCR ≥80%, MY CS CCR ≥75%, SLA (60s) ≥65%<br><b>Review:</b> Track actuals vs targets in next report</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">Call Connection Rate Weekly Report · May 22 – May 28, 2026 (W21) · Auto-generated by push_weekly_ccr.py</div>
+
+
 </body>
 </html>
