@@ -415,7 +415,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <div class="kpi-card email">
       <div class="kpi-label">W24整体SLA</div>
       <div class="kpi-value">94.62%</div>
-      <div class="kpi-delta neu">W24 对比</div>
+      <div class="kpi-delta neu">W24 对比（API同口径）</div>
     </div>
   </div>
 
@@ -613,21 +613,19 @@ new Chart(document.getElementById('cPhoneSat'),{
 
 new Chart(document.getElementById('cEmailCombo'),{
   data:{labels:L4,datasets:[
-    {type:'bar',label:'工单量',data:[1758,2309,372,270],
+    {type:'bar',label:'工单量',data:[393,524,372,270],
       backgroundColor:['rgba(5,150,105,.35)','rgba(5,150,105,.35)','rgba(5,150,105,.5)','rgba(5,150,105,.85)'],
       borderRadius:4,yAxisID:'y',
       datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'rgba(255,255,255,.95)',formatter:v=>v.toLocaleString()}},
-    {type:'line',label:'整体SLA%',data:[93.39,90.87,94.62,80.54],borderColor:'#059669',tension:.3,borderWidth:2.5,pointRadius:5,yAxisID:'y1',
+    {type:'line',label:'整体SLA%',data:[93.4,93.79,94.62,80.54],borderColor:'#059669',tension:.3,borderWidth:2.5,pointRadius:5,yAxisID:'y1',
       datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
-    {type:'line',label:'MY SLA%',data:[95.01,91.66,94.62,80.54],borderColor:'#7c3aed',tension:.3,borderWidth:2,pointRadius:5,borderDash:[4,2],yAxisID:'y1',
-      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#7c3aed',formatter:v=>v+'%'}},
     {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4,right:8}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{
       x:{ticks:{font:F},grid:{display:false}},
-      y:{min:0,max:3000,position:'left',ticks:{font:F},grid:GRID},
+      y:{min:0,max:700,position:'left',ticks:{font:F},grid:GRID},
       y1:{min:72,max:102,position:'right',ticks:{font:F,callback:v=>v+'%'},grid:{display:false}}
     }}
 });
