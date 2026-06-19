@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>US MY 客服周报 · 2026年第25周</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+:root{
+  --blue:#1e40af;--purple:#7c3aed;--green:#059669;--orange:#d97706;--red:#dc2626;--teal:#0891b2;
+  --text:#1e293b;--muted:#64748b;--border:#e2e8f0;
+  --sidebar-w:210px;
+  --sg:#10b981;--sa:#f59e0b;--sr:#ef4444
+}
+.app-header{background:linear-gradient(135deg,#1e3a8a,#1e40af);color:#fff;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.header-nav{display:flex;gap:2px;align-items:center}
+.header-nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;transition:all .15s;white-space:nowrap}
+.header-nav a:hover{background:rgba(255,255,255,.2);color:#fff}
+.app-title{font-size:15px;font-weight:700}
+.app-meta{font-size:11px;opacity:.8;margin-top:2px}
+.main{max-width:1100px;margin:0 auto;padding:24px 20px}
+.section{display:block;margin-bottom:40px}
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--border)}
+.sdot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.section-title{font-size:16px;font-weight:700}
+.sec-stat{margin-left:auto;font-size:11px;color:var(--muted);display:flex;gap:8px}
+.sec-stat span{display:flex;align-items:center;gap:3px;font-weight:600}
+.week-badge{font-size:11px;background:#e0f2fe;color:#0369a1;padding:3px 10px;border-radius:20px;font-weight:600}
+.kpi-grid{display:grid;gap:10px;margin-bottom:12px}
+.kpi-grid-4{grid-template-columns:repeat(4,1fr)}
+.kpi-grid-5{grid-template-columns:repeat(5,1fr)}
+.kpi-grid-6{grid-template-columns:repeat(6,1fr)}
+.kpi-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.kpi-card.online::before{background:#1e40af}
+.kpi-card.phone::before{background:#7c3aed}
+.kpi-card.email::before{background:#059669}
+.kpi-card.qc::before{background:#d97706}
+.kpi-si{position:absolute;top:11px;right:11px;width:10px;height:10px;border-radius:50%}
+.sg{background:var(--sg);box-shadow:0 0 0 3px rgba(16,185,129,.18)}
+.sa{background:var(--sa);box-shadow:0 0 0 3px rgba(245,158,11,.18)}
+.sr{background:var(--sr);box-shadow:0 0 0 3px rgba(239,68,68,.18)}
+.kpi-label{font-size:10.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;padding-right:18px;line-height:1.3}
+.kpi-value{font-size:20px;font-weight:700;line-height:1}
+.kpi-delta{font-size:11px;margin-top:4px;font-weight:600}
+.kpi-delta.up{color:var(--green)}.kpi-delta.down{color:var(--red)}.kpi-delta.neu{color:var(--muted)}
+.kpi-target{font-size:10px;color:#94a3b8;margin-top:4px;font-weight:500}
+.charts-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.chart-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px}
+.chart-title{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px}
+.chart-wrap{position:relative;height:200px}
+.analysis-block{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.analysis-title{font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:12px;font-weight:600}
+.badge-blue{background:#dbeafe;color:#1e40af}.badge-red{background:#fee2e2;color:#dc2626}
+.badge-green{background:#d1fae5;color:#065f46}.badge-orange{background:#fef3c7;color:#92400e}
+.badge-gray{background:#f1f5f9;color:#64748b}
+.insight-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.insight{background:#f8fafc;border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 12px}
+.insight.warn{border-left-color:var(--orange)}.insight.ok{border-left-color:var(--green)}.insight.alert{border-left-color:var(--red)}
+.insight-label{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:3px}
+.insight-text{font-size:12px;line-height:1.6}
+.action-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+.action-table th{padding:7px 10px;background:#f1f5f9;font-weight:700;text-align:left;border:1px solid var(--border);color:var(--muted);font-size:11px;text-transform:uppercase}
+.action-table td{padding:7px 10px;border:1px solid var(--border);vertical-align:top;line-height:1.5}
+.data-table{width:100%;border-collapse:collapse;font-size:12px}
+.data-table th,.data-table td{padding:7px 10px;border:1px solid var(--border)}
+.data-table th{background:#f1f5f9;font-weight:700;color:var(--muted);font-size:11px;text-align:left}
+.data-table td:first-child{font-weight:600;text-align:left}.data-table td{text-align:center}
+.sum-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.sum-card{border-radius:10px;padding:14px}
+.sum-card-title{font-size:12px;font-weight:700;margin-bottom:8px}
+.sum-item{font-size:11px;line-height:1.8;display:flex;gap:5px}
+.percap-tbl{width:100%;border-collapse:collapse;font-size:11.5px;margin-bottom:4px}
+.percap-tbl th{background:#f1f5f9;font-weight:700;color:var(--muted);font-size:10.5px;text-transform:uppercase;padding:5px 8px;text-align:center;border:1px solid var(--border)}
+.percap-tbl th:first-child{text-align:left}
+.percap-tbl td{padding:4px 8px;border:1px solid var(--border);text-align:center;color:#334155}
+.percap-tbl td:first-child{text-align:left;font-weight:600;color:#1e293b}
+.percap-tbl tr.row-percap td{background:#eff6ff;font-weight:700;color:#1e40af}
+@media(max-width:768px){
+  .main{padding:12px}
+  .kpi-grid-4,.kpi-grid-5,.kpi-grid-6{grid-template-columns:repeat(2,1fr)}
+  .charts-row,.insight-row{grid-template-columns:1fr}
+  .sum-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div>
+    <div class="app-title">US MY 客服周报 · 2026年第25周</div>
+    <div class="app-meta">6月12日（周五）— 6月18日（周四）&nbsp;·&nbsp; US Advisory Team</div>
+  </div>
+  <nav class="header-nav">
+    <a href="#sec-online">💬 在线</a>
+    <a href="#sec-phone">📞 电话</a>
+    <a href="#sec-email">📧 邮件</a>
+    <a href="#sec-qc">🔍 差错</a>
+    <a href="#sec-summary">📋 总结</a>
+  </nav>
+</div>
+
+<div class="main">
+
+<!-- ① 在线 -->
+<div class="section" id="sec-online">
+  <div class="section-header">
+    <div class="sdot" style="background:#1e40af"></div>
+    <div class="section-title">一、在线客服</div>
+    <div class="sec-stat">
+      <span><div class="ldot" style="width:8px;height:8px;border-radius:50%;background:var(--sg);display:inline-block"></div>&nbsp;达标 2</span>
+      <span><div class="ldot" style="width:8px;height:8px;border-radius:50%;background:var(--sr);display:inline-block"></div>&nbsp;未达 2</span>
+    </div>
+    <span class="week-badge">6.12–6.18</span>
+  </div>
+
+  <div class="kpi-grid kpi-grid-5">
+    <div class="kpi-card online">
+      <div class="kpi-label">总工单量</div>
+      <div class="kpi-value">2,686</div>
+      <div class="kpi-delta down">▼ 683 vs W24</div>
+    </div>
+    <div class="kpi-card online">
+      <div class="kpi-si sg"></div>
+      <div class="kpi-label">30s接通率</div>
+      <div class="kpi-value">92.33%</div>
+      <div class="kpi-delta up">▲ 0.14pp vs W24</div>
+      <div class="kpi-target">目标 ≥90%&nbsp;·&nbsp;✅ 达标</div>
+    </div>
+    <div class="kpi-card online">
+      <div class="kpi-si sr"></div>
+      <div class="kpi-label">总满意度</div>
+      <div class="kpi-value">78.06%</div>
+      <div class="kpi-delta down">▼ 9.77pp vs W24</div>
+      <div class="kpi-target">目标 ≥90%&nbsp;·&nbsp;差距 11.94pp</div>
+    </div>
+    <div class="kpi-card online">
+      <div class="kpi-si sr"></div>
+      <div class="kpi-label">一次解决率</div>
+      <div class="kpi-value">91.51%</div>
+      <div class="kpi-delta down">▼ 4.33pp vs W24</div>
+      <div class="kpi-target">目标 ≥95%&nbsp;·&nbsp;差距 3.49pp</div>
+    </div>
+    <div class="kpi-card online">
+      <div class="kpi-si sg"></div>
+      <div class="kpi-label">处理时长</div>
+      <div class="kpi-value">11.46m</div>
+      <div class="kpi-delta down">▲ 0.81m vs W24</div>
+      <div class="kpi-target">目标 &lt;15min&nbsp;·&nbsp;✅ 达标</div>
+    </div>
+  </div>
+
+  <div class="kpi-grid kpi-grid-4" style="margin-top:-4px">
+    <div class="kpi-card online">
+      <div class="kpi-label">持牌接待量</div>
+      <div class="kpi-value">1,947</div>
+      <div class="kpi-delta down">▼ 525 vs W24</div>
+    </div>
+    <div class="kpi-card online">
+      <div class="kpi-label">非持牌接待量</div>
+      <div class="kpi-value">739</div>
+      <div class="kpi-delta down">▼ 158 vs W24</div>
+    </div>
+    <div class="kpi-card online" style="grid-column:span 2;background:#fffbeb;border-color:#fde68a">
+      <div class="kpi-label" style="color:#92400e">Juneteenth 假日影响</div>
+      <div style="font-size:12px;line-height:1.7;color:#78350f;margin-top:4px">
+        W25含6月19日（Juneteenth，美国联邦假日），US市场在线量受假期影响有所回落；满意度和FCR明显下降可能与节假日期间客服团队配置变化有关。
+      </div>
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">接待量（持牌 / 非持牌）&amp; 30s接通率（4周）</div>
+      <div class="chart-wrap"><canvas id="cOnlineVol"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">总体满意度 &amp; FCR 趋势（4周）</div>
+      <div class="chart-wrap"><canvas id="cOnlineRates"></canvas></div>
+    </div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">📊 在线咨询业务前10（4周）<span class="badge badge-gray">W25数据待灯塔导出后补录</span></div>
+    <table class="data-table">
+      <thead><tr><th>咨询业务</th><th>W22</th><th>W23</th><th>W24</th><th>W25</th><th>环比</th></tr></thead>
+      <tbody>
+        <tr><td>关于moomoo</td><td>881</td><td>839</td><td>812</td><td>—</td><td>—</td></tr>
+        <tr><td>账户</td><td>809</td><td>721</td><td>692</td><td>—</td><td>—</td></tr>
+        <tr><td>资金</td><td>377</td><td>377</td><td>398</td><td>—</td><td>—</td></tr>
+        <tr><td>交易</td><td>445</td><td>586</td><td>367</td><td>—</td><td>—</td></tr>
+        <tr><td>平台基础体验</td><td>270</td><td>221</td><td>185</td><td>—</td><td>—</td></tr>
+        <tr><td>转仓</td><td>225</td><td>194</td><td>184</td><td>—</td><td>—</td></tr>
+        <tr><td>新股申购</td><td>—</td><td>—</td><td>142</td><td>—</td><td>—</td></tr>
+        <tr><td colspan="6" style="color:#94a3b8;font-size:11px;text-align:left">W25业务明细待灯塔导出后手动补录</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">🔎 在线深度分析</div>
+    <div class="insight-row">
+      <div class="insight alert">
+        <div class="insight-label">⚠ 总满意度 78.06%（▼9.77pp vs W24）——差目标11.94pp，本周最大隐患</div>
+        <div class="insight-text">W25满意度从W24的87.83%骤降至78.06%，创近4周新低，差目标（≥90%）达11.94pp。W25含Juneteenth节假日（6/19），客服配置变化可能是根因之一；同时本周在线工单量▼683，但满意度未随量减而提升，建议本周即调取不满意工单录音，确认是否集中在特定业务类别或班次。</div>
+      </div>
+      <div class="insight alert">
+        <div class="insight-label">⚠ 一次解决率 91.51%（▼4.33pp vs W24）——差目标3.49pp，连续低于95%</div>
+        <div class="insight-text">FCR延续W24低位，本周进一步下降至91.51%，W24为95.84%（脚本口径）。重点排查：税务/CDD账户限制触发后重复联系工单、资金类WIRE/ACH催进度、节假日前后账户操作相关询问。建议结合业务明细（待导出）确认重点业务FCR。</div>
+      </div>
+      <div class="insight ok">
+        <div class="insight-label">✓ 30s接通率 92.33%（▲0.14pp vs W24）——连续达标</div>
+        <div class="insight-text">在线接通率小幅改善至92.33%，超越90%目标，连续达标。本周在线工单总量2,686（▼683 vs W24），接通率在量减背景下保持稳定，排班覆盖情况良好。</div>
+      </div>
+      <div class="insight ok">
+        <div class="insight-label">✓ 处理时长 11.46m（达标，▲0.81m vs W24）</div>
+        <div class="insight-text">AHT小幅上升至11.46m，较W24（10.65m）增加0.81m，但仍远低于15min目标，整体效率稳定。AHT轻微上升可能与Juneteenth假日期间咨询类型有关。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-block" style="margin-bottom:14px">
+    <div class="analysis-title">🔁 FCR 业务分类明细（W25 · 数据待灯塔导出）</div>
+    <div style="padding:12px;background:#f8fafc;border-radius:8px;color:#64748b;font-size:12px">W25 FCR业务明细待质检/灯塔团队导出后手动补录。请参考W24明细：资金类93.1%、活动类94.8%为W24差距最大业务。</div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">👎 在线 不满意工单 TOP5（4周）</div>
+    <table class="data-table">
+      <thead><tr><th>业务类别</th><th>W22</th><th>W23</th><th>W24</th><th>W25</th></tr></thead>
+      <tbody>
+        <tr><td>账户</td><td>14</td><td>16</td><td>—</td><td>—</td></tr>
+        <tr><td>交易</td><td>18</td><td>13</td><td>—</td><td>—</td></tr>
+        <tr><td>资金</td><td>7</td><td>11</td><td>—</td><td>—</td></tr>
+        <tr><td>活动</td><td>0</td><td>6</td><td>—</td><td>—</td></tr>
+        <tr><td>其他</td><td>5</td><td>4</td><td>—</td><td>—</td></tr>
+        <tr style="border-top:2px solid var(--border);font-weight:700;color:var(--muted);font-size:10.5px"><td>总计</td><td>66</td><td>65</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">⏱ 在线 人效（4周）</div>
+    <table class="percap-tbl" style="max-width:480px">
+      <thead><tr><th>指标</th><th>W22</th><th>W23</th><th>W24</th><th>W25</th></tr></thead>
+      <tbody>
+        <tr><td>工时利用率</td><td>90.89%</td><td>93.43%</td><td>—</td><td>—</td></tr>
+        <tr><td>处理时长（分）</td><td>11.09</td><td>10.14</td><td>10.65</td><td>11.46</td></tr>
+        <tr class="row-percap"><td>人效（天）</td><td>157</td><td>165</td><td>—</td><td>—</td></tr>
+        <tr class="row-percap"><td>人效（小时）</td><td>20</td><td>21</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ② 电话 -->
+<div class="section" id="sec-phone">
+  <div class="section-header">
+    <div class="sdot" style="background:#7c3aed"></div>
+    <div class="section-title">二、电话客服</div>
+    <div class="sec-stat">
+      <span><div class="ldot" style="width:8px;height:8px;border-radius:50%;background:var(--sg);display:inline-block"></div>&nbsp;达标 2</span>
+      <span><div class="ldot" style="width:8px;height:8px;border-radius:50%;background:var(--sr);display:inline-block"></div>&nbsp;未达 1</span>
+    </div>
+    <span class="week-badge">6.12–6.18</span>
+  </div>
+
+  <div class="kpi-grid kpi-grid-5">
+    <div class="kpi-card phone">
+      <div class="kpi-label">呼入量</div>
+      <div class="kpi-value">2,131</div>
+      <div class="kpi-delta up">▲ 33 vs W24</div>
+    </div>
+    <div class="kpi-card phone">
+      <div class="kpi-si sr"></div>
+      <div class="kpi-label">总接通率</div>
+      <div class="kpi-value">75.97%</div>
+      <div class="kpi-delta up">▲ 1.90pp vs W24</div>
+      <div class="kpi-target">目标 ≥95%&nbsp;·&nbsp;差距 19.03pp</div>
+    </div>
+    <div class="kpi-card phone">
+      <div class="kpi-si sg"></div>
+      <div class="kpi-label">总满意度</div>
+      <div class="kpi-value">90.80%</div>
+      <div class="kpi-delta up">▲ 13.53pp vs W24</div>
+      <div class="kpi-target">目标 ≥90%&nbsp;·&nbsp;✅ 达标</div>
+    </div>
+    <div class="kpi-card phone">
+      <div class="kpi-si sg"></div>
+      <div class="kpi-label">通话时长</div>
+      <div class="kpi-value">4.65m</div>
+      <div class="kpi-delta up">▼ 0.90m vs W24</div>
+      <div class="kpi-target">目标 &lt;7.5min&nbsp;·&nbsp;✅ 达标</div>
+    </div>
+    <div class="kpi-card phone">
+      <div class="kpi-label">外呼量</div>
+      <div class="kpi-value">308</div>
+      <div class="kpi-delta down">▼ 12 vs W24</div>
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">呼入量 &amp; 总接通率（4周）</div>
+      <div class="chart-wrap"><canvas id="cPhoneVol"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">满意度趋势（4周）</div>
+      <div class="chart-wrap"><canvas id="cPhoneSat"></canvas></div>
+    </div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">📊 电话咨询业务前10（4周）<span class="badge badge-gray">W25数据待灯塔导出后补录</span></div>
+    <table class="data-table">
+      <thead><tr><th>咨询业务</th><th>W22</th><th>W23</th><th>W24</th><th>W25</th><th>环比</th></tr></thead>
+      <tbody>
+        <tr><td>交易</td><td>508</td><td>701</td><td>461</td><td>—</td><td>—</td></tr>
+        <tr><td>App基础体验</td><td>204</td><td>409</td><td>248</td><td>—</td><td>—</td></tr>
+        <tr><td>账户</td><td>266</td><td>292</td><td>209</td><td>—</td><td>—</td></tr>
+        <tr><td>资金</td><td>206</td><td>237</td><td>235</td><td>—</td><td>—</td></tr>
+        <tr><td>新股申购</td><td>—</td><td>41</td><td>73</td><td>—</td><td>—</td></tr>
+        <tr><td colspan="6" style="color:#94a3b8;font-size:11px;text-align:left">W25业务明细待灯塔导出后手动补录</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">🔎 电话深度分析</div>
+    <div class="insight-row">
+      <div class="insight ok">
+        <div class="insight-label">✅ 满意度90.80%（▲13.53pp vs W24）——本周最大亮点，首次达标</div>
+        <div class="insight-text">电话满意度从W24的77.27%大幅跃升至90.80%，▲13.53pp，首次突破90%目标，是本周各渠道满意度中唯一达标项。本周呼入量2,131（▲33 vs W24），量小幅上升而满意度明显改善，通话质量提升明显，建议复盘本周优秀录音，提炼满意度提升关键因素。</div>
+      </div>
+      <div class="insight alert">
+        <div class="insight-label">⚠ 接通率75.97%（▲1.90pp vs W24）——仍差目标19.03pp，产能缺口大</div>
+        <div class="insight-text">总接通率75.97%，较W24（74.07%）小幅改善，但距目标（≥95%）仍差19.03pp，缺口持续偏大。本周含Juneteenth假日（6/19），建议评估假日期间排班覆盖是否为接通率拖累主因，并监控W26假日效应消退后的接通率恢复情况。</div>
+      </div>
+      <div class="insight ok">
+        <div class="insight-label">✓ 通话时长4.65m（▼0.90m vs W24）——效率显著提升，远低于7.5m目标</div>
+        <div class="insight-text">AHT从W24的5.55m降至4.65m，▼0.90m，为近4周最低，效率表现优异。外呼量308（▼12 vs W24），总体产能利用合理。</div>
+      </div>
+      <div class="insight warn">
+        <div class="insight-label">📌 Juneteenth假日（6/19）影响：US区电话量6/19有明显下降，整体W25量影响有限</div>
+        <div class="insight-text">6/19（Juneteenth）为US联邦假日，预计US区客户拨入量当日明显低于正常工作日。本周总量2,131略高于W24，说明其余工作日（6/12-6/18）量有所回补，Juneteenth影响未拉低整体量。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">👎 电话 不满意工单 TOP5（4周）</div>
+    <table class="data-table">
+      <thead><tr><th>业务类别</th><th>W22</th><th>W23</th><th>W24</th><th>W25</th></tr></thead>
+      <tbody>
+        <tr><td>账户</td><td>2</td><td>7</td><td>—</td><td>—</td></tr>
+        <tr><td>资金</td><td>2</td><td>6</td><td>—</td><td>—</td></tr>
+        <tr><td>交易</td><td>2</td><td>4</td><td>—</td><td>—</td></tr>
+        <tr><td>其他</td><td>2</td><td>3</td><td>—</td><td>—</td></tr>
+        <tr><td>活动</td><td>0</td><td>2</td><td>—</td><td>—</td></tr>
+        <tr style="border-top:2px solid var(--border);font-weight:700;color:var(--muted);font-size:10.5px"><td>总计</td><td>11</td><td>22</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">⏱ 电话 人效（4周）</div>
+    <table class="percap-tbl" style="max-width:480px">
+      <thead><tr><th>指标</th><th>W22</th><th>W23</th><th>W24</th><th>W25</th></tr></thead>
+      <tbody>
+        <tr><td>工时利用率</td><td>92.54%</td><td>89.02%</td><td>94.20%</td><td>—</td></tr>
+        <tr><td>通话时长（分）</td><td>5.37</td><td>5.09</td><td>5.55</td><td>4.65</td></tr>
+        <tr class="row-percap"><td>人效（天）</td><td>83</td><td>79</td><td>104</td><td>—</td></tr>
+        <tr class="row-percap"><td>人效（小时）</td><td>10</td><td>10</td><td>13</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ③ 邮件 -->
+<div class="section" id="sec-email">
+  <div class="section-header">
+    <div class="sdot" style="background:#059669"></div>
+    <div class="section-title">三、邮件渠道</div>
+    <div class="sec-stat">
+      <span><div class="ldot" style="width:8px;height:8px;border-radius:50%;background:var(--sr);display:inline-block"></div>&nbsp;未达 2</span>
+    </div>
+    <span class="week-badge">6.12–6.18</span>
+  </div>
+
+  <div class="kpi-grid kpi-grid-4">
+    <div class="kpi-card email">
+      <div class="kpi-label">总工单量</div>
+      <div class="kpi-value">270</div>
+      <div class="kpi-delta down">▼ 102 vs W24</div>
+    </div>
+    <div class="kpi-card email">
+      <div class="kpi-si sr"></div>
+      <div class="kpi-label">整体SLA达标率</div>
+      <div class="kpi-value">80.54%</div>
+      <div class="kpi-delta down">▼ 14.08pp vs W24</div>
+      <div class="kpi-target">目标 ≥90%&nbsp;·&nbsp;差距 9.46pp</div>
+    </div>
+    <div class="kpi-card email">
+      <div class="kpi-si sr"></div>
+      <div class="kpi-label">MY SLA达标率</div>
+      <div class="kpi-value">80.54%</div>
+      <div class="kpi-delta down">▼ 14.08pp vs W24</div>
+      <div class="kpi-target">目标 ≥90%&nbsp;·&nbsp;差距 9.46pp</div>
+    </div>
+    <div class="kpi-card email">
+      <div class="kpi-label">W24整体SLA</div>
+      <div class="kpi-value">94.62%</div>
+      <div class="kpi-delta neu">W24 对比</div>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-title">邮件工单量 &amp; SLA达标率（4周）</div>
+    <div class="chart-wrap" style="height:230px"><canvas id="cEmailCombo"></canvas></div>
+  </div>
+
+  <div class="analysis-block" style="margin-top:12px">
+    <div class="analysis-title">🔎 邮件深度分析</div>
+    <div class="insight-row">
+      <div class="insight alert">
+        <div class="insight-label">⚠ SLA 80.54%（▼14.08pp vs W24）——本周最大下滑，差目标9.46pp</div>
+        <div class="insight-text">邮件SLA从W24的94.62%大幅下滑至80.54%，▼14.08pp，首次跌破85%，两项（整体/MY）均未达标。建议立即检查：①本周是否有大批量邮件积压导致SLA超时；②6/12发出的149,070封通知邮件（无资产客群）回复是否在W25集中涌入，导致处理时效被拉低。</div>
+      </div>
+      <div class="insight alert">
+        <div class="insight-label">⚠ 工单量270（▼102 vs W24）——总量回落，但SLA同步下滑，质量隐患</div>
+        <div class="insight-text">W25邮件工单量从W24的372进一步回落至270，照理SLA应更易达标，但实际SLA反而下降了14.08pp，说明问题不在量，而在处理时效（部分邮件响应时间超标）。建议核查W25内SLA未达标工单的具体创建时间与响应时间分布，确认是否集中在假日前后。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">📊 邮件业务前10（4周）<span class="badge badge-gray">W25数据待灯塔导出后补录</span></div>
+    <table class="data-table">
+      <thead><tr><th>咨询业务</th><th>W22</th><th>W23</th><th>W24</th><th>W25</th><th>环比</th></tr></thead>
+      <tbody>
+        <tr><td>销户</td><td>419</td><td>621</td><td>331</td><td>—</td><td>—</td></tr>
+        <tr><td>账户</td><td>428</td><td>459</td><td>329</td><td>—</td><td>—</td></tr>
+        <tr><td>转仓</td><td>282</td><td>359</td><td>308</td><td>—</td><td>—</td></tr>
+        <tr><td>垃圾邮件</td><td>148</td><td>120</td><td>157</td><td>—</td><td>—</td></tr>
+        <tr><td>交易</td><td>72</td><td>132</td><td>141</td><td>—</td><td>—</td></tr>
+        <tr><td colspan="6" style="color:#94a3b8;font-size:11px;text-align:left">W25业务明细待灯塔导出后手动补录</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ④ 差错 -->
+<div class="section" id="sec-qc">
+  <div class="section-header">
+    <div class="sdot" style="background:#d97706"></div>
+    <div class="section-title">四、质检差错</div>
+    <div class="sec-stat">
+      <span style="color:#94a3b8">待更新</span>
+    </div>
+    <span class="week-badge">6.12–6.18</span>
+  </div>
+
+  <div class="analysis-block">
+    <div style="padding:12px;background:#fef3c7;border-radius:8px;color:#92400e;font-size:12px;line-height:1.8">
+      <strong>📋 W25质检数据待更新</strong><br>
+      请质检团队导出W25（6/12–6/18）质检结果后，按以下格式补录：
+      <ul style="margin-top:8px;padding-left:20px">
+        <li>在线渠道：差错数 / 质检总单数 → 差错率</li>
+        <li>电话渠道：差错数 / 质检总单数 → 差错率</li>
+        <li>邮件渠道：差错数 / 质检总单数 → 差错率</li>
+        <li>差错明细：渠道 / 一级业务 / 二三级 / 规则 / 类型 / 差错简述</li>
+      </ul>
+      <br>W24参考：在线0.51%（3/590单），电话0.69%（1/145单），邮件0.57%（1/176单），均达标。
+    </div>
+  </div>
+
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">各渠道差错率趋势（W22–W24，W25待更新）</div>
+      <div class="chart-wrap"><canvas id="cErrRate"></canvas></div>
+    </div>
+    <div class="chart-card" style="display:flex;align-items:center;justify-content:center">
+      <div style="text-align:center;color:#94a3b8">
+        <div style="font-size:32px;margin-bottom:8px">🔍</div>
+        <div style="font-size:12px">W25差错类型分布<br>待质检数据更新后生成</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑤ 总结 -->
+<div class="section" id="sec-summary">
+  <div class="section-header">
+    <div class="sdot" style="background:#0891b2"></div>
+    <div class="section-title">五、本周总结</div>
+    <span class="week-badge">6.12–6.18 · W25</span>
+  </div>
+  <div class="analysis-block">
+    <div style="font-size:13px;line-height:1.9;color:var(--text);margin-bottom:16px">
+      本周整体呈<strong>「在线量回落、满意度两极分化、邮件SLA大幅下滑」</strong>格局，Juneteenth假日（6/19）是本周最重要的外部变量。<br><br>
+      <strong>核心变化：</strong>在线工单量2,686（▼683 vs W24），30s接通率92.33%连续达标，但满意度骤降至78.06%（▼9.77pp）、FCR降至91.51%（▼4.33pp），两项未达标；电话呼入量2,131（▲33），接通率75.97%（▲1.90pp）仍差目标，但<strong>满意度大幅跃升至90.80%（▲13.53pp），首次达标，是本周最大亮点</strong>；邮件工单量270（▼102），但SLA大幅下滑至80.54%（▼14.08pp），两项均未达标，为本周最大警示。<br><br>
+      <strong>Juneteenth假日影响评估：</strong>6/19(周四)为美国联邦假日，US市场交易休市，客户咨询类型向账户/资金类转移，非交易类工单占比可能上升，可能是在线满意度和FCR下滑的部分原因；邮件SLA下滑需进一步核查是否为假日前积压所致。<br><br>
+      <strong>下周关注（W26建议）：</strong>①深查在线满意度78.06%根因，调取不满意工单录音；②持续监控邮件SLA，追查W25未达标工单响应时效；③电话满意度达标后，重点制定接通率提升方案，缩小与95%目标的差距；④等待质检W25差错数据，及时补录。
+    </div>
+    <div class="sum-grid">
+      <div class="sum-card" style="background:#eff6ff;border:1px solid #bfdbfe">
+        <div class="sum-card-title" style="color:#1e3a8a">💬 在线</div>
+        <div class="sum-item"><span style="color:#059669">✓</span> 30s接通率92.33%（▲0.14pp，达标）</div>
+        <div class="sum-item"><span style="color:#059669">✓</span> AHT 11.46m（达标）</div>
+        <div class="sum-item"><span style="color:#dc2626">✗</span> 满意度78.06%（▼9.77pp，差目标11.94pp）</div>
+        <div class="sum-item"><span style="color:#dc2626">✗</span> FCR 91.51%（▼4.33pp，差目标3.49pp）</div>
+        <div class="sum-item"><span style="color:#94a3b8">?</span> 差错率待质检团队更新</div>
+      </div>
+      <div class="sum-card" style="background:#f5f3ff;border:1px solid #ddd6fe">
+        <div class="sum-card-title" style="color:#4c1d95">📞 电话</div>
+        <div class="sum-item"><span style="color:#059669">✓</span> 满意度90.80%（▲13.53pp，达标✨）</div>
+        <div class="sum-item"><span style="color:#059669">✓</span> 通话时长4.65m（▼0.90m，达标）</div>
+        <div class="sum-item"><span style="color:#dc2626">✗</span> 接通率75.97%（差距19.03pp）</div>
+        <div class="sum-item"><span style="color:#94a3b8">?</span> 差错率待质检团队更新</div>
+      </div>
+      <div class="sum-card" style="background:#ecfdf5;border:1px solid #a7f3d0">
+        <div class="sum-card-title" style="color:#065f46">📧 邮件</div>
+        <div class="sum-item"><span style="color:#dc2626">✗</span> SLA 80.54%（▼14.08pp，差目标9.46pp）</div>
+        <div class="sum-item"><span style="color:#dc2626">✗</span> MY SLA 80.54%（▼14.08pp）</div>
+        <div class="sum-item"><span style="color:#94a3b8">?</span> 差错率待质检团队更新</div>
+      </div>
+      <div class="sum-card" style="background:#fefce8;border:1px solid #fde68a">
+        <div class="sum-card-title" style="color:#713f12">🔍 差错</div>
+        <div class="sum-item"><span style="color:#94a3b8">?</span> 在线差错率待更新</div>
+        <div class="sum-item"><span style="color:#94a3b8">?</span> 电话差错率待更新</div>
+        <div class="sum-item"><span style="color:#94a3b8">?</span> 邮件差错率待更新</div>
+        <div class="sum-item" style="margin-top:4px;font-size:10px;color:#64748b">W24参考：在线0.51%，电话0.69%，邮件0.57%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
+
+<script>
+Chart.register(ChartDataLabels);
+const F={family:"'DM Sans',sans-serif",size:10};
+const GRID={color:'rgba(0,0,0,.05)'};
+const DL_OFF={display:false};
+const L4=['W22\n5.22-5.28','W23\n5.29-6.4','W24\n6.5-6.11','W25\n6.12-6.18'];
+
+new Chart(document.getElementById('cOnlineVol'),{
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'持牌',data:[2637,2646,2472,1947],stack:'vol',
+      backgroundColor:'rgba(30,64,175,.75)',borderRadius:0,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
+    {type:'bar',label:'非持牌',data:[913,848,855,739],stack:'vol',
+      backgroundColor:'rgba(217,119,6,.65)',borderRadius:4,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
+    {type:'line',label:'30s接通率%',data:[88.48,89.85,92.21,92.33],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},
+      y:{min:0,max:4500,stacked:true,ticks:{font:F},grid:GRID},
+      y1:{position:'right',min:78,max:106,ticks:{font:F,callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
+});
+
+new Chart(document.getElementById('cOnlineRates'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'总满意度%',data:[88.97,84.28,87.83,78.06],borderColor:'#374151',tension:.3,borderWidth:3,pointRadius:5,
+      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#374151',formatter:v=>v+'%'}},
+    {type:'line',label:'FCR%',data:[null,null,95.84,91.51],borderColor:'#1e40af',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af',formatter:(v,ctx)=>v?v+'%':''}},
+    {type:'line',label:'满意度目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+    {type:'line',label:'FCR目标95%',data:[95,95,95,95],borderColor:'#9ca3af',borderWidth:1,borderDash:[4,3],pointRadius:0,datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},
+      y:{min:70,max:105,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cPhoneVol'),{
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'呼入量',data:[1694,2633,2098,2131],
+      backgroundColor:['rgba(124,58,237,.5)','rgba(124,58,237,.5)','rgba(124,58,237,.5)','rgba(124,58,237,.85)'],
+      borderRadius:4,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
+    {type:'line',label:'总接通率%',data:[78.11,67.37,74.07,75.97],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#dc2626',formatter:v=>v+'%'}},
+    {type:'line',label:'目标95%',data:[95,95,95,95],borderColor:'#9ca3af',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},
+      y:{min:0,max:3500,ticks:{font:F},grid:GRID},
+      y1:{position:'right',min:55,max:102,ticks:{font:F,callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
+});
+
+new Chart(document.getElementById('cPhoneSat'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'总满意度%',data:[84.91,86.07,77.27,90.80],borderColor:'#7c3aed',tension:.3,borderWidth:3,pointRadius:5,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#7c3aed',formatter:v=>v+'%'}},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:65,max:100,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+new Chart(document.getElementById('cEmailCombo'),{
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'工单量',data:[1758,2309,372,270],
+      backgroundColor:['rgba(5,150,105,.35)','rgba(5,150,105,.35)','rgba(5,150,105,.5)','rgba(5,150,105,.85)'],
+      borderRadius:4,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'rgba(255,255,255,.95)',formatter:v=>v.toLocaleString()}},
+    {type:'line',label:'整体SLA%',data:[93.39,90.87,94.62,80.54],borderColor:'#059669',tension:.3,borderWidth:2.5,pointRadius:5,yAxisID:'y1',
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
+    {type:'line',label:'MY SLA%',data:[95.01,91.66,94.62,80.54],borderColor:'#7c3aed',tension:.3,borderWidth:2,pointRadius:5,borderDash:[4,2],yAxisID:'y1',
+      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#7c3aed',formatter:v=>v+'%'}},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4,right:8}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
+    scales:{
+      x:{ticks:{font:F},grid:{display:false}},
+      y:{min:0,max:3000,position:'left',ticks:{font:F},grid:GRID},
+      y1:{min:72,max:102,position:'right',ticks:{font:F,callback:v=>v+'%'},grid:{display:false}}
+    }}
+});
+
+new Chart(document.getElementById('cErrRate'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'在线差错率%',data:[1.25,0.95,0.51,null],borderColor:'#1e40af',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af',formatter:(v,ctx)=>v?v+'%':'待更新'}},
+    {type:'line',label:'电话差错率%',data:[0.84,0.88,0.69,null],borderColor:'#7c3aed',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#7c3aed',formatter:(v,ctx)=>v?v+'%':''}},
+    {type:'line',label:'邮件差错率%',data:[0,0.48,0.57,null],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#059669',formatter:(v,ctx)=>v>0?v+'%':''}},
+    {type:'line',label:'目标1%',data:[1,1,1,1],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,max:1.8,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+</script>
+</body>
+</html>
