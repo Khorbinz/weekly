@@ -556,7 +556,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
         <div class="sum-item"><span style="color:#dc2626">✗</span> MY：致命 8，非致命 1，合计 9</div>
         <div class="sum-item" style="color:#64748b">US：W26 数据待补录（累计致命109）</div>
         <div class="sum-item" style="color:#64748b">邮件：—</div>
-        <div class="sum-item" style="margin-top:4px;font-size:10px;color:#64748b">W25参考：在线1.25%，电话0%，邮件0%</div>
+        <div class="sum-item" style="margin-top:4px;font-size:10px;color:#64748b">W26：在线1.26%，电话0.50%，邮件0%</div>
       </div>
     </div>
   </div>
@@ -656,12 +656,12 @@ new Chart(document.getElementById('cEmailCombo'),{
 
 new Chart(document.getElementById('cErrRate'),{
   data:{labels:L4,datasets:[
-    {type:'line',label:'在线差错率%',data:[0.95,0.51,1.25,null],borderColor:'#1e40af',tension:.3,borderWidth:2,pointRadius:4,
-      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af',formatter:(v)=>v!=null?v+'%':'待更新'}},
-    {type:'line',label:'电话差错率%',data:[0.88,0.69,0,null],borderColor:'#7c3aed',tension:.3,borderWidth:2,pointRadius:4,
-      datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#7c3aed',formatter:(v)=>v!=null?v+'%':'待更新'}},
-    {type:'line',label:'邮件差错率%',data:[0,0.57,0,null],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,
-      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#059669',formatter:(v)=>v!=null?v+'%':'待更新'}},
+    {type:'line',label:'在线差错率%',data:[0.95,0.54,1.56,1.26],borderColor:'#1e40af',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#1e40af',formatter:(v)=>v!=null?v+'%':'—'}},
+    {type:'line',label:'电话差错率%',data:[0.88,0.96,0,0.5],borderColor:'#7c3aed',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#7c3aed',formatter:(v)=>v!=null?v+'%':'—'}},
+    {type:'line',label:'邮件差错率%',data:[0.48,0.47,0,0],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,
+      datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#059669',formatter:(v)=>v!=null?v+'%':'—'}},
     {type:'line',label:'目标1%',data:[1,1,1,1],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF},
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
