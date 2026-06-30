@@ -227,21 +227,103 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 在线 不满意工单 TOP5（4周）<span class="badge badge-green" style="font-size:10px">API实际数据</span></div>
+    <div class="analysis-title">👎 在线 有效不满意分析（结合满意度）<span class="badge badge-green" style="font-size:10px">API实际数据</span></div>
+
+    <!-- 满意度 + 不满意绝对数联动 -->
+    <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:8px 14px;margin-bottom:10px;font-size:12px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+      <div><span style="color:#64748b">W26 满意度</span>&nbsp;<strong style="color:#dc2626;font-size:15px">78.26%</strong></div>
+      <div><span style="color:#64748b">有效评价（估）</span>&nbsp;<strong>~308 单</strong></div>
+      <div><span style="color:#64748b">有效不满意</span>&nbsp;<strong style="color:#dc2626">~67 单</strong></div>
+      <div><span style="color:#64748b">综合不满意率</span>&nbsp;<strong style="color:#dc2626">21.7%</strong></div>
+      <div style="font-size:10px;color:#94a3b8">* 有效评价 = 不满意数 ÷ (1 − 满意度%)</div>
+    </div>
+
+    <!-- 增强版不满意分析表 -->
     <table class="data-table">
-      <thead><tr><th>业务类别</th><th>W23</th><th>W24</th><th>W25</th><th>W26</th></tr></thead>
+      <thead>
+        <tr>
+          <th>业务类别</th>
+          <th>W23</th><th>W24</th><th>W25</th>
+          <th>W26 不满意</th>
+          <th>分类咨询量</th>
+          <th>不满意率</th>
+          <th>贡献度</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>交易</td><td>16</td><td>10</td><td>26</td><td><strong>16</strong></td></tr>
-        <tr><td>资金（入金+出金）</td><td>23</td><td>23</td><td>26</td><td><strong>16</strong></td></tr>
-        <tr><td>活动</td><td>2</td><td>2</td><td>5</td><td><strong>8</strong></td></tr>
-        <tr><td>账户（开户前后咨询）</td><td>21</td><td>19</td><td>19</td><td><strong>7</strong></td></tr>
-        <tr><td>用户营销工具</td><td>1</td><td>2</td><td>2</td><td><strong>6</strong></td></tr>
-        <tr><td>转仓</td><td>5</td><td>11</td><td>3</td><td><strong>6</strong></td></tr>
-        <tr><td>其他</td><td>29</td><td>2</td><td>7</td><td>3</td></tr>
-        <tr><td>关于moomoo</td><td>5</td><td>6</td><td>25</td><td>5</td></tr>
+        <tr>
+          <td>资金（入金+出金）</td>
+          <td>23</td><td>23</td><td>26</td>
+          <td><strong style="color:#dc2626">16</strong></td>
+          <td>254</td>
+          <td><span style="color:#dc2626;font-weight:700">6.3%</span>&nbsp;🔴</td>
+          <td>23.9%</td>
+        </tr>
+        <tr>
+          <td>交易</td>
+          <td>16</td><td>10</td><td>26</td>
+          <td><strong style="color:#dc2626">16</strong></td>
+          <td>303</td>
+          <td><span style="color:#dc2626;font-weight:700">5.3%</span>&nbsp;🔴</td>
+          <td>23.9%</td>
+        </tr>
+        <tr>
+          <td>活动</td>
+          <td>2</td><td>2</td><td>5</td>
+          <td><strong style="color:#dc2626">8</strong>&nbsp;<span style="color:#dc2626;font-size:10px">▲3</span></td>
+          <td>78</td>
+          <td><span style="color:#dc2626;font-weight:700">10.3%</span>&nbsp;🔴</td>
+          <td>11.9%</td>
+        </tr>
+        <tr>
+          <td>账户（开户前后咨询）</td>
+          <td>21</td><td>19</td><td>19</td>
+          <td><strong>7</strong></td>
+          <td>440</td>
+          <td><span style="color:#059669;font-weight:700">1.6%</span>&nbsp;✅</td>
+          <td>10.4%</td>
+        </tr>
+        <tr>
+          <td>用户营销工具</td>
+          <td>1</td><td>2</td><td>2</td>
+          <td><strong style="color:#dc2626">6</strong>&nbsp;<span style="color:#dc2626;font-size:10px">▲4</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>9.0%</td>
+        </tr>
+        <tr>
+          <td>转仓</td>
+          <td>5</td><td>11</td><td>3</td>
+          <td><strong>6</strong>&nbsp;<span style="color:#dc2626;font-size:10px">▲3</span></td>
+          <td>112</td>
+          <td><span style="color:#dc2626;font-weight:700">5.4%</span>&nbsp;🔴</td>
+          <td>9.0%</td>
+        </tr>
+        <tr>
+          <td>关于moomoo</td>
+          <td>5</td><td>6</td><td>25</td>
+          <td>5</td>
+          <td>82</td>
+          <td><span style="color:#dc2626;font-weight:700">6.1%</span>&nbsp;🔴</td>
+          <td>7.5%</td>
+        </tr>
+        <tr>
+          <td>其他</td>
+          <td>29</td><td>2</td><td>7</td>
+          <td>3</td>
+          <td>87</td>
+          <td><span style="color:#d97706">3.4%</span>&nbsp;⚠</td>
+          <td>4.5%</td>
+        </tr>
       </tbody>
     </table>
-    <div style="font-size:11px;color:#64748b;margin-top:6px">📌 资金类（入金+出金）已连续 4 周位居前列，与 6 月上旬资金满意度持续下滑（▼3.97pp）趋势一致，属结构性痛点；资金业务系统优化（OPS 推进超时改善、入金 SLA 跟进）正在推进中，W27 需持续观察是否有改善迹象。</div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:4px">不满意率 = 该类不满意数 ÷ 该类咨询量 &nbsp;|&nbsp; 贡献度 = 该类不满意 ÷ 总不满意（~67单）&nbsp;|&nbsp; 🔴 &gt;5%&nbsp; ⚠ 2–5%&nbsp; ✅ &lt;2%</div>
+    <div style="font-size:11px;color:#64748b;margin-top:8px;line-height:1.8">
+      📌 <strong>活动不满意率最高（10.3%）</strong>：78 单咨询 8 单不满意，SpaceX 奖励规则复杂 + 处理预期差距，W27 活动量回落后需验证是否改善；<br>
+      📌 <strong>资金 + 交易</strong> 并列贡献度第一（各 23.9%），合计占不满意总量近一半，属跨渠道结构性问题，需产品侧改善入金文案、OPS 超时跟进；<br>
+      📌 <strong>账户不满意率仅 1.6%</strong>（440 单中 7 单），CDD 前置审查改善已见效，是本周最大正向改善；<br>
+      📌 用户营销工具 W26 骤升至 6 单（▲4），需排查是否与特定营销活动或规则变化相关。
+    </div>
   </div>
 
   <div class="analysis-block">
@@ -363,20 +445,95 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 电话 不满意工单 TOP5（4周）<span class="badge badge-green" style="font-size:10px">API实际数据</span></div>
+    <div class="analysis-title">👎 电话 有效不满意分析（结合满意度）<span class="badge badge-green" style="font-size:10px">API实际数据</span></div>
+
+    <!-- 满意度 + 不满意绝对数联动 -->
+    <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:8px 14px;margin-bottom:10px;font-size:12px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+      <div><span style="color:#64748b">W26 满意度</span>&nbsp;<strong style="color:#dc2626;font-size:15px">72.46%</strong></div>
+      <div><span style="color:#64748b">有效评价（估）</span>&nbsp;<strong>~44 单</strong></div>
+      <div><span style="color:#64748b">有效不满意</span>&nbsp;<strong style="color:#dc2626">~12 单</strong></div>
+      <div><span style="color:#64748b">综合不满意率</span>&nbsp;<strong style="color:#dc2626">27.3%</strong></div>
+      <div style="font-size:10px;color:#d97706">⚠ 评价率仅约 4.4%（44/999），小样本波动性高</div>
+    </div>
+
+    <!-- 增强版不满意分析表 -->
     <table class="data-table">
-      <thead><tr><th>业务类别</th><th>W23</th><th>W24</th><th>W25</th><th>W26</th></tr></thead>
+      <thead>
+        <tr>
+          <th>业务类别</th>
+          <th>W23</th><th>W24</th><th>W25</th>
+          <th>W26 不满意</th>
+          <th>分类咨询量</th>
+          <th>不满意率</th>
+          <th>贡献度</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>交易（Trade）</td><td>2</td><td>4</td><td>4</td><td><strong>4</strong></td></tr>
-        <tr><td>账户（开户咨询）</td><td>3</td><td>6</td><td>1</td><td><strong>3</strong></td></tr>
-        <tr><td>资金（入金+出金）</td><td>2</td><td>5</td><td>1</td><td><strong>3</strong></td></tr>
-        <tr><td>平台基础体验</td><td>—</td><td>—</td><td>—</td><td><strong>2</strong></td></tr>
-        <tr><td>其他（Others）</td><td>4</td><td>1</td><td>3</td><td>—</td></tr>
-        <tr><td>转仓（Stock Transfer）</td><td>2</td><td>—</td><td>—</td><td>—</td></tr>
-        <tr><td>加密货币</td><td>—</td><td>1</td><td>—</td><td>—</td></tr>
-        <tr><td>行情</td><td>—</td><td>—</td><td>1</td><td>—</td></tr>
+        <tr>
+          <td>交易（Trade）</td>
+          <td>2</td><td>4</td><td>4</td>
+          <td><strong>4</strong></td>
+          <td>313</td>
+          <td><span style="color:#059669;font-weight:700">1.3%</span>&nbsp;✅</td>
+          <td><strong>33.3%</strong></td>
+        </tr>
+        <tr>
+          <td>账户（开户咨询）</td>
+          <td>3</td><td>6</td><td>1</td>
+          <td><strong>3</strong></td>
+          <td>127</td>
+          <td><span style="color:#d97706;font-weight:700">2.4%</span>&nbsp;⚠</td>
+          <td>25.0%</td>
+        </tr>
+        <tr>
+          <td>资金（入金+出金）</td>
+          <td>2</td><td>5</td><td>1</td>
+          <td><strong>3</strong></td>
+          <td>154</td>
+          <td><span style="color:#d97706;font-weight:700">1.9%</span>&nbsp;⚠</td>
+          <td>25.0%</td>
+        </tr>
+        <tr>
+          <td>平台基础体验</td>
+          <td>—</td><td>—</td><td>—</td>
+          <td><strong>2</strong>&nbsp;<span style="color:#dc2626;font-size:10px">新</span></td>
+          <td>191</td>
+          <td><span style="color:#059669;font-weight:700">1.0%</span>&nbsp;✅</td>
+          <td>16.7%</td>
+        </tr>
+        <tr style="color:#94a3b8">
+          <td>其他（Others）</td>
+          <td>4</td><td>1</td><td>3</td>
+          <td>—</td>
+          <td>64</td><td>—</td><td>—</td>
+        </tr>
+        <tr style="color:#94a3b8">
+          <td>转仓（Stock Transfer）</td>
+          <td>2</td><td>—</td><td>—</td>
+          <td>—</td>
+          <td>41</td><td>—</td><td>—</td>
+        </tr>
+        <tr style="color:#94a3b8">
+          <td>加密货币</td>
+          <td>—</td><td>1</td><td>—</td>
+          <td>—</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
+        <tr style="color:#94a3b8">
+          <td>行情</td>
+          <td>—</td><td>—</td><td>1</td>
+          <td>—</td>
+          <td>—</td><td>—</td><td>—</td>
+        </tr>
       </tbody>
     </table>
+    <div style="font-size:10px;color:#94a3b8;margin-top:4px">不满意率 = 该类不满意数 ÷ 该类咨询量 &nbsp;|&nbsp; 贡献度 = 该类不满意 ÷ 总不满意（~12单）&nbsp;|&nbsp; 🔴 &gt;5%&nbsp; ⚠ 2–5%&nbsp; ✅ &lt;2%</div>
+    <div style="font-size:11px;color:#64748b;margin-top:8px;line-height:1.8">
+      ⚠ <strong>小样本警示</strong>：电话有效评价约 44 单（评价率 4.4%），满意度 ▼17.54pp 可能由 3–4 单新增不满意驱动，不宜仅凭 % 判断严重程度，需配合录音抽查定性分析；<br>
+      📌 <strong>交易贡献度最高（33.3%，4单）</strong>：虽不满意率仅 1.3%，但在评价总量极小时影响显著，本周优先抽查这 4 通录音；<br>
+      📌 <strong>账户 + 资金合计贡献 50%</strong>，与在线渠道一致，为跨渠道结构性问题——建议在跨渠道改善方案中统一推进；<br>
+      📌 平台基础体验本周首次出现电话不满意（2单，W23–W25 均为零），需确认是否与 Passkey/Event Contract 上线有关。
+    </div>
   </div>
 
   <div class="analysis-block">
