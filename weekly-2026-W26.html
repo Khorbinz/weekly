@@ -227,15 +227,13 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 在线 有效不满意分析（结合满意度）<span class="badge badge-green" style="font-size:10px">API实际数据</span></div>
+    <div class="analysis-title">👎 在线 不满意评价分析（结合满意度）<span class="badge badge-green" style="font-size:10px">API实际数据</span></div>
 
     <!-- 满意度 + 不满意绝对数联动 -->
     <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:8px 14px;margin-bottom:10px;font-size:12px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
       <div><span style="color:#64748b">W26 满意度</span>&nbsp;<strong style="color:#dc2626;font-size:15px">78.26%</strong></div>
-      <div><span style="color:#64748b">有效评价（估）</span>&nbsp;<strong>~308 单</strong></div>
-      <div><span style="color:#64748b">有效不满意</span>&nbsp;<strong style="color:#dc2626">~67 单</strong></div>
-      <div><span style="color:#64748b">综合不满意率</span>&nbsp;<strong style="color:#dc2626">21.7%</strong></div>
-      <div style="font-size:10px;color:#94a3b8">* 有效评价 = 不满意数 ÷ (1 − 满意度%)</div>
+      <div><span style="color:#64748b">不满意评价数（原始）</span>&nbsp;<strong style="color:#dc2626">TOP5合计 ~54单</strong></div>
+      <div style="font-size:10px;color:#d97706">⚠ 有效不满意（QA验证·人员原因）≠ 原始不满意评价数，两者分开追踪</div>
     </div>
 
     <!-- 增强版不满意分析表 -->
@@ -445,15 +443,13 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 电话 有效不满意分析（结合满意度）<span class="badge badge-green" style="font-size:10px">API实际数据</span></div>
+    <div class="analysis-title">👎 电话 不满意评价分析（结合满意度）<span class="badge badge-green" style="font-size:10px">API实际数据</span></div>
 
     <!-- 满意度 + 不满意绝对数联动 -->
     <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:8px 14px;margin-bottom:10px;font-size:12px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
       <div><span style="color:#64748b">W26 满意度</span>&nbsp;<strong style="color:#dc2626;font-size:15px">72.46%</strong></div>
-      <div><span style="color:#64748b">有效评价（估）</span>&nbsp;<strong>~44 单</strong></div>
-      <div><span style="color:#64748b">有效不满意</span>&nbsp;<strong style="color:#dc2626">~12 单</strong></div>
-      <div><span style="color:#64748b">综合不满意率</span>&nbsp;<strong style="color:#dc2626">27.3%</strong></div>
-      <div style="font-size:10px;color:#d97706">⚠ 评价率仅约 4.4%（44/999），小样本波动性高</div>
+      <div><span style="color:#64748b">不满意评价数（原始）</span>&nbsp;<strong style="color:#dc2626">16 单</strong></div>
+      <div style="font-size:10px;color:#d97706">⚠ 有效不满意（QA验证·人员原因）W26 = 1单，与原始不满意评价数口径不同，分开追踪</div>
     </div>
 
     <!-- 增强版不满意分析表 -->
@@ -472,34 +468,42 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
         <tr>
           <td>交易（Trade）</td>
           <td>2</td><td>4</td><td>4</td>
-          <td><strong>4</strong></td>
-          <td>313</td>
-          <td><span style="color:#059669;font-weight:700">1.3%</span>&nbsp;✅</td>
-          <td><strong>33.3%</strong></td>
+          <td><strong style="color:#dc2626">6</strong></td>
+          <td>336</td>
+          <td><span style="color:#059669;font-weight:700">1.8%</span>&nbsp;⚠</td>
+          <td><strong>37.5%</strong></td>
         </tr>
         <tr>
           <td>账户（开户咨询）</td>
           <td>3</td><td>6</td><td>1</td>
-          <td><strong>3</strong></td>
-          <td>127</td>
-          <td><span style="color:#d97706;font-weight:700">2.4%</span>&nbsp;⚠</td>
+          <td><strong>4</strong></td>
+          <td>136</td>
+          <td><span style="color:#dc2626;font-weight:700">2.9%</span>&nbsp;⚠</td>
           <td>25.0%</td>
         </tr>
         <tr>
           <td>资金（入金+出金）</td>
           <td>2</td><td>5</td><td>1</td>
           <td><strong>3</strong></td>
-          <td>154</td>
-          <td><span style="color:#d97706;font-weight:700">1.9%</span>&nbsp;⚠</td>
-          <td>25.0%</td>
+          <td>152</td>
+          <td><span style="color:#d97706;font-weight:700">2.0%</span>&nbsp;⚠</td>
+          <td>18.8%</td>
         </tr>
         <tr>
           <td>平台基础体验</td>
           <td>—</td><td>—</td><td>—</td>
           <td><strong>2</strong>&nbsp;<span style="color:#dc2626;font-size:10px">新</span></td>
-          <td>191</td>
+          <td>200</td>
           <td><span style="color:#059669;font-weight:700">1.0%</span>&nbsp;✅</td>
-          <td>16.7%</td>
+          <td>12.5%</td>
+        </tr>
+        <tr>
+          <td>Community</td>
+          <td>—</td><td>—</td><td>—</td>
+          <td><strong>1</strong>&nbsp;<span style="color:#dc2626;font-size:10px">新</span></td>
+          <td>1</td>
+          <td><span style="color:#dc2626;font-weight:700">100%</span>&nbsp;🔴</td>
+          <td>6.3%</td>
         </tr>
         <tr style="color:#94a3b8">
           <td>其他（Others）</td>
@@ -519,20 +523,14 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
           <td>—</td>
           <td>—</td><td>—</td><td>—</td>
         </tr>
-        <tr style="color:#94a3b8">
-          <td>行情</td>
-          <td>—</td><td>—</td><td>1</td>
-          <td>—</td>
-          <td>—</td><td>—</td><td>—</td>
-        </tr>
       </tbody>
     </table>
-    <div style="font-size:10px;color:#94a3b8;margin-top:4px">不满意率 = 该类不满意数 ÷ 该类咨询量 &nbsp;|&nbsp; 贡献度 = 该类不满意 ÷ 总不满意（~12单）&nbsp;|&nbsp; 🔴 &gt;5%&nbsp; ⚠ 2–5%&nbsp; ✅ &lt;2%</div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:4px">不满意率 = 该类不满意数 ÷ 该类咨询量 &nbsp;|&nbsp; 贡献度 = 该类不满意 ÷ 原始不满意评价总数（16单）&nbsp;|&nbsp; 🔴 &gt;5%&nbsp; ⚠ 2–5%&nbsp; ✅ &lt;2%</div>
     <div style="font-size:11px;color:#64748b;margin-top:8px;line-height:1.8">
-      ⚠ <strong>小样本警示</strong>：电话有效评价约 44 单（评价率 4.4%），满意度 ▼17.54pp 可能由 3–4 单新增不满意驱动，不宜仅凭 % 判断严重程度，需配合录音抽查定性分析；<br>
-      📌 <strong>交易贡献度最高（33.3%，4单）</strong>：虽不满意率仅 1.3%，但在评价总量极小时影响显著，本周优先抽查这 4 通录音；<br>
-      📌 <strong>账户 + 资金合计贡献 50%</strong>，与在线渠道一致，为跨渠道结构性问题——建议在跨渠道改善方案中统一推进；<br>
-      📌 平台基础体验本周首次出现电话不满意（2单，W23–W25 均为零），需确认是否与 Passkey/Event Contract 上线有关。
+      📌 <strong>交易贡献度最高（37.5%，6单）</strong>：本周优先抽查这 6 通录音，确认是否集中在特定客服或业务场景；<br>
+      📌 <strong>账户 + 资金合计贡献 43.8%</strong>，与在线渠道一致，为跨渠道结构性问题；<br>
+      📌 平台基础体验 + Community 本周首次出现电话不满意，需确认是否与 Passkey/Event Contract 上线有关；<br>
+      📌 <strong>口径说明</strong>：此表为原始不满意评价数（16单，用于分析满意度来源）；<strong>有效不满意（QA验证·人员原因）W26 = 1单</strong>，用于人员绩效追踪，两者口径不同，分开管理。
     </div>
   </div>
 
