@@ -526,12 +526,161 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <span class="week-badge">6.19–6.25 · W26</span>
   </div>
   <div class="analysis-block">
-    <div style="font-size:13px;line-height:1.9;color:var(--text);margin-bottom:16px">
-      本周整体呈<strong>「全渠道量大幅回落、在线 30s 接通率近满值、电话满意度骤跌、邮件 SLA 持续低位」</strong>格局。Juneteenth 假日（6/19，W26 首日）+ SpaceX IPO 热潮后自然回落，是本周量骤降的双重驱动因素。<br><br>
-      <strong>核心变化：</strong>在线工单 1,648（▼1,038 vs W25，仅 4 工作日），30s接通率 99.45% 近满值，但满意度 78.26%（连续两周在 78% 低位）、FCR 90.72%（▼3.81pp）均未达标；电话呼入 1,344（▼899），总接通率 74.33%，<strong>满意度骤跌至 72.46%（▼17.54pp），20s接通率仅 47.17%，两项严重未达标，为本周最大警示</strong>；邮件工单 243（▼27），SLA 83.75%（▲2.78pp）小幅回升，但仍未达 90%。<br><br>
-      <strong>Juneteenth + 后 IPO 效应：</strong>6/19 为 US 联邦假日，实际工作日仅 4 天，叠加 SpaceX SPCX 上市首周热潮消退，全渠道量普遍下降 38–40%，属结构性暂时下滑；预计 W27 量将回升，需密切观察量回升后接通率、满意度是否能维持稳定。<br><br>
-      <strong>下周关注（W27 建议）：</strong>①深查电话满意度 72.46% 根因，立即抽查 W26 不满意通话录音，确认是否与特定业务或客服相关；②在线满意度持续低于 80%，需制定专项提升计划；③电话 20s接通率连续 4 周低于 55%，需研究排班和 IVR 优化方案；④邮件 SLA 连续 3 周未达标，需检查超时工单响应时效分布；⑤跟进 MY 团队 W26 质检 9 件差错（致命 8 件），重点关注 kaiyangchan、weilimchee；⑥补录 US 团队 W26 差错明细；⑦持续跟进资金类改善进展——OPS 超时推进优化、AML 超时跟进、入金 SLA 改善等已在推进，W27 需验证资金类不满意件数是否出现下降拐点。
+    <!-- 1.1 业务亮点 -->
+    <div style="margin-bottom:20px">
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:8px;display:flex;align-items:center;gap:6px">
+        <span style="background:#0891b2;color:#fff;border-radius:4px;padding:1px 8px;font-size:11px">1.1</span> 业务亮点
+      </div>
+      <ul style="font-size:13px;line-height:1.9;color:var(--text);margin:0;padding-left:18px">
+        <li>在线 30s 接通率 <strong>99.45%（+7.12pp）</strong>，创近 4 周最高，量降叠加排班执行稳定；</li>
+        <li>电话、邮件差错率大幅改善（在线 1.26%、电话 0.50%、邮件 <strong>0%</strong>），质检规范化执行成效可见；</li>
+        <li>Juneteenth 假期仅 4 个工作日，团队完成基础业务承接，未出现 SLA 崩溃。</li>
+      </ul>
     </div>
+
+    <!-- 1.2 数据关注点 -->
+    <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:6px">
+      <span style="background:#0891b2;color:#fff;border-radius:4px;padding:1px 8px;font-size:11px">1.2</span> 本期数据关注点
+    </div>
+
+    <!-- A. 量驱动 -->
+    <div style="background:#f8fafc;border-left:3px solid #0891b2;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
+      <div style="font-size:12px;font-weight:700;color:#0891b2;margin-bottom:6px">A. 量骤降背景 + 电话满意度骤跌双重信号</div>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        全渠道量下降约 38–40%（在线 1,648 <span style="color:#dc2626">▼1,038</span>；电话 1,344 <span style="color:#dc2626">▼899</span>），驱动因素：
+      </div>
+      <table style="width:100%;font-size:11px;margin-top:8px;border-collapse:collapse">
+        <tr style="background:#e0f2fe">
+          <th style="padding:4px 8px;text-align:left;font-weight:600">驱动因素</th>
+          <th style="padding:4px 8px;text-align:center">估占比</th>
+          <th style="padding:4px 8px;text-align:left">状态</th>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">Juneteenth 假期（仅 4 工作日）</td>
+          <td style="padding:4px 8px;text-align:center">主因</td>
+          <td style="padding:4px 8px;color:#64748b">结构性暂时下滑</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">SpaceX SPCX 上市热潮消退</td>
+          <td style="padding:4px 8px;text-align:center">W25 峰值回落</td>
+          <td style="padding:4px 8px;color:#64748b">预计 W27 恢复 60–70%</td>
+        </tr>
+        <tr>
+          <td style="padding:4px 8px">Passkey / Event Contract 功能上线</td>
+          <td style="padding:4px 8px;text-align:center">功能学习期咨询仍释放</td>
+          <td style="padding:4px 8px;color:#64748b">预计 W27–28 逐步消化</td>
+        </tr>
+      </table>
+      <div style="font-size:12px;line-height:1.8;color:var(--text);margin-top:8px">
+        <strong>量减少 ≠ 质提升：</strong>电话满意度骤跌至 <strong style="color:#dc2626">72.46%（▼17.54pp）</strong>，为本周最大警示。<br>
+        <span style="color:#d97706">→ 待行动：本周完成 W26 全部不满意录音抽查，确认是否集中在特定业务或个别客服。</span>
+      </div>
+    </div>
+
+    <!-- B. 满意度 + 产品优化 -->
+    <div style="background:#f8fafc;border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
+      <div style="font-size:12px;font-weight:700;color:#7c3aed;margin-bottom:8px">B. 满意度拆解 + 产品优化空间</div>
+      <div style="font-size:12px;color:var(--text);margin-bottom:6px"><strong>在线满意度 78.26%，连续 2 周未达标（目标 90%）：</strong></div>
+      <table style="width:100%;font-size:11px;margin-bottom:10px;border-collapse:collapse">
+        <tr style="background:#ede9fe">
+          <th style="padding:4px 8px;text-align:left;font-weight:600">短板类型</th>
+          <th style="padding:4px 8px;text-align:left;font-weight:600">根因</th>
+          <th style="padding:4px 8px;text-align:left;font-weight:600">产品优化方向</th>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">资金类（入金失败 / ACH reversal fee）</td>
+          <td style="padding:4px 8px">客户不知情被收费，催问等待</td>
+          <td style="padding:4px 8px">前端预警 + 推送 fee 产生原因；电汇文案加"1-2工作日是指提供完整合规文件后"</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">账户类（CDD 审查延迟）</td>
+          <td style="padding:4px 8px">大额转仓后补材料，往复沟通</td>
+          <td style="padding:4px 8px">申请环节前置采集财富来源证明（产品侧跟进中）</td>
+        </tr>
+        <tr>
+          <td style="padding:4px 8px">活动类（SpaceX / 奖励活动）</td>
+          <td style="padding:4px 8px">每次 IPO 均引发客服峰值</td>
+          <td style="padding:4px 8px">活动上线同步发布自助 FAQ；客服知识库更新 SOP</td>
+        </tr>
+      </table>
+      <div style="font-size:12px;color:var(--text)"><strong>电话满意度 72.46%</strong>：W26 不满意录音抽查结果待出，根因确认后专项跟进。</div>
+    </div>
+
+    <!-- C. 团队效率 -->
+    <div style="background:#f8fafc;border-left:3px solid #059669;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
+      <div style="font-size:12px;font-weight:700;color:#059669;margin-bottom:6px">C. 团队效率最大化评估</div>
+      <ul style="font-size:12px;line-height:1.8;color:var(--text);margin:0;padding-left:16px">
+        <li>量减 40%，AHT 11.24m 达标，人均效率稳定；</li>
+        <li><strong>FCR 反降至 90.72%（▼3.81pp）</strong>：量少时解决率下降，假期前后精力分散 or 复杂工单积压，需本周排查；</li>
+        <li>外呼任务（协助美分联系无资产客户）在量升期分散一线精力 → <strong>建议：咨询量超基准 25% 时，外呼任务自动降级/暂停</strong>；</li>
+        <li>电话 20s 接通率连续 4 周低于 55%，排班结构存在系统性问题，需做峰值时段与接线力量精细匹配分析。</li>
+      </ul>
+    </div>
+
+    <!-- D. 差错 -->
+    <div style="background:#f8fafc;border-left:3px solid #d97706;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
+      <div style="font-size:12px;font-weight:700;color:#d97706;margin-bottom:6px">D. 差错改善跟踪</div>
+      <ul style="font-size:12px;line-height:1.8;color:var(--text);margin:0;padding-left:16px">
+        <li>MY 持牌 W26：<strong style="color:#dc2626">致命 8，非致命 1</strong>，重点关注 kaiyangchan、weilimchee，本周完成个人复盘 + 团队分享；</li>
+        <li>US 全员差错率 W25 升至 0.93%（vs MY 持续下降），两条线分化，美分培训专项需持续推进；</li>
+        <li>邮件差错率归零，电话 0.50% 改善明显，成效稳定。</li>
+      </ul>
+    </div>
+
+    <!-- E. 应急机制 -->
+    <div style="background:#f8fafc;border-left:3px solid #dc2626;padding:10px 14px;margin-bottom:16px;border-radius:0 6px 6px 0">
+      <div style="font-size:12px;font-weight:700;color:#dc2626;margin-bottom:8px">E. 应急机制建议（面向下一次突发事件）</div>
+      <table style="width:100%;font-size:11px;border-collapse:collapse">
+        <tr style="background:#fee2e2">
+          <th style="padding:4px 8px;text-align:left;font-weight:600">机制</th>
+          <th style="padding:4px 8px;text-align:left;font-weight:600">触发条件</th>
+          <th style="padding:4px 8px;text-align:left;font-weight:600">具体动作</th>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">事前预警</td>
+          <td style="padding:4px 8px">IPO / 重大活动上线前 5 工作日</td>
+          <td style="padding:4px 8px">产品/运营发预警 → 触发话术包准备 + 灯塔专项监控</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">弹性排班激活</td>
+          <td style="padding:4px 8px">咨询量较基准线 +30%</td>
+          <td style="padding:4px 8px">启用备班补充接线，优先电话渠道</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">IVR 自助前置</td>
+          <td style="padding:4px 8px">量 +30% 持续 2h</td>
+          <td style="padding:4px 8px">TOP3 热点问题前置至 IVR 按键，分流简单咨询</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">在线兜底切换</td>
+          <td style="padding:4px 8px">排队超 10 分钟</td>
+          <td style="padding:4px 8px">切换为"X 工作日内回复"模式，保住 SLA</td>
+        </tr>
+        <tr style="border-bottom:1px solid #e2e8f0">
+          <td style="padding:4px 8px">跨团队协作协议</td>
+          <td style="padding:4px 8px">量 +50% 或接通率 &lt;70% 持续 1h</td>
+          <td style="padding:4px 8px">启动 MY 支援 US / 非持牌支援持牌预定 SOP，无需临时协商</td>
+        </tr>
+        <tr>
+          <td style="padding:4px 8px">事后复盘</td>
+          <td style="padding:4px 8px">峰值结束后 2 周内</td>
+          <td style="padding:4px 8px">输出量驱动 + 满意度影响 + 效率损耗分析 → 纳入知识库，更新预案</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 下周重点 -->
+    <div style="background:#fefce8;border:1px solid #fde68a;border-radius:6px;padding:10px 14px;margin-bottom:16px">
+      <div style="font-size:12px;font-weight:700;color:#713f12;margin-bottom:6px">▶ 下周重点（W27）</div>
+      <ol style="font-size:12px;line-height:1.8;color:var(--text);margin:0;padding-left:18px">
+        <li><strong>电话满意度根因</strong>：完成 W26 全部不满意录音抽查，确认业务分布与个人关联；</li>
+        <li><strong>在线满意度</strong>：跟进资金类/账户类产品上线节点，验证 W27 不满意件数是否出现下降拐点；</li>
+        <li><strong>邮件 SLA</strong>：连续 3 周未达标，查超时工单时效分布，确认是否特定业务积压；</li>
+        <li><strong>差错</strong>：MY 致命 8 件，个人复盘 + 团队分享完成；跟进 US W26 差错明细补录；</li>
+        <li><strong>量回升预判</strong>：W27 预计恢复至 W25 约 60–70%，验证接通率与满意度能否同步维持稳定。</li>
+      </ol>
+    </div>
+
     <div class="sum-grid">
       <div class="sum-card" style="background:#eff6ff;border:1px solid #bfdbfe">
         <div class="sum-card-title" style="color:#1e3a8a">💬 在线</div>
