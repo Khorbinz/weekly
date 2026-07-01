@@ -233,7 +233,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:8px 14px;margin-bottom:10px;font-size:12px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
       <div><span style="color:#64748b">W26 满意度</span>&nbsp;<strong style="color:#dc2626;font-size:15px">78.26%</strong></div>
       <div><span style="color:#64748b">不满意评价数（原始）</span>&nbsp;<strong style="color:#dc2626">TOP5合计 ~54单</strong></div>
-      <div style="font-size:10px;color:#d97706">⚠ 有效不满意（QA验证·人员原因）≠ 原始不满意评价数，两者分开追踪</div>
+      <div style="font-size:10px;color:#6b7280">人员有效不满意（QA验证·人员原因）W26 = <strong style="color:#dc2626">11单</strong>&nbsp;·&nbsp;不满率 3.2%&nbsp;·&nbsp;评价工单 342 &nbsp;|&nbsp; W23=26 / W24=32 / W25=24 / W26=11</div>
     </div>
 
     <!-- 增强版不满意分析表 -->
@@ -449,7 +449,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:8px 14px;margin-bottom:10px;font-size:12px;display:flex;gap:24px;align-items:center;flex-wrap:wrap">
       <div><span style="color:#64748b">W26 满意度</span>&nbsp;<strong style="color:#dc2626;font-size:15px">72.46%</strong></div>
       <div><span style="color:#64748b">不满意评价数（原始）</span>&nbsp;<strong style="color:#dc2626">16 单</strong></div>
-      <div style="font-size:10px;color:#d97706">⚠ 有效不满意（QA验证·人员原因）W26 = 1单，与原始不满意评价数口径不同，分开追踪</div>
+      <div style="font-size:10px;color:#6b7280">人员有效不满意（QA验证·人员原因）W26 = <strong style="color:#dc2626">3单</strong>&nbsp;·&nbsp;不满率 7.0%&nbsp;·&nbsp;评价工单 43 &nbsp;|&nbsp; W23=1 / W24=5 / W25=2 / W26=3</div>
     </div>
 
     <!-- 增强版不满意分析表 -->
@@ -530,7 +530,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
       📌 <strong>交易贡献度最高（37.5%，6单）</strong>：本周优先抽查这 6 通录音，确认是否集中在特定客服或业务场景；<br>
       📌 <strong>账户 + 资金合计贡献 43.8%</strong>，与在线渠道一致，为跨渠道结构性问题；<br>
       📌 平台基础体验 + Community 本周首次出现电话不满意，需确认是否与 Passkey/Event Contract 上线有关；<br>
-      📌 <strong>口径说明</strong>：此表为原始不满意评价数（16单，用于分析满意度来源）；<strong>有效不满意（QA验证·人员原因）W26 = 1单</strong>，用于人员绩效追踪，两者口径不同，分开管理。
+      📌 <strong>口径说明</strong>：此表为原始不满意评价数（16单，用于分析满意度来源）；<strong>有效不满意（QA验证·人员原因）电话 W26 = 3单 / 在线 W26 = 11单</strong>，用于人员绩效追踪，两者口径不同，分开管理。
     </div>
   </div>
 
@@ -546,6 +546,43 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
       </tbody>
     </table>
     <div style="font-size:11px;color:#64748b;margin-top:6px">W26 电话人效（天）= 999 接通 / 18 人 = 56；W25 = 1,716 / 20 = 86。</div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">🎯 人员有效不满意趋势（在线 + 电话，4周）</div>
+    <table class="data-table" style="max-width:600px">
+      <thead>
+        <tr><th>渠道</th><th>W23</th><th>W24</th><th>W25</th><th>W26</th><th>评价工单(W26)</th><th>有效不满率(W26)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>在线</td>
+          <td>26</td><td>32</td><td>24</td>
+          <td><strong style="color:#dc2626">11</strong></td>
+          <td>342</td>
+          <td><span style="color:#059669;font-weight:700">3.2%</span></td>
+        </tr>
+        <tr>
+          <td>电话</td>
+          <td>1</td><td>5</td><td>2</td>
+          <td><strong style="color:#d97706">3</strong></td>
+          <td>43</td>
+          <td><span style="color:#dc2626;font-weight:700">7.0%</span>&nbsp;⚠</td>
+        </tr>
+        <tr style="font-weight:600;background:#f8fafc">
+          <td>合计</td>
+          <td>27</td><td>37</td><td>26</td>
+          <td><strong>14</strong></td>
+          <td>385</td>
+          <td><span style="color:#d97706;font-weight:700">3.6%</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:11px;color:#64748b;margin-top:6px;line-height:1.8">
+      📌 <strong>在线 W26 有效不满意降至近4周最低（11单，3.2%）</strong>，与本周量下降（-963单）和新人上线密切相关，W27 量回升后需持续监控；<br>
+      📌 <strong>电话 W26 有效不满率 7.0% 偏高</strong>（43 评价中 3 不满意），terrychen 贡献 2 单，engkeatho 贡献 1 单，建议专项 coaching；<br>
+      📌 有效不满意口径 = 人员有效不满意（QA验证·人员原因），与原始不满意评价数（用于满意度分析）口径不同，分开追踪。
+    </div>
   </div>
 </div>
 
