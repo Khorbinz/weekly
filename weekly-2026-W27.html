@@ -161,11 +161,11 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <div class="insight-row">
       <div class="insight alert">
         <div class="insight-label">⚠ 满意度 77.27%（▼0.63pp vs W26）</div>
-        <div class="insight-text">本周满意度 77.27%，❌ 未达标，▼12.73pp 差距，建议抽查低评价工单。<br><span class="placeholder">TODO：补充具体根因及处理建议</span></div>
+        <div class="insight-text">满意度已连续4周低于80%（W24=87.72%→W25=77.94%→W26=77.9%→W27=77.27%），呈缓慢下滑趋势，且本周量回升（+51）但满意度反而微降，说明问题在工单类型结构而非接待压力。本周不满意TOP3：交易27单（38.57%）、资金14单（20%）、账户11单（15.71%），三类合计占74%。需优先抽查交易类根因——疑为期权成交价异议/订单延迟/止损触发类问题，单次接触难以根治。</div>
       </div>
       <div class="insight ok">
         <div class="insight-label">✅ 30s接通率 96.12%（▼3.34pp vs W26）</div>
-        <div class="insight-text">30s接通率 96.12%，✅ 达标。<br><span class="placeholder">TODO：补充排班及量变化分析</span></div>
+        <div class="insight-text">W26 Juneteenth 假日量骤降至1648（仅4工作日），接通率升至99.45%；W27量小幅回升至1699（+3.1%），接通率回落至96.12%，趋势符合预期。若W28量继续向W25基线（2686）靠近，需关注接通率能否稳定在90%以上。目前排班覆盖充裕，风险点在于量快速回升时的峰值时段。</div>
       </div>
     </div>
   </div>
@@ -232,11 +232,11 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <div class="insight-row">
       <div class="insight alert">
         <div class="insight-label">⚠ 满意度 77.03%（▲3.86pp vs W26）</div>
-        <div class="insight-text">本周电话满意度 77.03%，❌ 未达标，建议立即抽查低评价录音。<br><span class="placeholder">TODO：补充根因及产品优化建议</span></div>
+        <div class="insight-text">电话满意度 W25=90%→W26=73.17%→W27=77.03%，虽环比改善+3.86pp，但连续2周低于80%。本周不满意中 Trade 占58.82%（10单），与在线同源——交易类咨询跨渠道均为最大不满意来源，根因疑为成交价/持仓数据/止损触发等复杂问题。人员有效不满意4单/39评价，不满率10.26%，评价基数小，趋势上W27=4单与W24=5/W25=2/W26=3基本持平，无明显恶化。</div>
       </div>
       <div class="insight alert">
         <div class="insight-label">⚠ 总接通率 78.77%（▲3.85pp vs W26）</div>
-        <div class="insight-text">总接通率 78.77%，❌ 未达标，差距 16.23pp。<br><span class="placeholder">TODO：补充量变化及排班分析</span></div>
+        <div class="insight-text">电话量▲221（+15.8%）是本周最大幅回升，Juneteenth 假日效应消退。但总接通率仍差目标16pp，20s接通率仅57.72%——连续4周均低于60%（W24=50.71%/W25=53.86%/W26=47.96%/W27=57.72%），属结构性缺口，非本周偶发。排班改善需重点分析美市开盘（9:30–11:00 ET）及午市高峰时段呼入分布，评估是否需调整班次比例或增设备班。</div>
       </div>
     </div>
   </div>
@@ -326,24 +326,53 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
     <div style="background:#f8fafc;border-left:3px solid #0891b2;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
       <div style="font-size:12px;font-weight:700;color:#0891b2;margin-bottom:6px">A. 量驱动分析</div>
-      <p class="placeholder" style="font-size:12px">TODO：分析各渠道量变化（在线▲51 / 电话▲221 / 邮件▲89 vs 上周），识别驱动因素及量变化对各指标的传导逻辑</p>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        W27 全渠道量均回升，Juneteenth 假日后自然修复：在线 ▲51（+3.1%），电话 ▲221（+15.8%，回升最明显），邮件 ▲89（+36.6%）。三渠道总量仍低于 W24/W25 基线约35–50%，预计 W28–W29 将继续修复。
+        <br><br>
+        <strong>量回升对指标的传导：</strong><br>
+        · 电话量大幅回升 +221，但20s接通率仅改善+9.76pp至57.72%，说明排班弹性不足，峰值时段接线力量未跟上需求回升速度；<br>
+        · 在线量小幅回升 +51，但 FCR ▼3.49pp，复杂交易/资金类工单比例上升，一次解决难度增加；<br>
+        · 邮件 ▲89 为单周较大增幅，Q2 末 account review + 资金类积压工单集中处理，与邮件差错率骤升（3.33%）时间吻合，需关联排查。
+      </div>
     </div>
     <div style="background:#f8fafc;border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
       <div style="font-size:12px;font-weight:700;color:#7c3aed;margin-bottom:6px">B. 满意度拆解 + 产品优化空间</div>
-      <p class="placeholder" style="font-size:12px">TODO：根据不满意业务分布，提出具体产品侧优化方向（前端文案/自助FAQ/流程前置/推送告知）</p>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        <strong>在线不满意（有效70单）：</strong>交易27（38.57%）/ 资金14（20%）/ 账户11（15.71%）前三类合计占74%。<br>
+        <strong>电话不满意（有效17单）：</strong>Trade类10单（58.82%），与在线交易类同源，跨渠道同一痛点。<br><br>
+        <strong>产品侧优化方向：</strong><br>
+        · <strong>交易/Trade类</strong>：成交推送延迟、订单状态不透明 → 增强订单状态实时推送，App 内增加"撤单原因说明"弹窗，减少因信息缺失产生的追问工单；<br>
+        · <strong>资金类（ACH/入金）</strong>：到账时效不透明 → 入金发起页增加"预计到账时间"提示 + 到账 Push 通知，将同类工单转化为自助查询；<br>
+        · <strong>账户类（开户/认证）</strong>：材料缺失反复退回 → 开户流程前置材料清单 + 审核进度可视化（审核中 / 缺件 / 已通过），降低"催进度"类工单。
+      </div>
     </div>
     <div style="background:#f8fafc;border-left:3px solid #059669;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
       <div style="font-size:12px;font-weight:700;color:#059669;margin-bottom:6px">C. 团队效率最大化评估</div>
-      <p class="placeholder" style="font-size:12px">TODO：评估 AHT/FCR/外呼任务干扰，识别排班效率瓶颈，分析峰值时段覆盖</p>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        <strong>AHT 10.94m ✅</strong> 达标（目标&lt;12m），处理时效稳健。<br>
+        <strong>FCR ▼3.49pp → 91.41% ⚠</strong>：量回升叠加交易/资金类复杂工单比例上升，客服一次解决率下降。需排查 W27 重复联系工单，识别高频再联系根因（是否为客户等待类或需人工干预类）。<br>
+        <strong>外呼182单（▼15，可控）</strong>：干扰度低，未对在线接待造成明显挤压。<br>
+        <strong>电话20s接通率（4周均&lt;60%）</strong>：W24=44.31%→W25=47.96%→W26=47.96%→W27=57.72%，结构性缺口持续。量从低谷回升时接通率未能同步回升，说明排班弹性不足——峰值时段（预计开盘前后）人力覆盖偏弱。建议拉峰值时段接线率数据，测试弹性排班或轮班前置能否将20s接通率推至65%以上。
+      </div>
     </div>
     <div style="background:#f8fafc;border-left:3px solid #d97706;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
       <div style="font-size:12px;font-weight:700;color:#d97706;margin-bottom:6px">D. 差错改善跟踪</div>
-      <p class="placeholder" style="font-size:12px">TODO：基于质检数据填写各渠道差错率趋势及重点人员/业务专项跟进</p>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        <strong>在线差错率 0.70%（↓持续改善）</strong>：W25=1.55% → W26=1.10% → W27=0.70%，3周连续下降，改善趋势明确，已接近目标区间。<br>
+        <strong>电话差错率 0.41%（↑微升）</strong>：W26=0.27% → W27=0.41%，绝对值尚低，需关注量回升后是否带动差错类型变化（新出现的业务或新人处理电话量增加）。<br>
+        <strong>邮件差错率 3.33% ⚠（骤升）</strong>：W25/W26 连续两周 0%，W27 骤升至3.33%。结合邮件量大幅回升（+89单）及 Q2 末 account review 集中处理，需核查：① 差错集中在哪类业务（资金/账户）；② 是否为新处理模板使用不规范；③ 是否为特定人员集中出错。
+      </div>
     </div>
 
     <div style="background:#fefce8;border:1px solid #fde68a;border-radius:6px;padding:10px 14px;margin-bottom:16px">
       <div style="font-size:12px;font-weight:700;color:#713f12;margin-bottom:6px">▶ 下周重点（W28）</div>
-      <p class="placeholder" style="font-size:12px">TODO：下周 5 条优先行动（与本周未达标/根因直接对应）</p>
+      <ol style="font-size:12px;line-height:1.9;color:var(--text);padding-left:18px;margin:0">
+        <li><strong>交易/Trade类满意度专项抽查</strong>：拉 W27 交易类不满意工单（在线27单+电话10单），识别高频诉求，输出话术优化或产品反馈清单；</li>
+        <li><strong>邮件差错率骤升核查</strong>：定位 W27 邮件差错明细（业务类型/人员/规则），确认是偶发集中还是操作规范问题，给出整改措施；</li>
+        <li><strong>电话20s接通率排班分析</strong>：拉峰值时段（09:00–11:00 / 20:00–22:00）逐小时接通数据，测试弹性排班方案，目标 W28 20s接通率&gt;62%；</li>
+        <li><strong>FCR重复联系根因分析</strong>：提取 W27 二次联系工单，分类统计根因（等待类 / 操作引导类 / 系统限制类），为 FAQ 自助优化提供数据依据；</li>
+        <li><strong>邮件SLA超时分布排查</strong>：整体SLA=86.93%（连续未达标100%目标），拉超时工单按业务类型和处理时长分布，识别是人力不足还是工单分配问题。</li>
+      </ol>
     </div>
 
     <div class="sum-grid">
