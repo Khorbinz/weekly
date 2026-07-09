@@ -10,13 +10,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 header{background:linear-gradient(135deg,#1e3a8a,#1e40af);color:#fff;padding:20px 32px}
 header h1{font-size:1.4rem;font-weight:700}
 header p{font-size:.85rem;opacity:.75;margin-top:4px}
-.container{max-width:640px;margin:32px auto;padding:0 16px}
-.list{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden}
-.item{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #f1f5f9;text-decoration:none;color:inherit;transition:background .15s}
+.container{max-width:640px;margin:32px auto;padding:0 16px 40px}
+.month-section{margin-bottom:16px}
+.month-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#1e40af;color:#fff;border-radius:10px;cursor:pointer;user-select:none;transition:background .15s}
+.month-header:hover{background:#1e3a8a}
+.month-label{font-size:.95rem;font-weight:700}
+.month-count{font-size:.78rem;opacity:.75}
+.month-chevron{font-size:.8rem;transition:transform .2s}
+.month-header.collapsed .month-chevron{transform:rotate(-90deg)}
+.month-list{background:#fff;border-radius:0 0 10px 10px;box-shadow:0 2px 8px rgba(0,0,0,.07);overflow:hidden;margin-top:2px}
+.month-list.hidden{display:none}
+.item{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid #f1f5f9;text-decoration:none;color:inherit;transition:background .15s}
 .item:last-child{border-bottom:none}
 .item:hover{background:#f8fafc}
-.date{font-weight:600;font-size:.95rem}
-.day{font-size:.78rem;color:#64748b;margin-top:2px}
+.date{font-weight:600;font-size:.93rem}
+.day{font-size:.76rem;color:#64748b;margin-top:2px}
 .arrow{color:#94a3b8;font-size:1.1rem}
 </style>
 </head>
@@ -25,20 +33,44 @@ header p{font-size:.85rem;opacity:.75;margin-top:4px}
   <h1>📊 US CS 日报索引</h1>
   <p>Customer Service Daily Reports</p>
 </header>
-<div class="container">
-  <div class="list" id="list"></div>
-</div>
+<div class="container" id="container"></div>
 <script>
 const reports = ["2026-07-08","2026-07-07","2026-07-06","2026-07-05","2026-07-04","2026-07-03","2026-07-02","2026-07-01","2026-06-30","2026-06-29","2026-06-28","2026-06-27","2026-06-26","2026-06-25","2026-06-24","2026-06-23","2026-06-22","2026-06-21","2026-06-20","2026-06-19","2026-06-18","2026-06-17","2026-06-16","2026-06-15","2026-06-14","2026-06-13","2026-06-12","2026-06-11","2026-06-10","2026-06-09","2026-06-08","2026-06-07","2026-06-06","2026-06-05","2026-06-04","2026-06-03","2026-06-02","2026-06-01","2026-05-31","2026-05-30","2026-05-29","2026-05-28","2026-05-27","2026-05-26","2026-05-25","2026-05-24","2026-05-23","2026-05-22","2026-05-21","2026-05-20","2026-05-19","2026-05-18","2026-05-17","2026-05-16","2026-05-15","2026-05-14"];
 const days = ['周日','周一','周二','周三','周四','周五','周六'];
-const list = document.getElementById('list');
+const months = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+const container = document.getElementById('container');
+const groups = {};
 reports.forEach(d => {
-  const dt = new Date(d + 'T00:00:00');
-  const a = document.createElement('a');
-  a.className = 'item';
-  a.href = `daily-${d}.html`;
-  a.innerHTML = `<div><div class="date">${d}</div><div class="day">${days[dt.getDay()]}</div></div><span class="arrow">›</span>`;
-  list.appendChild(a);
+  const key = d.slice(0,7);
+  if (!groups[key]) groups[key] = [];
+  groups[key].push(d);
+});
+Object.keys(groups).sort().reverse().forEach((key, idx) => {
+  const [year, mon] = key.split('-');
+  const label = year + '年' + months[parseInt(mon)-1];
+  const dates = groups[key];
+  const section = document.createElement('div');
+  section.className = 'month-section';
+  const hdr = document.createElement('div');
+  hdr.className = 'month-header' + (idx > 0 ? ' collapsed' : '');
+  hdr.innerHTML = '<span class="month-label">' + label + '</span><span style="display:flex;align-items:center;gap:10px"><span class="month-count">' + dates.length + ' 篇</span><span class="month-chevron">▼</span></span>';
+  const listEl = document.createElement('div');
+  listEl.className = 'month-list' + (idx > 0 ? ' hidden' : '');
+  dates.forEach(d => {
+    const dt = new Date(d + 'T00:00:00');
+    const a = document.createElement('a');
+    a.className = 'item';
+    a.href = 'daily-' + d + '.html';
+    a.innerHTML = '<div><div class="date">' + d + '</div><div class="day">' + days[dt.getDay()] + '</div></div><span class="arrow">›</span>';
+    listEl.appendChild(a);
+  });
+  hdr.addEventListener('click', () => {
+    const collapsed = hdr.classList.toggle('collapsed');
+    listEl.classList.toggle('hidden', collapsed);
+  });
+  section.appendChild(hdr);
+  section.appendChild(listEl);
+  container.appendChild(section);
 });
 </script>
 </body>
