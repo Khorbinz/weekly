@@ -298,10 +298,27 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block" style="background:#fffbeb;border-color:#fde68a">
-    <div class="analysis-title">📋 差错明细（待补充）</div>
-    <p class="placeholder" style="font-size:12px;padding:8px 0">
-      TODO：请从灯塔差错明细卡片（马来团队/美分团队）拉取本周差错记录，填入渠道/一级业务/二三级/规则代码/致命非致命/简述。
-    </p>
+    <div class="analysis-title">📋 差错明细 W28（共9条：致命6 / 非致命3）</div>
+    <div style="overflow-x:auto;margin-top:8px">
+    <table class="data-table" style="font-size:11px;min-width:700px">
+      <thead><tr><th>日期</th><th>团队</th><th>渠道</th><th>一级业务</th><th>二三级业务</th><th>规则代码</th><th>类型</th><th>差错简述</th></tr></thead>
+      <tbody>
+<tr><td>07-09</td><td>MY</td><td>邮件</td><td>开户后咨询</td><td>w8/w9表格相关</td><td>专业解答-J2</td><td style="color:#dc2626;font-weight:700">致命</td><td>客户询问账户余额，客服未回复，致客户再次咨询</td></tr>
+<tr><td>07-08</td><td>MY</td><td>在线</td><td>交易</td><td>融资融券/融资</td><td>专业解答-K1</td><td style="color:#d97706;font-weight:700">非致命</td><td>卖put时保证金是否来自融资账户，答错后经客户指出纠正</td></tr>
+<tr><td>07-08</td><td>US</td><td>邮件</td><td>销户</td><td>注销证券账户</td><td>服务用语-A11</td><td style="color:#d97706;font-weight:700">非致命</td><td>邮件缺少签名（工作台工号），不符合US邮件格式规范</td></tr>
+<tr><td>07-07</td><td>MY</td><td>在线</td><td>交易</td><td>融资融券/购买力相关</td><td>专业解答-J2</td><td style="color:#dc2626;font-weight:700">致命</td><td>SPCX是否支持融资，客服解答错误</td></tr>
+<tr><td>07-06</td><td>MY</td><td>在线</td><td>交易</td><td>期权</td><td>专业解答-J6</td><td style="color:#dc2626;font-weight:700">致命</td><td>CLSK covered call下单失败，客服未解答仅要求提供截图</td></tr>
+<tr><td>07-06</td><td>MY</td><td>邮件</td><td>销户</td><td>注销证券账户</td><td>专业解答-J2</td><td style="color:#dc2626;font-weight:700">致命</td><td>让客户选账户类型，实际客户只有保证金账户且资产为0</td></tr>
+<tr><td>07-03</td><td>MY</td><td>在线</td><td>出金</td><td>ACH出金进度/催出金</td><td>专业解答-K1</td><td style="color:#d97706;font-weight:700">非致命</td><td>客户咨询出金进度，客服误定位为入金，第三次才纠正</td></tr>
+<tr><td>07-03</td><td>MY</td><td>邮件</td><td>交易</td><td>资产分析相关/持仓页面</td><td>专业解答-J2</td><td style="color:#dc2626;font-weight:700">致命</td><td>CMCSA成本价23.82→APP显示24.633，客服解答原因有误</td></tr>
+<tr><td>07-03</td><td>US</td><td>电话</td><td>交易</td><td>期权</td><td>服务沟通规范-B7, 专业解答-J2</td><td style="color:#dc2626;font-weight:700">致命</td><td>客户要求再次调整价格，客服拒绝处理（服务沟通+专业解答双差错）</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="font-size:11px;color:#64748b;margin-top:8px;line-height:1.7">
+      <strong>业务分布：</strong>交易类5条（55.6%，含融资融券2/期权2/资产分析1）· 销户2条（22.2%）· 开户后咨询1条 · 出金1条 ·
+      <strong>规则：</strong>专业解答-J2最多（5条）· 专业解答-K1两条 · 服务沟通规范-B7/服务用语-A11/专业解答-J6各1条
+    </div>
   </div>
 </div>
 <div class="section" id="sec-summary">
