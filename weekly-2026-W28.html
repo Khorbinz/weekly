@@ -326,24 +326,56 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
     <div style="background:#f8fafc;border-left:3px solid #0891b2;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
       <div style="font-size:12px;font-weight:700;color:#0891b2;margin-bottom:6px">A. 量驱动分析</div>
-      <p class="placeholder" style="font-size:12px">TODO：分析各渠道量变化（在线▼196 / 电话▼448 / 邮件▼24 vs 上周），识别驱动因素及量变化对各指标的传导逻辑</p>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        W28（7.3–7.9）全渠道量明显下滑：在线▼196（-11.5%）、电话▼448（-26.8%）、邮件▼24（-7.2%）。驱动因素以 <strong>7月4日美国独立日假期</strong>为主，US Trading 团队减员/低需求导致当日呼入骤降，拉低全周均值；MY 渠道（电话/邮件）量下滑幅度较小，整体跟随市场淡季节奏。<br><br>
+        <strong>量变化对指标的传导：</strong><br>
+        · 电话量▼448 → 单客服接线压力下降，20s接通率大幅改善 ▲8.02pp 至 66.56%，总接通率 ▲3.33pp 至 82.54%；但两项均仍未达目标（80%/95%），说明结构性人力缺口依然存在；<br>
+        · 在线量下降但 FCR ▼5.07pp 至 90.75%（4周最低），说明 W28 复杂工单占比上升（资金/账户类合计占50%），而非量减少导致；<br>
+        · AHT 反常上升 ▲1.28m（量减少时通常 AHT 下降），进一步印证本周工单复杂度偏高；<br>
+        · 邮件量小幅下降但 SLA 首次达标（90.88%），说明服务能力已能覆盖邮件量，前几周超时来自量积压而非结构问题。
+      </div>
     </div>
     <div style="background:#f8fafc;border-left:3px solid #7c3aed;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
       <div style="font-size:12px;font-weight:700;color:#7c3aed;margin-bottom:6px">B. 满意度拆解 + 产品优化空间</div>
-      <p class="placeholder" style="font-size:12px">TODO：根据不满意业务分布，提出具体产品侧优化方向（前端文案/自助FAQ/流程前置/推送告知）</p>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        <strong>在线：</strong>原始不满意 66单 → 人员有效不满意（QA验证）<strong>13单</strong>（有效率 19.7%）；不满率 5.35%（评价243单）；4周趋势 W25=19 / W26=8 / W27=15 / W28=13，环比微降，低于 W25 基线。业务分布：资金19（28.79%）/ 账户14（21.21%）/ 交易13（19.70%）前三类合计占69.7%。<br>
+        <strong>电话：</strong>原始不满意 14单 → 人员有效不满意（QA验证）<strong>1单</strong>（有效率 7.1%）；不满率 2.78%（评价36单）；4周趋势 W25=2 / W26=1 / W27=4 / W28=1，降至4周最低。交易5单（35.71%）/ 账户4单（28.57%）/ 资金3单（21.43%）前三合计85.71%。<br><br>
+        <strong>有效率说明：</strong>在线有效率19.7%、电话7.1%，约80–93%原始不满意为客户预期差异或非服务问题，QA过滤后有效服务质量问题相对可控。<br><br>
+        <strong>产品侧优化方向：</strong><br>
+        · <strong>资金类（最大占比）</strong>：出入金到账时效不透明 → 入金发起页增加"预计到账时间"提示 + 到账 Push 通知，将同类工单转为自助查询；转仓（5单7.58%）类似，建议增加进度可视化；<br>
+        · <strong>账户类</strong>：开户/认证材料缺失反复退回 → 开户流程前置材料清单，审核进度可视化（审核中 / 缺件 / 已通过）；<br>
+        · <strong>交易类</strong>：成交/撤单状态不透明 → App 内增加"撤单原因说明"弹窗 + 实时推送，减少追问工单；<br>
+        · <strong>事故/活动类（各5单）</strong>：突发性服务中断或活动规则不清晰 → 建立事故通知模板（主动推送受影响用户），活动页面增加规则常见问题 FAQ。
+      </div>
     </div>
     <div style="background:#f8fafc;border-left:3px solid #059669;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
       <div style="font-size:12px;font-weight:700;color:#059669;margin-bottom:6px">C. 团队效率最大化评估</div>
-      <p class="placeholder" style="font-size:12px">TODO：评估 AHT/FCR/外呼任务干扰，识别排班效率瓶颈，分析峰值时段覆盖</p>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        <strong>AHT 12.22m ✅ 达标（目标&lt;15m）</strong>，但环比 ▲1.28m，量减少时 AHT 反升，印证本周工单以资金/账户复杂类为主，处理时长本身合理，但需关注是否有因外部查询（ACH状态/审核系统）导致的被动等待时间拉高。<br>
+        <strong>FCR ▼5.07pp → 90.75% ❌</strong>（目标95%）：4周连续未达标（95.82% → 90.75%），W28降幅最大。量下降但一次解决率下降，指向工单复杂度上升或信息传递断层（客服无法当场给出确定性答复）。建议提取 W28 二次联系工单，分析根因（等待类 / 操作引导 / 系统限制）。<br>
+        <strong>外呼114单（▼69，干扰度低）</strong>：未对在线接待造成明显挤压。<br>
+        <strong>电话20s接通率66.56%（▲8.02pp）</strong>：改善明显，但与80%目标仍有13.44pp差距。本周量低接通率仍未达标，说明即使在淡季排班也不足覆盖需求——旺季/恢复期接通率将进一步承压，建议尽快制定弹性排班方案。
+      </div>
     </div>
     <div style="background:#f8fafc;border-left:3px solid #d97706;padding:10px 14px;margin-bottom:12px;border-radius:0 6px 6px 0">
       <div style="font-size:12px;font-weight:700;color:#d97706;margin-bottom:6px">D. 差错改善跟踪</div>
-      <p class="placeholder" style="font-size:12px">TODO：基于质检数据填写各渠道差错率趋势及重点人员/业务专项跟进</p>
+      <div style="font-size:12px;line-height:1.8;color:var(--text)">
+        <strong>在线差错率 1.32%（▲0.28pp vs W27 1.04%）</strong>：回升，重新超过1%目标线。W25=1.64% → W26=1.27% → W27=1.04%（下降趋势）→ W28=1.32%（回升），改善趋势中断，需确认 W28 差错是否集中于特定业务或人员。<br>
+        <strong>电话差错率 0.0%（W28）</strong>：本周质检数据暂未录入或无质检样本，不代表实际差错为0，待差错明细补录后确认。<br>
+        <strong>邮件差错率 1.36%（▲0.18pp vs W27 预期值）</strong>：W27 邮件差错率3.33%（骤升后），W28回落至1.36%，初步改善但仍超1%目标，需持续跟踪是否为系统性问题改善还是本周量少导致的基数变化。<br>
+        <em>注：电话/邮件质检数据以灯塔差错明细表为准，API拉取值仅供参考。</em>
+      </div>
     </div>
 
     <div style="background:#fefce8;border:1px solid #fde68a;border-radius:6px;padding:10px 14px;margin-bottom:16px">
       <div style="font-size:12px;font-weight:700;color:#713f12;margin-bottom:6px">▶ 下周重点（W29）</div>
-      <p class="placeholder" style="font-size:12px">TODO：下周 5 条优先行动（与本周未达标/根因直接对应）</p>
+      <ol style="font-size:12px;line-height:1.9;color:var(--text);padding-left:18px;margin:0">
+        <li><strong>FCR专项根因排查</strong>：提取W28二次联系工单，分类统计根因（等待类/操作引导/系统限制），为话术优化或FAQ自助更新提供数据依据；</li>
+        <li><strong>资金类满意度专项抽查</strong>：W28资金类不满意19单（在线最高），拉工单详情，识别高频诉求（出金延迟/入金到账/转仓进度），输出产品反馈或话术优化建议；</li>
+        <li><strong>电话弹性排班评估</strong>：基于W28低量仍未达80%接通率的数据，测算峰值时段（开盘前后）最低接线人数需求，制定W29及后续旺季弹性排班方案；</li>
+        <li><strong>在线差错率回升核查</strong>：定位W28在线差错明细，确认是否集中于特定业务类型或人员，给出针对性整改措施；</li>
+        <li><strong>邮件SLA巩固</strong>：W28首次达标（90.88%），需确认是否为量少带来的暂时达标，制定W29量回升时的SLA保障预案（分工/优先级规则）。</li>
+      </ol>
     </div>
 
     <div class="sum-grid">
