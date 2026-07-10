@@ -520,7 +520,7 @@ new Chart(document.getElementById('cErrRate'),{
   ]},
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
-    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,max:2,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
 });
 </script>
 </body>
