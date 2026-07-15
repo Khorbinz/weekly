@@ -172,7 +172,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
   <div class="charts-row">
     <div class="chart-card">
-      <div class="chart-title">接待量（持牌/非持牌）&amp; 30s接通率（4周）</div>
+      <div class="chart-title">接待量（各组）&amp; 30s接通率（4周）</div>
       <div class="chart-wrap"><canvas id="cOnlineVol"></canvas></div>
     </div>
     <div class="chart-card">
@@ -270,7 +270,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
   <div class="charts-row">
     <div class="chart-card">
-      <div class="chart-title">呼入量 &amp; 总接通率 &amp; 20s接通率（4周）</div>
+      <div class="chart-title">呼入量（各组）&amp; 接通率（4周）</div>
       <div class="chart-wrap"><canvas id="cPhoneVol"></canvas></div>
     </div>
     <div class="chart-card">
@@ -573,18 +573,22 @@ const L4=['W25\n6.12-6.18','W26\n6.19-6.25','W27\n6.26-7.2','W28\n7.3-7.9'];
 
 new Chart(document.getElementById('cOnlineVol'),{
   data:{labels:L4,datasets:[
-    {type:'bar',label:'持牌',data:[1947,1181,1410,1091],stack:'vol',backgroundColor:'rgba(30,64,175,.75)',borderRadius:0,yAxisID:'y',
-      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
-    {type:'bar',label:'非持牌',data:[739,467,289,412],stack:'vol',backgroundColor:'rgba(217,119,6,.65)',borderRadius:4,yAxisID:'y',
-      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
+    {type:'bar',label:'咨询组',data:[2213,1310,1558,1242],stack:'vol',backgroundColor:'rgba(30,64,175,.82)',borderRadius:0,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,size:9,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
+    {type:'bar',label:'转化组',data:[477,302,151,351],stack:'vol',backgroundColor:'rgba(217,119,6,.78)',borderRadius:4,yAxisID:'y',
+      datalabels:{labels:{
+        seg:{anchor:'center',align:'center',font:{...F,size:9,weight:'700'},color:'#fff',formatter:v=>v>=80?v.toLocaleString():''},
+        tot:{anchor:'end',align:'top',offset:3,font:{...F,weight:'700'},color:'#374151',
+          formatter:(v,ctx)=>{return [2690,1612,1709,1593][ctx.dataIndex].toLocaleString()}}
+      }}},
     {type:'line',label:'30s接通率%',data:[92.33,99.45,96.12,98.07],borderColor:'#059669',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
       datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v+'%'}},
     {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF}
   ]},
-  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4}},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:28,bottom:4}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},
-      y:{min:0,max:4000,stacked:true,ticks:{font:F},grid:GRID},
+      y:{min:0,max:3500,stacked:true,ticks:{font:F},grid:GRID},
       y1:{position:'right',min:78,max:110,ticks:{font:F,callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
 });
 
@@ -605,18 +609,26 @@ new Chart(document.getElementById('cOnlineRates'),{
 
 new Chart(document.getElementById('cPhoneVol'),{
   data:{labels:L4,datasets:[
-    {type:'bar',label:'呼入量',data:[2243,1399,1674,1226],backgroundColor:'rgba(124,58,237,.75)',borderRadius:4,yAxisID:'y',
-      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
+    {type:'bar',label:'咨询组',data:[657,468,722,538],stack:'vol',backgroundColor:'rgba(124,58,237,.85)',borderRadius:0,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,size:9,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()}},
+    {type:'bar',label:'转化组',data:[406,244,55,146],stack:'vol',backgroundColor:'rgba(8,145,178,.8)',borderRadius:0,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,size:9,weight:'700'},color:'#fff',formatter:v=>v>=60?v.toLocaleString():''}},
+    {type:'bar',label:'美分组',data:[587,415,481,383],stack:'vol',backgroundColor:'rgba(217,119,6,.72)',borderRadius:4,yAxisID:'y',
+      datalabels:{labels:{
+        seg:{anchor:'center',align:'center',font:{...F,size:9,weight:'700'},color:'#fff',formatter:v=>v.toLocaleString()},
+        tot:{anchor:'end',align:'top',offset:3,font:{...F,weight:'700'},color:'#374151',
+          formatter:(v,ctx)=>{return [1650,1127,1258,1067][ctx.dataIndex].toLocaleString()}}
+      }}},
     {type:'line',label:'总接通率%',data:[76.5,74.91,79.21,82.54],borderColor:'#dc2626',tension:.3,borderWidth:2,pointRadius:4,yAxisID:'y1',
       datalabels:{display:true,align:'top',offset:3,font:{...F,weight:'700'},color:'#dc2626',formatter:v=>v+'%'}},
     {type:'line',label:'20s接通率%',data:[53.86,47.96,58.54,66.56],borderColor:'#f59e0b',tension:.3,borderWidth:2,pointRadius:4,borderDash:[4,2],yAxisID:'y1',
       datalabels:{display:true,align:'bottom',offset:3,font:{...F,weight:'700'},color:'#d97706',formatter:v=>v+'%'}},
     {type:'line',label:'目标95%',data:[95,95,95,95],borderColor:'#9ca3af',borderWidth:1,borderDash:[6,4],pointRadius:0,yAxisID:'y1',datalabels:DL_OFF}
   ]},
-  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4}},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:28,bottom:4}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},
-      y:{min:0,max:3500,ticks:{font:F},grid:GRID},
+      y:{min:0,max:2200,stacked:true,ticks:{font:F},grid:GRID},
       y1:{position:'right',min:30,max:106,ticks:{font:F,callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
 });
 
