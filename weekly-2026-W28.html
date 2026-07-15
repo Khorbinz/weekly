@@ -74,11 +74,24 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 .sum-card-title{font-size:12px;font-weight:700;margin-bottom:8px}
 .sum-item{font-size:11px;line-height:1.8;display:flex;gap:5px}
 .placeholder{color:#94a3b8;font-style:italic;font-size:11px}
+.exec-summary{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:24px}
+.exec-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.exec-title{font-size:14px;font-weight:700}
+.exec-channels{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.exec-ch{border-radius:8px;padding:10px 12px;border:1px solid var(--border);border-left-width:3px}
+.exec-ch-name{font-size:11.5px;font-weight:700;margin-bottom:6px}
+.exec-ch-metric{font-size:11px;line-height:1.75;display:flex;justify-content:space-between;gap:8px}
+.exec-alerts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.exec-alert{border-radius:6px;padding:9px 12px;font-size:11.5px;line-height:1.65}
+.exec-alert.danger{background:#fef2f2;border:1px solid #fecaca}
+.exec-alert.warn{background:#fffbeb;border:1px solid #fde68a}
 @media(max-width:768px){
   .main{padding:12px}
   .kpi-grid-4,.kpi-grid-5,.kpi-grid-6{grid-template-columns:repeat(2,1fr)}
   .charts-row,.insight-row{grid-template-columns:1fr}
   .sum-grid{grid-template-columns:1fr 1fr}
+  .exec-channels{grid-template-columns:1fr 1fr}
+  .exec-alerts{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -97,6 +110,49 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </nav>
 </div>
 <div class="main">
+<div class="exec-summary">
+  <div class="exec-top">
+    <div class="exec-title">📊 W28 本周快览 <span style="font-size:11px;color:var(--muted);font-weight:500">7月3日–9日</span></div>
+    <div style="font-size:11px;color:#dc2626;font-weight:600;background:#fee2e2;padding:3px 10px;border-radius:20px">⚠ 07.17 税务身份截止 · 距今 2 天</div>
+  </div>
+  <div class="exec-channels">
+    <div class="exec-ch" style="border-left:3px solid #1e40af">
+      <div class="exec-ch-name" style="color:#1e40af">💬 在线&nbsp;<span style="color:#64748b;font-weight:500">2/4 达标</span></div>
+      <div class="exec-ch-metric"><span>满意度</span><span style="color:#dc2626;font-weight:700">76.45% ❌</span></div>
+      <div class="exec-ch-metric"><span>FCR</span><span style="color:#dc2626;font-weight:700">90.75% ❌</span></div>
+      <div class="exec-ch-metric"><span>30s接通率</span><span style="color:#059669;font-weight:700">98.07% ✅</span></div>
+      <div class="exec-ch-metric"><span>AHT</span><span style="color:#059669;font-weight:700">12.22m ✅</span></div>
+    </div>
+    <div class="exec-ch" style="border-left:3px solid #7c3aed">
+      <div class="exec-ch-name" style="color:#7c3aed">📞 电话&nbsp;<span style="color:#64748b;font-weight:500">1/4 达标</span></div>
+      <div class="exec-ch-metric"><span>满意度</span><span style="color:#dc2626;font-weight:700">82.28% ❌</span></div>
+      <div class="exec-ch-metric"><span>总接通率</span><span style="color:#dc2626;font-weight:700">82.54% ❌</span></div>
+      <div class="exec-ch-metric"><span>20s接通率</span><span style="color:#dc2626;font-weight:700">66.56% ❌</span></div>
+      <div class="exec-ch-metric"><span>通话时长</span><span style="color:#059669;font-weight:700">5.67m ✅</span></div>
+    </div>
+    <div class="exec-ch" style="border-left:3px solid #059669">
+      <div class="exec-ch-name" style="color:#059669">📧 邮件&nbsp;<span style="color:#64748b;font-weight:500">2/2 达标 ✅</span></div>
+      <div class="exec-ch-metric"><span>整体SLA</span><span style="color:#059669;font-weight:700">90.88% ✅</span></div>
+      <div class="exec-ch-metric"><span>MY SLA</span><span style="color:#059669;font-weight:700">93.83% ✅</span></div>
+      <div class="exec-ch-metric"><span>工单量</span><span style="font-weight:600">308</span></div>
+    </div>
+    <div class="exec-ch" style="border-left:3px solid #d97706">
+      <div class="exec-ch-name" style="color:#d97706">🔍 差错&nbsp;<span style="color:#64748b;font-weight:500">W28 · 9条</span></div>
+      <div class="exec-ch-metric"><span>在线</span><span style="color:#d97706;font-weight:700">1.32% ↑</span></div>
+      <div class="exec-ch-metric"><span>电话</span><span style="color:#059669;font-weight:700">0.0%</span></div>
+      <div class="exec-ch-metric"><span>邮件</span><span style="color:#d97706;font-weight:700">1.36%</span></div>
+      <div class="exec-ch-metric"><span>致命/非致命</span><span style="font-weight:600">6 / 3</span></div>
+    </div>
+  </div>
+  <div class="exec-alerts">
+    <div class="exec-alert danger">
+      <strong>⚠ 核心关注：</strong>在线满意度连续4周低于90%（76.45%，差距13.55pp）；电话接通率结构性不足，本周低量仍未达标，旺季将进一步承压，建议尽快制定弹性排班方案。
+    </div>
+    <div class="exec-alert warn">
+      <strong>📅 07.17 账户限制截止：</strong>170K税务身份提醒已推送，未更新用户将被限制。建议07.17前备好对客话术及应对预案，防止集中投诉。
+    </div>
+  </div>
+</div>
 <div class="section" id="sec-online">
   <div class="section-header">
     <div class="sdot" style="background:#1e40af"></div>
@@ -163,9 +219,9 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 在线 不满意业务分布（原始）<span class="badge badge-blue">W28 · 共66单</span></div>
+    <div class="analysis-title">👎 在线 有效不满意业务分布<span class="badge badge-red">W28 · 有效 13 单</span><span class="badge badge-gray">原始 66 单</span></div>
     <div style="font-size:10px;color:#6b7280;margin-bottom:6px">
-      人员有效不满意（QA验证）W28 = <strong style="color:#dc2626">13单</strong>&nbsp;·&nbsp;不满率 5.35%&nbsp;·&nbsp;评价工单 243&nbsp;|&nbsp;W25=19 / W26=8 / W27=15 / W28=13
+      有效不满意（QA人工验证）= <strong style="color:#dc2626">13单</strong>，有效率 19.7%&nbsp;·&nbsp;不满率 5.35%&nbsp;·&nbsp;评价工单 243&nbsp;|&nbsp;W25=19 / W26=8 / W27=15 / W28=13&nbsp;·&nbsp;<em>下表为原始分布，可用于产品侧优化参考</em>
     </div>
     <table class="data-table">
       <thead><tr><th>业务类别</th><th>W28 不满意</th><th>不满意率</th><th>贡献度</th></tr></thead>
@@ -186,11 +242,11 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <div class="insight-row">
       <div class="insight alert">
         <div class="insight-label">⚠ 满意度 76.45%（▼0.58pp vs W27）</div>
-        <div class="insight-text">本周满意度 76.45%，❌ 未达标，▼13.55pp 差距，建议抽查低评价工单。<br><span class="placeholder">TODO：补充具体根因及处理建议</span></div>
+        <div class="insight-text">本周满意度 76.45%，❌ 未达标（差距13.55pp），连续4周低于目标。不满意TOP3：资金19单（28.8%）/ 账户14单（21.2%）/ 交易13单（19.7%），合计占69.7%。建议优先抽查资金类工单，区分客服操作问题与产品体验问题，输出改善方向。</div>
       </div>
       <div class="insight ok">
         <div class="insight-label">✅ 30s接通率 98.07%（▲1.96pp vs W27）</div>
-        <div class="insight-text">30s接通率 98.07%，✅ 达标。<br><span class="placeholder">TODO：补充排班及量变化分析</span></div>
+        <div class="insight-text">30s接通率 98.07%，✅ 达标。本周在线量▼196，接通压力下降；量回升至W27水平（1699单）时接通率能否维持需持续观察，建议W29排班维持不减员。</div>
       </div>
     </div>
   </div>
@@ -254,18 +310,18 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
       <thead><tr><th>组别</th><th>W25</th><th>W26</th><th>W27</th><th>W28</th><th>WoW (W27→W28)</th><th>W28 评价/不满意</th></tr></thead>
       <tbody>
         <tr><td>咨询组</td><td>88.46%</td><td>75.00%</td><td>79.49%</td><td>86.84%</td><td style="color:#059669;font-weight:700">▲7.35pp</td><td style="color:#64748b">38 / 5</td></tr>
-        <tr><td>转化组</td><td>94.44%</td><td>87.50%</td><td>33.33%</td><td>88.89%</td><td style="color:#059669;font-weight:700">▲55.56pp</td><td style="color:#64748b">9 / 1</td></tr>
+        <tr><td>转化组</td><td>94.44%</td><td>87.50%</td><td style="color:#94a3b8">33.33%*</td><td>88.89%</td><td style="color:#059669;font-weight:700">▲55.56pp</td><td style="color:#64748b">9 / 1</td></tr>
         <tr><td>美分组</td><td>88.37%</td><td>75.86%</td><td>70.73%</td><td>69.44%</td><td style="color:#dc2626;font-weight:700">▼1.29pp</td><td style="color:#64748b">36 / 11</td></tr>
         <tr style="font-weight:700;background:#f1f5f9"><td>合计</td><td>89.66%</td><td>78.08%</td><td>73.49%</td><td>79.52%</td><td style="color:#059669;font-weight:700">▲6.02pp</td><td style="color:#64748b">83 / 17</td></tr>
       </tbody>
     </table>
-    <div style="font-size:10px;color:#94a3b8;margin-top:5px">满意度 = (评价工单 − 不满意 − 糟糕) / 评价工单 · 数据源：接待量卡（h3643251e）</div>
+    <div style="font-size:10px;color:#94a3b8;margin-top:5px">满意度 = (评价工单 − 不满意 − 糟糕) / 评价工单 · 数据源：接待量卡（h3643251e）&nbsp;·&nbsp;* W27 转化组样本极小（评价仅3单），数值参考性有限</div>
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 电话 不满意业务分布（原始）<span class="badge badge-blue">W28 · 共14单</span></div>
+    <div class="analysis-title">👎 电话 有效不满意业务分布<span class="badge badge-red">W28 · 有效 1 单</span><span class="badge badge-gray">原始 14 单</span></div>
     <div style="font-size:10px;color:#6b7280;margin-bottom:6px">
-      人员有效不满意（QA验证）W28 = <strong style="color:#dc2626">1单</strong>&nbsp;·&nbsp;不满率 2.78%&nbsp;·&nbsp;评价工单 36&nbsp;|&nbsp;W25=2 / W26=1 / W27=4 / W28=1
+      有效不满意（QA人工验证）= <strong style="color:#dc2626">1单</strong>，有效率 7.1%&nbsp;·&nbsp;不满率 2.78%&nbsp;·&nbsp;评价工单 36&nbsp;|&nbsp;W25=2 / W26=1 / W27=4 / W28=1&nbsp;·&nbsp;<em>下表为原始分布</em>
     </div>
     <table class="data-table">
       <thead><tr><th>业务类别</th><th>W28 不满意</th><th>不满意率</th><th>贡献度</th></tr></thead>
@@ -283,11 +339,11 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <div class="insight-row">
       <div class="insight alert">
         <div class="insight-label">⚠ 满意度 82.28%（▲10.52pp vs W27）</div>
-        <div class="insight-text">本周电话满意度 82.28%，❌ 未达标，建议立即抽查低评价录音。<br><span class="placeholder">TODO：补充根因及产品优化建议</span></div>
+        <div class="insight-text">本周满意度▲10.52pp 大幅反弹，主因W27转化组基数异常偏低（33.33%，仅3单评价）。W28有效不满意仅1单（有效率7.1%），服务质量可控；满意度未达90%主要受整体评价量少（83单）影响，建议持续跟踪。</div>
       </div>
       <div class="insight alert">
         <div class="insight-label">⚠ 总接通率 82.54%（▲3.33pp vs W27）</div>
-        <div class="insight-text">总接通率 82.54%，❌ 未达标，差距 12.46pp。<br><span class="placeholder">TODO：补充量变化及排班分析</span></div>
+        <div class="insight-text">总接通率82.54%，❌ 未达标（差距12.46pp）。本周电话量▼448低至1226单，低量状态仍未达95%目标，说明结构性人力缺口明显；建议测算开盘前后峰值时段最低接线需求，制定弹性排班方案以应对量回升。</div>
       </div>
     </div>
   </div>
@@ -364,6 +420,8 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 
   <div class="analysis-block" style="background:#fffbeb;border-color:#fde68a">
     <div class="analysis-title">📋 差错明细 W28（共9条：致命6 / 非致命3）</div>
+    <details>
+    <summary style="font-size:11px;color:#92400e;font-weight:600;cursor:pointer;padding:6px 0;user-select:none">展开明细 ▶</summary>
     <div style="overflow-x:auto;margin-top:8px">
     <table class="data-table" style="font-size:11px;min-width:700px">
       <thead><tr><th>日期</th><th>团队</th><th>渠道</th><th>一级业务</th><th>二三级业务</th><th>规则代码</th><th>类型</th><th>差错简述</th></tr></thead>
@@ -384,6 +442,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
       <strong>业务分布：</strong>交易类5条（55.6%，含融资融券2/期权2/资产分析1）· 销户2条（22.2%）· 开户后咨询1条 · 出金1条 ·
       <strong>规则：</strong>专业解答-J2最多（5条）· 专业解答-K1两条 · 服务沟通规范-B7/服务用语-A11/专业解答-J6各1条
     </div>
+    </details>
   </div>
 </div>
 <div class="section" id="sec-summary">
