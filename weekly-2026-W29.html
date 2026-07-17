@@ -74,11 +74,23 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 .sum-card-title{font-size:12px;font-weight:700;margin-bottom:8px}
 .sum-item{font-size:11px;line-height:1.8;display:flex;gap:5px}
 .placeholder{color:#94a3b8;font-style:italic;font-size:11px}
+.exec-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.exec-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;overflow:hidden}
+.exec-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:currentColor}
+.risk-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.risk-pill{background:#fee2e2;color:#dc2626;padding:3px 12px;border-radius:20px;font-size:11px;font-weight:600}
+.top3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.top3-card{background:#f8fafc;border-radius:8px;padding:10px 12px;text-align:center;border:1px solid var(--border)}
+.top3-label{font-size:11px;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top3-vol{font-size:18px;font-weight:700;line-height:1.2}
+.top3-pct{font-size:11px;color:var(--muted)}
 @media(max-width:768px){
   .main{padding:12px}
   .kpi-grid-4,.kpi-grid-5,.kpi-grid-6{grid-template-columns:repeat(2,1fr)}
   .charts-row,.insight-row{grid-template-columns:1fr}
+  .exec-summary{grid-template-columns:1fr 1fr}
   .sum-grid{grid-template-columns:1fr 1fr}
+  .top3-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -97,6 +109,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </nav>
 </div>
 <div class="main">
+<div class="risk-pills"><span class="risk-pill">⚠ 在线满意 80.91%</span><span class="risk-pill">⚠ 电话接通 82.16%</span><span class="risk-pill">⚠ 电话满意 86.76%</span></div><div class="exec-summary"><div class="exec-card" style="border-top:3px solid #1e40af"><div style="font-size:11px;font-weight:700;color:#1e40af;margin-bottom:4px">💬 在线客服</div><div style="font-size:22px;font-weight:700;line-height:1.2;margin:5px 0">1,508 <span style="font-size:12px;color:#059669">▲5</span></div><div style="font-size:11px;color:#dc2626">满意度 80.91%</div><div style="font-size:11px;color:#059669">30s接通 99.14%</div></div><div class="exec-card" style="border-top:3px solid #7c3aed"><div style="font-size:11px;font-weight:700;color:#7c3aed;margin-bottom:4px">📞 电话客服</div><div style="font-size:22px;font-weight:700;line-height:1.2;margin:5px 0">1,525 <span style="font-size:12px;color:#059669">▲242</span></div><div style="font-size:11px;color:#dc2626">满意度 86.76%</div><div style="font-size:11px;color:#dc2626">接通率 82.16%</div></div><div class="exec-card" style="border-top:3px solid #059669"><div style="font-size:11px;font-weight:700;color:#059669;margin-bottom:4px">📧 邮件渠道</div><div style="font-size:22px;font-weight:700;line-height:1.2;margin:5px 0">307 <span style="font-size:12px;color:#dc2626">▼1</span></div><div style="font-size:11px;color:#059669">整体SLA 94.65%</div><div style="font-size:11px;color:#059669">MY SLA 94.65%</div></div><div class="exec-card" style="border-top:3px solid #d97706"><div style="font-size:11px;font-weight:700;color:#d97706;margin-bottom:4px">🔍 质检差错</div><div style="font-size:13px;font-weight:700;color:#dc2626;margin:5px 0">在线 1.93% / 电话 0.99%</div><div style="font-size:11px;color:#dc2626">邮件 0.4%</div><div style="font-size:11px;color:#94a3b8">目标 ≤1%</div></div></div>
 <div class="section" id="sec-online">
   <div class="section-header">
     <div class="sdot" style="background:#1e40af"></div>
@@ -125,6 +138,17 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </div>
   </div>
 
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">分组接待量（咨询组/转化组，4周）</div>
+      <div class="chart-wrap"><canvas id="cOnlineGrpVol"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">分组满意度趋势（4周）</div>
+      <div class="chart-wrap"><canvas id="cOnlineGrpSat"></canvas></div>
+    </div>
+  </div>
+
   <div class="analysis-block">
     <div class="analysis-title">📊 在线 4周趋势</div>
     <table class="data-table">
@@ -138,9 +162,14 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 在线 不满意业务分布（原始）<span class="badge badge-blue">W29 · 共53单</span></div>
+    <div class="analysis-title">📦 在线 Top3 业务量（W29）</div>
+    <div class="top3-grid"><div class="top3-card"><div class="top3-label" style="color:#1e40af">账户</div><div class="top3-vol">465</div><div class="top3-pct">31.0%</div></div><div class="top3-card"><div class="top3-label" style="color:#1e40af">交易</div><div class="top3-vol">317</div><div class="top3-pct">21.13%</div></div><div class="top3-card"><div class="top3-label" style="color:#1e40af">资金</div><div class="top3-vol">236</div><div class="top3-pct">15.73%</div></div></div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">👎 在线 不满意&nbsp;<span class="badge badge-red">有效 53</span>&nbsp;<span class="badge badge-gray">原始 53</span></div>
     <div style="font-size:10px;color:#6b7280;margin-bottom:6px">
-      人员有效不满意（QA验证）W29 = <strong style="color:#dc2626">13单</strong>&nbsp;·&nbsp;不满率 4.83%&nbsp;·&nbsp;评价工单 269&nbsp;|&nbsp;W26=8 / W27=15 / W28=13 / W29=13
+      不满率 19.7%（有效/评价 269）&nbsp;·&nbsp;4周：W26=51 / W27=63 / W28=58 / W29=53
     </div>
     <table class="data-table">
       <thead><tr><th>业务类别</th><th>W29 不满意</th><th>不满意率</th><th>贡献度</th></tr></thead>
@@ -157,13 +186,14 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👥 在线 分组接待量 &amp; 满意度（W29）</div>
+    <div class="analysis-title">👥 在线 分组接待量 &amp; 满意度（4周趋势）</div>
     <table class="data-table">
-      <thead><tr><th>组别</th><th>接待量</th><th>满意度</th><th>不满意数</th></tr></thead>
-      <tbody>
-        <tr><td>咨询组</td><td>1,240</td><td>95.17%</td><td>13</td></tr>
-        <tr><td>转化客服组</td><td>367</td><td>97.56%</td><td>1</td></tr>
-      </tbody>
+      <thead><tr><th>周</th><th>咨询量</th><th>咨询满意</th><th>咨询不满</th><th>转化量</th><th>转化满意</th><th>转化不满</th></tr></thead>
+      <tbody><tr><td>W26</td><td>1,310</td><td>81.79%</td><td>51</td><td>302</td><td>77.94%</td><td>15</td></tr>
+<tr><td>W27</td><td>1,558</td><td>79.48% <span style="font-size:10px;color:#6b7280">▼2.31pp</span></td><td>63</td><td>151</td><td>71.43% <span style="font-size:10px;color:#6b7280">▼6.51pp</span></td><td>8</td></tr>
+<tr><td>W28</td><td>1,251</td><td>77.52% <span style="font-size:10px;color:#6b7280">▼1.96pp</span></td><td>58</td><td>352</td><td>80.7% <span style="font-size:10px;color:#6b7280">▲9.27pp</span></td><td>11</td></tr>
+<tr><td>W29</td><td>1,240</td><td>80.3% <span style="font-size:10px;color:#6b7280">▲2.78pp</span></td><td>53</td><td>367</td><td>85.37% <span style="font-size:10px;color:#6b7280">▲4.66pp</span></td><td>6</td></tr>
+</tbody>
     </table>
   </div>
 
@@ -209,6 +239,17 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     </div>
   </div>
 
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-title">分组接待量（咨询组/转化组/美分组，4周）</div>
+      <div class="chart-wrap"><canvas id="cPhoneGrpVol"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">分组满意度趋势（4周）</div>
+      <div class="chart-wrap"><canvas id="cPhoneGrpSat"></canvas></div>
+    </div>
+  </div>
+
   <div class="analysis-block">
     <div class="analysis-title">📊 电话 4周趋势</div>
     <table class="data-table">
@@ -222,29 +263,37 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👎 电话 不满意业务分布（原始）<span class="badge badge-blue">W29 · 共9单</span></div>
+    <div class="analysis-title">📦 电话 Top3 业务量（W29）</div>
+    <div class="top3-grid"><div class="top3-card"><div class="top3-label" style="color:#7c3aed">交易</div><div class="top3-vol">368</div><div class="top3-pct">29.07%</div></div><div class="top3-card"><div class="top3-label" style="color:#7c3aed">账户</div><div class="top3-vol">235</div><div class="top3-pct">18.56%</div></div><div class="top3-card"><div class="top3-label" style="color:#7c3aed">平台基础体验</div><div class="top3-vol">200</div><div class="top3-pct">15.8%</div></div></div>
+  </div>
+
+  <div class="analysis-block">
+    <div class="analysis-title">👎 电话 不满意&nbsp;<span class="badge badge-red">有效 9</span>&nbsp;<span class="badge badge-gray">原始 9</span></div>
     <div style="font-size:10px;color:#6b7280;margin-bottom:6px">
-      人员有效不满意（QA验证）W29 = <strong style="color:#dc2626">3单</strong>&nbsp;·&nbsp;不满率 7.32%&nbsp;·&nbsp;评价工单 41&nbsp;|&nbsp;W26=1 / W27=4 / W28=2 / W29=3
+      不满率 21.95%（有效/评价 41）&nbsp;·&nbsp;4周：W26=7 / W27=8 / W28=5 / W29=9
     </div>
     <table class="data-table">
       <thead><tr><th>业务类别</th><th>W29 不满意</th><th>不满意率</th><th>贡献度</th></tr></thead>
       <tbody><tr><td>账户</td><td><strong style="color:#dc2626">4</strong></td><td>0.26%</td><td>44.44%</td></tr>
 <tr><td>交易</td><td><strong style="color:#dc2626">3</strong></td><td>0.2%</td><td>33.33%</td></tr>
 <tr><td>Account Termination</td><td><strong style="color:#dc2626">1</strong></td><td>0.07%</td><td>11.11%</td></tr>
-<tr><td>App Foundation Experience</td><td><strong style="color:#dc2626">1</strong></td><td>0.07%</td><td>11.11%</td></tr>
+<tr><td>平台基础体验</td><td><strong style="color:#dc2626">1</strong></td><td>0.07%</td><td>11.11%</td></tr>
 </tbody>
     </table>
   </div>
 
   <div class="analysis-block">
-    <div class="analysis-title">👥 电话 分组接待量 &amp; 满意度（W29）</div>
+    <div class="analysis-title">👥 电话 分组接待量 &amp; 满意度（4周趋势）</div>
+    <div style="overflow-x:auto">
     <table class="data-table">
-      <thead><tr><th>组别</th><th>接待量</th><th>满意度</th><th>不满意数</th></tr></thead>
-      <tbody>
-        <tr><td>咨询组</td><td>713</td><td>92.68%</td><td>3</td></tr>
-        <tr><td>转化客服组</td><td>139</td><td>85.71%</td><td>1</td></tr>
-      </tbody>
+      <thead><tr><th>周</th><th>咨询量</th><th>咨询满意</th><th>咨询不满</th><th>转化量</th><th>转化满意</th><th>转化不满</th><th>美分量</th><th>美分满意</th><th>美分不满</th></tr></thead>
+      <tbody><tr><td>W26</td><td>468</td><td>75.0%</td><td>7</td><td>244</td><td>87.5%</td><td>2</td><td>415</td><td>75.86%</td><td>7</td></tr>
+<tr><td>W27</td><td>723</td><td>79.49% <span style="font-size:10px;color:#6b7280">▲4.49pp</span></td><td>8</td><td>56</td><td>33.33% <span style="font-size:10px;color:#6b7280">▼54.17pp</span></td><td>2</td><td>481</td><td>70.73% <span style="font-size:10px;color:#6b7280">▼5.13pp</span></td><td>12</td></tr>
+<tr><td>W28</td><td>543</td><td>86.84% <span style="font-size:10px;color:#6b7280">▲7.35pp</span></td><td>5</td><td>152</td><td>88.89% <span style="font-size:10px;color:#6b7280">▲55.56pp</span></td><td>1</td><td>385</td><td>69.44% <span style="font-size:10px;color:#6b7280">▼1.29pp</span></td><td>11</td></tr>
+<tr><td>W29</td><td>713</td><td>78.05% <span style="font-size:10px;color:#6b7280">▼8.79pp</span></td><td>9</td><td>139</td><td>71.43% <span style="font-size:10px;color:#6b7280">▼17.46pp</span></td><td>2</td><td>397</td><td>84.0% <span style="font-size:10px;color:#6b7280">▲14.56pp</span></td><td>4</td></tr>
+</tbody>
     </table>
+    </div>
   </div>
 
   <div class="analysis-block">
@@ -319,10 +368,20 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   </div>
 
   <div class="analysis-block" style="background:#fffbeb;border-color:#fde68a">
-    <div class="analysis-title">📋 差错明细（待补充）</div>
-    <p class="placeholder" style="font-size:12px;padding:8px 0">
-      TODO：请从灯塔差错明细卡片（马来团队/美分团队）拉取本周差错记录，填入渠道/一级业务/二三级/规则代码/致命非致命/简述。
-    </p>
+    <details>
+      <summary style="font-size:13px;font-weight:700;cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px">
+        <span style="font-size:14px">▶</span> 📋 差错明细（点击展开）
+      </summary>
+      <div style="margin-top:10px">
+        <p class="placeholder" style="font-size:12px;padding:4px 0">
+          TODO：请从灯塔差错明细卡片（马来团队 md12c4c1ff4d54c40b4e5fe9 / 美分团队 t137ee333dc3c43859c08638）拉取本周差错记录，填入渠道/一级业务/二三级/规则代码/致命非致命/简述。
+        </p>
+        <table class="data-table" style="margin-top:8px">
+          <thead><tr><th>渠道</th><th>一级业务</th><th>二/三级</th><th>规则代码</th><th>致命/非致命</th><th>简述</th></tr></thead>
+          <tbody><tr><td colspan="6" style="text-align:center;color:#94a3b8;font-style:italic">待补录</td></tr></tbody>
+        </table>
+      </div>
+    </details>
   </div>
 </div>
 <div class="section" id="sec-summary">
@@ -493,6 +552,79 @@ new Chart(document.getElementById('cErrRate'),{
   options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
     plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
     scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+// ── Group vol charts ────────────────────────────────────────────
+const oqVol=[1310,1558,1251,1240];
+const ocVol=[302,151,352,367];
+const oGrpMax=Math.max(...oqVol.map((v,i)=>v+ocVol[i]))*1.5||500;
+
+new Chart(document.getElementById('cOnlineGrpVol'),{
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'咨询组',data:oqVol,stack:'og',backgroundColor:'rgba(30,64,175,.75)',borderRadius:0,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v?v.toLocaleString():''}},
+    {type:'bar',label:'转化组',data:ocVol,stack:'og',backgroundColor:'rgba(139,92,246,.65)',borderRadius:4,yAxisID:'y',
+      datalabels:{display:true,anchor:'end',align:'top',offset:2,font:{...F,weight:'700'},color:'#374151',
+        formatter:(v,ctx)=>{const t=oqVol[ctx.dataIndex]+ocVol[ctx.dataIndex];return t?t.toLocaleString():'';}}}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,max:oGrpMax,stacked:true,ticks:{font:F},grid:GRID}}}
+});
+
+const oqSat=[81.79,79.48,77.52,80.3];
+const ocSat=[77.94,71.43,80.7,85.37];
+
+new Chart(document.getElementById('cOnlineGrpSat'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'咨询组%',data:oqSat,borderColor:'rgba(30,64,175,.85)',tension:.3,borderWidth:2,borderDash:[4,2],pointRadius:4,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#1e40af',formatter:v=>v?v+'%':''}},
+    {type:'line',label:'转化组%',data:ocSat,borderColor:'rgba(139,92,246,.85)',tension:.3,borderWidth:2,borderDash:[4,2],pointRadius:4,
+      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#7c3aed',formatter:v=>v?v+'%':''}},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:60,max:105,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
+});
+
+const pqVol=[468,723,543,713];
+const pcVol=[244,56,152,139];
+const pusVol=[415,481,385,397];
+const pGrpMax=Math.max(...pqVol.map((v,i)=>v+pcVol[i]+pusVol[i]))*1.5||500;
+
+new Chart(document.getElementById('cPhoneGrpVol'),{
+  data:{labels:L4,datasets:[
+    {type:'bar',label:'咨询组',data:pqVol,stack:'pg',backgroundColor:'rgba(124,58,237,.75)',borderRadius:0,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v?v.toLocaleString():''}},
+    {type:'bar',label:'转化组',data:pcVol,stack:'pg',backgroundColor:'rgba(217,119,6,.65)',borderRadius:0,yAxisID:'y',
+      datalabels:{display:true,anchor:'center',align:'center',font:{...F,weight:'700'},color:'#fff',formatter:v=>v?v.toLocaleString():''}},
+    {type:'bar',label:'美分组',data:pusVol,stack:'pg',backgroundColor:'rgba(5,150,105,.65)',borderRadius:4,yAxisID:'y',
+      datalabels:{display:true,anchor:'end',align:'top',offset:2,font:{...F,weight:'700'},color:'#374151',
+        formatter:(v,ctx)=>{const t=pqVol[ctx.dataIndex]+pcVol[ctx.dataIndex]+pusVol[ctx.dataIndex];return t?t.toLocaleString():'';}}}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:24,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:6}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:0,max:pGrpMax,stacked:true,ticks:{font:F},grid:GRID}}}
+});
+
+const pqSat=[75.0,79.49,86.84,78.05];
+const pcSat=[87.5,33.33,88.89,71.43];
+const pusSat=[75.86,70.73,69.44,84.0];
+
+new Chart(document.getElementById('cPhoneGrpSat'),{
+  data:{labels:L4,datasets:[
+    {type:'line',label:'咨询组%',data:pqSat,borderColor:'rgba(124,58,237,.85)',tension:.3,borderWidth:2,borderDash:[4,2],pointRadius:4,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#7c3aed',formatter:v=>v?v+'%':''}},
+    {type:'line',label:'转化组%',data:pcSat,borderColor:'rgba(217,119,6,.85)',tension:.3,borderWidth:2,borderDash:[4,2],pointRadius:4,
+      datalabels:{display:true,align:'bottom',offset:4,font:{...F,weight:'700'},color:'#d97706',formatter:v=>v?v+'%':''}},
+    {type:'line',label:'美分组%',data:pusSat,borderColor:'rgba(5,150,105,.85)',tension:.3,borderWidth:2,borderDash:[4,2],pointRadius:4,
+      datalabels:{display:true,align:'top',offset:4,font:{...F,weight:'700'},color:'#059669',formatter:v=>v?v+'%':''}},
+    {type:'line',label:'目标90%',data:[90,90,90,90],borderColor:'#dc2626',borderWidth:1,borderDash:[6,4],pointRadius:0,datalabels:DL_OFF}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,bottom:4}},
+    plugins:{legend:{position:'bottom',labels:{font:F,boxWidth:10,padding:5}},datalabels:{}},
+    scales:{x:{ticks:{font:F},grid:{display:false}},y:{min:55,max:105,ticks:{font:F,callback:v=>v+'%'},grid:GRID}}}
 });
 </script>
 </body>
