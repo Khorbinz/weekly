@@ -58,7 +58,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
 .analysis-title{font-size:13px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:12px;font-weight:600}
 .badge-blue{background:#dbeafe;color:#1e40af}.badge-red{background:#fee2e2;color:#dc2626}
-.badge-green{background:#d1fae5;color:#065f46}.badge-orange{background:#fef3c7;color:#92400e}
+.badge-green{background:#d1fae5;color:#065f46}.badge-orange{background:#fef3c7;color:#b45309}
 .badge-gray{background:#f1f5f9;color:#64748b}
 .insight-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
 .insight{background:#f8fafc;border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 12px}
@@ -370,15 +370,25 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   <div class="analysis-block" style="background:#fffbeb;border-color:#fde68a">
     <details>
       <summary style="font-size:13px;font-weight:700;cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px">
-        <span style="font-size:14px">▶</span> 📋 差错明细（点击展开）
+        <span style="font-size:14px">▶</span> 📋 差错明细（点击展开）&nbsp;<span class="badge badge-red">9致命</span>&nbsp;<span class="badge badge-orange">4非致命</span>
       </summary>
-      <div style="margin-top:10px">
-        <p class="placeholder" style="font-size:12px;padding:4px 0">
-          TODO：请从灯塔差错明细卡片（马来团队 md12c4c1ff4d54c40b4e5fe9 / 美分团队 t137ee333dc3c43859c08638）拉取本周差错记录，填入渠道/一级业务/二三级/规则代码/致命非致命/简述。
-        </p>
+      <div style="margin-top:10px;overflow-x:auto">
         <table class="data-table" style="margin-top:8px">
-          <thead><tr><th>渠道</th><th>一级业务</th><th>二/三级</th><th>规则代码</th><th>致命/非致命</th><th>简述</th></tr></thead>
-          <tbody><tr><td colspan="6" style="text-align:center;color:#94a3b8;font-style:italic">待补录</td></tr></tbody>
+          <thead><tr><th>渠道</th><th>一级业务</th><th>二级业务</th><th>三级业务</th><th>工单号</th><th>致命/非致命</th></tr></thead>
+          <tbody><tr><td>在线</td><td>交易  订单相关  </td><td>10260714153057069492</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+<tr><td>电话</td><td>开户后咨询  修改资料  修改电话号码/忘记密码</td><td>20260714032244076823</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#d97706;font-weight:700">非致命</span></td></tr>
+<tr><td>在线</td><td>交易  Event Contract  </td><td>10260713053403969624</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+<tr><td>在线</td><td>入金  WIRE入金进度/催入金  </td><td>10260713205916847772</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#d97706;font-weight:700">非致命</span></td></tr>
+<tr><td>在线</td><td>税务  税表问题  </td><td>10260713142752212780</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+<tr><td>邮件</td><td>销户  注销证券账户（已开户）  不使用（薅完羊毛等）</td><td>50260713080047667427</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+<tr><td>在线</td><td>公司行动  分红派息  </td><td>10260711093038939768</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#d97706;font-weight:700">非致命</span></td></tr>
+<tr><td>在线</td><td>结单/证明  各类证明文件  </td><td>10260711221019382835</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+<tr><td>在线</td><td>交易  美股交易  正股</td><td>10260710123432100359</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+<tr><td>在线</td><td>交易  资产分析相关  盈亏分析页面 </td><td>10260710192458050596</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+<tr><td>电话</td><td>开户后咨询  修改资料  修改电话号码/忘记密码</td><td>20260710022809914039</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#d97706;font-weight:700">非致命</span></td></tr>
+<tr><td>电话</td><td>资金相关  货币兑换  </td><td>20260713215552982290</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+<tr><td>电话</td><td>交易  期权  </td><td>20260710000608419424</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+</tbody>
         </table>
       </div>
     </details>
