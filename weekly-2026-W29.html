@@ -370,24 +370,26 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
   <div class="analysis-block" style="background:#fffbeb;border-color:#fde68a">
     <details>
       <summary style="font-size:13px;font-weight:700;cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px">
-        <span style="font-size:14px">▶</span> 📋 差错明细（点击展开）&nbsp;<span class="badge badge-red">9致命</span>&nbsp;<span class="badge badge-orange">4非致命</span>
+        <span style="font-size:14px">▶</span> 📋 差错明细（点击展开）&nbsp;<span class="badge badge-red">11致命</span>&nbsp;<span class="badge badge-orange">4非致命</span>
       </summary>
       <div style="margin-top:10px;overflow-x:auto">
         <table class="data-table" style="margin-top:8px">
-          <thead><tr><th>渠道</th><th>一级业务</th><th>二级业务</th><th>三级业务</th><th>工单号</th><th>致命/非致命</th></tr></thead>
-          <tbody><tr><td>在线</td><td>交易  订单相关  </td><td>10260714153057069492</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
-<tr><td>电话</td><td>开户后咨询  修改资料  修改电话号码/忘记密码</td><td>20260714032244076823</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#d97706;font-weight:700">非致命</span></td></tr>
-<tr><td>在线</td><td>交易  Event Contract  </td><td>10260713053403969624</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
-<tr><td>在线</td><td>入金  WIRE入金进度/催入金  </td><td>10260713205916847772</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#d97706;font-weight:700">非致命</span></td></tr>
-<tr><td>在线</td><td>税务  税表问题  </td><td>10260713142752212780</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
-<tr><td>邮件</td><td>销户  注销证券账户（已开户）  不使用（薅完羊毛等）</td><td>50260713080047667427</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
-<tr><td>在线</td><td>公司行动  分红派息  </td><td>10260711093038939768</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#d97706;font-weight:700">非致命</span></td></tr>
-<tr><td>在线</td><td>结单/证明  各类证明文件  </td><td>10260711221019382835</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
-<tr><td>在线</td><td>交易  美股交易  正股</td><td>10260710123432100359</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
-<tr><td>在线</td><td>交易  资产分析相关  盈亏分析页面 </td><td>10260710192458050596</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
-<tr><td>电话</td><td>开户后咨询  修改资料  修改电话号码/忘记密码</td><td>20260710022809914039</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#d97706;font-weight:700">非致命</span></td></tr>
-<tr><td>电话</td><td>资金相关  货币兑换  </td><td>20260713215552982290</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
-<tr><td>电话</td><td>交易  期权  </td><td>20260710000608419424</td><td></td><td style="font-size:11px;word-break:break-all"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td></tr>
+          <thead><tr><th>日期</th><th>团队</th><th>渠道</th><th>一级业务</th><th>二三级业务</th><th>规则代码</th><th>类型</th><th>差错简述</th></tr></thead>
+          <tbody><tr><td>2026-07-14</td><td>MY</td><td>在线</td><td>交易</td><td>订单相关</td><td style="font-size:11px">专业解答-J2</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">客户进线咨询资金明细未更新至最新日期并提供相关截图，客服未定位客户问题进行解答，未有效解决客户问题</td></tr>
+<tr><td>2026-07-14</td><td>MY</td><td>电话</td><td>开户后咨询</td><td>修改资料 / 修改电话号码/忘记密码</td><td style="font-size:11px">服务沟通规范-C3</td><td><span style="color:#d97706;font-weight:700">非致命</span></td><td style="font-size:12px">did not agree on a response timewith the client, and after the client waited for more than one minute, the agent did not respond.</td></tr>
+<tr><td>2026-07-13</td><td>MY</td><td>在线</td><td>交易</td><td>Event Contract</td><td style="font-size:11px">专业解答-J2</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">客户问FU1CD06537FC2E6000这个事件合约的订单什么时候settled，客服答12 July 20:00 ET。但这个订单创建时间是7月12日，实际会在7月13日的 03:00 - 04:00 之间完成settle（证券账户的购买力届时会恢复。event contract的所有订单都会进行netting。不是每一笔交易清算所都会立刻进行调整，而是会综合整体加总起来。会在00：00进行cut off，03:00- 04:00进行settle调拨。）</td></tr>
+<tr><td>2026-07-13</td><td>MY</td><td>在线</td><td>入金</td><td>WIRE入金进度/催入金</td><td style="font-size:11px">服务沟通规范-C2</td><td><span style="color:#d97706;font-weight:700">非致命</span></td><td style="font-size:12px">客户使用中文咨询，客服中途使用了英文回复，存在中英文混搭。</td></tr>
+<tr><td>2026-07-13</td><td>MY</td><td>在线</td><td>税务</td><td>税表问题</td><td style="font-size:11px">专业解答-J2</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">客户问moomoo的1042s是不是免费的，客服仅告知目前您使用的账户并未开户moomoo us，未针对性回答。</td></tr>
+<tr><td>2026-07-13</td><td>MY</td><td>邮件</td><td>销户</td><td>注销证券账户（已开户） / 不使用（薅完羊毛等）</td><td style="font-size:11px">专业解答-J2</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">客户申请注销账户，客服仅告诉客户自己平仓，但是客户持仓有无价值股票FRTX（持仓市值为0），客户自己也无法关掉，应该要指引移除无价值股票持仓</td></tr>
+<tr><td>2026-07-11</td><td>MY</td><td>在线</td><td>公司行动</td><td>分红派息</td><td style="font-size:11px">服务用语-A7</td><td><span style="color:#d97706;font-weight:700">非致命</span></td><td style="font-size:12px">让客户等待超过3分钟 超过时限标准需使用礼貌用语： ""感谢您的耐心等待"" ""抱歉让您久等，"</td></tr>
+<tr><td>2026-07-11</td><td>MY</td><td>在线</td><td>结单/证明</td><td>各类证明文件</td><td style="font-size:11px">专业解答-J2</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">客户表示收到的资产证明需要输入手机号码后4位和身份证号码后四位，但一直显示不成功，客服在客户表示其号码均输入无误后称将为客户再申请一封无密码的资产证明，处理有误。</td></tr>
+<tr><td>2026-07-10</td><td>MY</td><td>在线</td><td>交易</td><td>美股交易 / 正股</td><td style="font-size:11px">操作规范-E3,专业解答-J2</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">客户问的是盘前盘后时段（Pre-market/Post-market）可以交易的股票的图标，客服回的是夜盘时段（Overnight Session）的图标，不是一个时段</td></tr>
+<tr><td>2026-07-10</td><td>MY</td><td>在线</td><td>交易</td><td>资产分析相关 / 盈亏分析页面</td><td style="font-size:11px">专业解答-J2</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">客户表达的是自选列表涨跌幅受到盘后浮动价格影响，客服回复的是持仓设置的关闭盘前盘后，未针对性解答——持仓设置的关闭盘前盘后是针对美股持仓的市值与P/L是否受盘前盘后实时数据影响，不是针对自选列表的</td></tr>
+<tr><td>2026-07-10</td><td>MY</td><td>电话</td><td>开户后咨询</td><td>修改资料 / 修改电话号码/忘记密码</td><td style="font-size:11px">服务沟通规范-C3</td><td><span style="color:#d97706;font-weight:700">非致命</span></td><td style="font-size:12px">The agent did not agree on a response time with theclient, and after the client waited for more than one minute, the agent did not resspond</td></tr>
+<tr><td>总计</td><td>MY</td><td>总计</td><td>总计</td><td></td><td style="font-size:11px"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px"></td></tr>
+<tr><td>2026-07-13</td><td>美分</td><td>电话</td><td>资金相关</td><td>货币兑换</td><td style="font-size:11px">处理流程-H3</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">rhawkins tried to connect the call to the currency exchange team, but the transfer failed and there was no follow-up.</td></tr>
+<tr><td>2026-07-10</td><td>美分</td><td>电话</td><td>交易</td><td>期权</td><td style="font-size:11px">服务沟通规范-B3</td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px">客户对客服的解答不满且表示跟客服沟通感觉到非常粗鲁，并要求转经理沟通；在客服想继续跟客户讲解其遇到的问题后，客户仍要求转经理；随后客服表示需客户提供mmid后能继续而后指引客户如何查询并完成核身后，告知当前没有经理可接听电话，客户再次表达不满且多次要求转经理，客服未做有效安抚且最终未按客户诉求转经理协助，客户再次明确表达对客服不满后挂机。</td></tr>
+<tr><td>总计</td><td>美分</td><td>总计</td><td>总计</td><td></td><td style="font-size:11px"></td><td><span style="color:#dc2626;font-weight:700">致命</span></td><td style="font-size:12px"></td></tr>
 </tbody>
         </table>
       </div>
