@@ -7,136 +7,52 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:#f0f7ff;color:#1e293b;padding:32px 20px}
-.header{text-align:center;margin-bottom:40px}
-.header h1{font-size:22px;font-weight:700;color:#1e293b}
-.header p{font-size:13px;color:#64748b;margin-top:6px}
-.list{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-.item{background:#fff;border:1px solid #bae0fd;border-radius:10px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:inherit;transition:box-shadow .15s}
-.item:hover{box-shadow:0 4px 12px rgba(14,165,233,.12)}
-.item-left{display:flex;align-items:center;gap:12px}
-.dot{width:10px;height:10px;border-radius:50%;background:#0ea5e9;flex-shrink:0}
-.item-title{font-size:14px;font-weight:600}
-.item-date{font-size:12px;color:#64748b;margin-top:2px}
-.badge{font-size:11px;background:#e0f2fe;color:#0369a1;padding:3px 8px;border-radius:20px;font-weight:600}
+body{font-family:'DM Sans',sans-serif;background:#f0f7ff;color:#1e293b;min-height:100vh}
+header{background:linear-gradient(135deg,#0369a1,#0ea5e9);color:#fff;padding:20px 32px}
+header h1{font-size:1.4rem;font-weight:700}
+header p{font-size:.85rem;opacity:.75;margin-top:4px}
+.container{max-width:640px;margin:32px auto;padding:0 16px 40px}
+.month-section{margin-bottom:16px}
+.month-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#0369a1;color:#fff;border-radius:10px;cursor:pointer;user-select:none;transition:background .15s}
+.month-header:hover{background:#075985}
+.month-label{font-size:.95rem;font-weight:700}
+.month-count{font-size:.78rem;opacity:.75}
+.chevron{font-size:.8rem;transition:transform .2s}
+.month-header.collapsed .chevron{transform:rotate(-90deg)}
+.month-list{background:#fff;border-radius:0 0 10px 10px;box-shadow:0 2px 8px rgba(0,0,0,.07);overflow:hidden;margin-top:2px}
+.month-list.hidden{display:none}
+.item{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid #f1f5f9;text-decoration:none;color:inherit;transition:background .15s}
+.item:last-child{border-bottom:none}
+.item:hover{background:#f0f9ff}
+.item-title{font-size:.93rem;font-weight:600}
+.item-date{font-size:.76rem;color:#64748b;margin-top:2px}
+.badge-latest{font-size:11px;background:#0ea5e9;color:#fff;padding:3px 8px;border-radius:20px;font-weight:600}
+.badge-wn{font-size:11px;background:#e0f2fe;color:#0369a1;padding:3px 8px;border-radius:20px;font-weight:600}
 </style>
 </head>
 <body>
-<div class="header">
+<header>
   <h1>CCR Weekly Report</h1>
   <p>Call Connection Rate · English · Auto-generated</p>
-</div>
-<div class="list">
-  <a class="item" href="weekly-w31-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W31 · CCR English Report</div>
-        <div class="item-date">Jul 24 — Jul 30</div>
-      </div>
-    </div>
-    <span class="badge">Latest</span>
-  </a>
-  <a class="item" href="weekly-w30-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W30 · CCR English Report</div>
-        <div class="item-date">Jul 17 — Jul 23</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W30</span>
-  </a>
-  <a class="item" href="weekly-w28-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W28 · CCR English Report</div>
-        <div class="item-date">Jul 10 — Jul 16</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W28</span>
-  </a>
-  <a class="item" href="weekly-w27-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W27 · CCR English Report</div>
-        <div class="item-date">Jul 03 — Jul 09</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W27</span>
-  </a>
-  <a class="item" href="weekly-w26-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W26 · CCR English Report</div>
-        <div class="item-date">Jun 25 — Jul 1</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W26</span>
-  </a>
-  <a class="item" href="weekly-w25-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W25 · CCR English Report</div>
-        <div class="item-date">Jun 19 — Jun 25</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W25</span>
-  </a>
-  <a class="item" href="weekly-w24-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W24 · CCR English Report</div>
-        <div class="item-date">Jun 13 — Jun 19</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W24</span>
-  </a>
-  <a class="item" href="weekly-w23-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W23 · CCR English Report</div>
-        <div class="item-date">Jun 05 — Jun 11</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W23</span>
-  </a>
-  <a class="item" href="weekly-w22-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W22 · CCR English Report</div>
-        <div class="item-date">May 29 — Jun 04</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W22</span>
-  </a>
-  <a class="item" href="weekly-w21-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W21 · CCR English Report</div>
-        <div class="item-date">May 22 — May 28</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W21</span>
-  </a>
-  <a class="item" href="weekly-w19-en.html">
-    <div class="item-left">
-      <div class="dot"></div>
-      <div>
-        <div class="item-title">W19 · CCR English Report</div>
-        <div class="item-date">May 7 — May 13</div>
-      </div>
-    </div>
-    <span class="badge" style="background:#f1f5f9;color:#64748b">W19</span>
-  </a>
+</header>
+<div class="container">
+<div class="month-section"><div class="month-header " onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('hidden')"><span class="month-label">July 2026</span><span style="display:flex;align-items:center;gap:10px"><span class="month-count">5 reports</span><span class="chevron">▼</span></span></div><div class="month-list">
+    <a class="item" href="weekly-w31-en.html"><div><div class="item-title">W31 · CCR Weekly Report</div><div class="item-date">Jul 24 — Jul 30, 2026</div></div><span class="badge-latest">Latest</span></a>
+    <a class="item" href="weekly-w30-en.html"><div><div class="item-title">W30 · CCR Weekly Report</div><div class="item-date">Jul 17 — Jul 23, 2026</div></div><span class="badge-wn">W30</span></a>
+    <a class="item" href="weekly-w28-en.html"><div><div class="item-title">W28 · CCR Weekly Report</div><div class="item-date">Jul 10 — Jul 16, 2026</div></div><span class="badge-wn">W28</span></a>
+    <a class="item" href="weekly-w27-en.html"><div><div class="item-title">W27 · CCR Weekly Report</div><div class="item-date">Jul 03 — Jul 09, 2026</div></div><span class="badge-wn">W27</span></a>
+    <a class="item" href="weekly-w26-en.html"><div><div class="item-title">W26 · CCR Weekly Report</div><div class="item-date">Jun 25 — Jul 1, 2026</div></div><span class="badge-wn">W26</span></a>
+  </div></div>
+<div class="month-section"><div class="month-header collapsed" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('hidden')"><span class="month-label">June 2026</span><span style="display:flex;align-items:center;gap:10px"><span class="month-count">4 reports</span><span class="chevron">▼</span></span></div><div class="month-list hidden">
+    <a class="item" href="weekly-w25-en.html"><div><div class="item-title">W25 · CCR Weekly Report</div><div class="item-date">Jun 19 — Jun 25, 2026</div></div><span class="badge-wn">W25</span></a>
+    <a class="item" href="weekly-w24-en.html"><div><div class="item-title">W24 · CCR Weekly Report</div><div class="item-date">Jun 13 — Jun 19, 2026</div></div><span class="badge-wn">W24</span></a>
+    <a class="item" href="weekly-w23-en.html"><div><div class="item-title">W23 · CCR Weekly Report</div><div class="item-date">Jun 05 — Jun 11, 2026</div></div><span class="badge-wn">W23</span></a>
+    <a class="item" href="weekly-w22-en.html"><div><div class="item-title">W22 · CCR Weekly Report</div><div class="item-date">May 29 — Jun 04, 2026</div></div><span class="badge-wn">W22</span></a>
+  </div></div>
+<div class="month-section"><div class="month-header collapsed" onclick="this.classList.toggle('collapsed');this.nextElementSibling.classList.toggle('hidden')"><span class="month-label">May 2026</span><span style="display:flex;align-items:center;gap:10px"><span class="month-count">2 reports</span><span class="chevron">▼</span></span></div><div class="month-list hidden">
+    <a class="item" href="weekly-w21-en.html"><div><div class="item-title">W21 · CCR Weekly Report</div><div class="item-date">May 22 — May 28, 2026</div></div><span class="badge-wn">W21</span></a>
+    <a class="item" href="weekly-w19-en.html"><div><div class="item-title">W19 · CCR Weekly Report</div><div class="item-date">May 7 — May 13, 2026</div></div><span class="badge-wn">W19</span></a>
+  </div></div>
 </div>
 </body>
 </html>
