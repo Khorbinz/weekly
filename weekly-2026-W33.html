@@ -106,6 +106,7 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
     <a href="#sec-email">📧 邮件</a>
     <a href="#sec-qc">🔍 差错</a>
     <a href="#sec-summary">📋 总结</a>
+    <a href="#sec-dissat">👎 不满意</a>
   </nav>
 </div>
 <div class="main">
@@ -469,6 +470,43 @@ body{font-family:'DM Sans',sans-serif;background:#f1f5f9;color:#1e293b;font-size
         <div class="sum-item">电话差错率：0.0%</div>
         <div class="sum-item">邮件差错率：0.82%</div>
         <div class="sum-item" style="color:#64748b;font-size:10px;margin-top:4px">差错明细待补录</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section" id="sec-dissat">
+  <div class="section-header">
+    <div class="sdot" style="background:#dc2626"></div>
+    <div class="section-title">五、不满意工单深度分析</div>
+    <span style="margin-left:auto;font-size:11px;background:#fee2e2;color:#dc2626;padding:3px 10px;border-radius:20px;font-weight:600">满意度不达标触发</span>
+    <span class="week-badge">8/7–8/13 · W33</span>
+  </div>
+
+  <div class="kpi-grid kpi-grid-4"><div class="kpi-card" style="border-top:3px solid #1e40af"><div class="kpi-label">本周不满意总量</div><div class="kpi-value" style="color:#1e40af">421</div><div class="kpi-delta neu">（评价工单）</div></div><div class="kpi-card" style="border-top:3px solid #dc2626"><div class="kpi-label">客诉未解决率</div><div class="kpi-value" style="color:#dc2626">35%</div><div class="kpi-delta neu">未解决 149 条</div></div><div class="kpi-card" style="border-top:3px solid #7c3aed"><div class="kpi-label">在线未解决率</div><div class="kpi-value" style="color:#7c3aed">36%</div><div class="kpi-delta neu">Online</div></div><div class="kpi-card" style="border-top:3px solid #d97706"><div class="kpi-label">电话未解决率</div><div class="kpi-value" style="color:#d97706">25%</div><div class="kpi-delta neu">Phone</div></div></div>
+
+  <div class="charts-row">
+    <div class="chart-card" style="grid-column:1">
+      <div class="chart-title">未解决率高业务 Top（量≥5条）</div>
+      <table class="data-table">
+        <thead><tr><th>业务</th><th>不满意</th><th>未解决</th><th>未解决率</th></tr></thead>
+        <tbody><tr><td style="text-align:left">公司行动</td><td>5</td><td>4</td><td><span style="color:#dc2626;font-weight:700">80%</span><div style="background:#f1f5f9;border-radius:3px;height:4px;margin-top:3px"><div style="background:#dc2626;width:80%;height:4px;border-radius:3px"></div></div></td></tr><tr><td style="text-align:left">交易</td><td>73</td><td>34</td><td><span style="color:#dc2626;font-weight:700">47%</span><div style="background:#f1f5f9;border-radius:3px;height:4px;margin-top:3px"><div style="background:#dc2626;width:47%;height:4px;border-radius:3px"></div></div></td></tr><tr><td style="text-align:left">资金（出金）</td><td>46</td><td>21</td><td><span style="color:#dc2626;font-weight:700">46%</span><div style="background:#f1f5f9;border-radius:3px;height:4px;margin-top:3px"><div style="background:#dc2626;width:46%;height:4px;border-radius:3px"></div></div></td></tr><tr><td style="text-align:left">行情</td><td>12</td><td>5</td><td><span style="color:#dc2626;font-weight:700">42%</span><div style="background:#f1f5f9;border-radius:3px;height:4px;margin-top:3px"><div style="background:#dc2626;width:42%;height:4px;border-radius:3px"></div></div></td></tr><tr><td style="text-align:left">资金（入金）</td><td>38</td><td>15</td><td><span style="color:#d97706;font-weight:700">39%</span><div style="background:#f1f5f9;border-radius:3px;height:4px;margin-top:3px"><div style="background:#d97706;width:39%;height:4px;border-radius:3px"></div></div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="chart-card" style="grid-column:2">
+      <div class="chart-title">客户投诉关键词</div>
+      <div style="margin-bottom:10px">
+        <div style="font-size:11px;font-weight:700;color:#6b7280;margin-bottom:6px">英文</div>
+        <div><span class="badge badge-blue" style="margin:2px">need ×6</span><span class="badge badge-blue" style="margin:2px">understand ×5</span><span class="badge badge-blue" style="margin:2px">person ×4</span><span class="badge badge-blue" style="margin:2px">home ×3</span><span class="badge badge-blue" style="margin:2px">feed ×3</span></div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:#6b7280;margin-bottom:6px">中文</div>
+        <div><span class="badge badge-red" style="margin:2px">产品体验差 ×23</span><span class="badge badge-red" style="margin:2px">服务态度差 ×10</span></div>
+      </div>
+      <div style="margin-top:14px;padding:10px;background:#fef2f2;border-radius:8px;font-size:11px;color:#991b1b;line-height:1.7">
+        <strong>优化重点</strong><br>
+        出金流程问题频发，未解决率偏高
+        交易限制投诉量大，建议话术优化
+        在线渠道未解决率高于电话，建议强化工单跟进流程
       </div>
     </div>
   </div>
