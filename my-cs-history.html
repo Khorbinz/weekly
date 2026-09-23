@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY CS Weekly Trend · Jun–Sep 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f6fa; color: #2d3436; }
+.header { background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; padding: 28px 40px; }
+.header h1 { font-size: 22px; font-weight: 600; }
+.header p { margin-top: 6px; opacity: 0.85; font-size: 13px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 28px 20px; }
+.summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+.summary-card { background: white; border-radius: 12px; padding: 18px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.summary-card .label { font-size: 12px; color: #636e72; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.summary-card .value { font-size: 24px; font-weight: 700; }
+.summary-card .sub { font-size: 11px; color: #636e72; margin-top: 4px; }
+.section { background: white; border-radius: 12px; padding: 22px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.section h2 { font-size: 15px; font-weight: 600; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; color: #1a73e8; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: #f8f9fa; padding: 10px 12px; text-align: left; font-weight: 600; color: #636e72; font-size: 12px; }
+td { padding: 10px 12px; border-bottom: 1px solid #f0f0f0; }
+tr:last-child td { border-bottom: none; }
+td.wn { font-weight: 700; color: #1a73e8; }
+td.num { text-align: center; }
+.badge { display: inline-block; padding: 3px 9px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-right: 6px; }
+.badge.green { background: #d4edda; color: #155724; }
+.badge.yellow { background: #fff3cd; color: #856404; }
+.badge.red { background: #f8d7da; color: #721c24; }
+.up { color: #00b894; font-size: 11px; }
+.down { color: #d63031; font-size: 11px; }
+.chart-box { height: 320px; margin-top: 10px; }
+.footer { text-align: center; padding: 20px; color: #636e72; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>MY CS Weekly Trend</h1>
+  <p>June – September 2026 · Auto-generated from Lighthouse data</p>
+</div>
+
+<div class="container">
+
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="label">MY CS Avg CCR</div>
+    <div class="value">83.33%</div>
+    <div class="sub">Target ≥90% · 6/15 weeks met</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">MY CS Avg SLA60</div>
+    <div class="value">67.98%</div>
+    <div class="sub">Target ≥80% · 4/15 weeks met</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">Total MY True Inbound</div>
+    <div class="value">15,082</div>
+    <div class="sub">Across 15 weeks · avg 1,005/wk</div>
+  </div>
+  <div class="summary-card">
+    <div class="label">MY Peak Week</div>
+    <div class="value">1,388</div>
+    <div class="sub">W25 · highest inbound</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>MY CS Weekly KPI Trend (CCR & SLA60)</h2>
+  <div class="chart-box"><canvas id="trendChart"></canvas></div>
+</div>
+
+<div class="section">
+  <h2>MY CS True Inbound Volume</h2>
+  <div class="chart-box"><canvas id="volChart"></canvas></div>
+</div>
+
+<div class="section">
+  <h2>Weekly Breakdown</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Week</th>
+        <th>Date Range</th>
+        <th>True Inbound</th>
+        <th>MY Volume (% of Total)</th>
+        <th>CCR (≥90%)</th>
+        <th>SLA60 (≥80%)</th>
+        <th>Email (SLA)</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr>
+  <td class="wn">W24</td>
+  <td class="date">06/05–06/11</td>
+  <td class="num">1,274</td>
+  <td class="num">1,523 (83.7% of total)</td>
+  <td class="num"><span class="badge red">68.55%</span> </td>
+  <td class="num"><span class="badge red">50.63%</span> </td>
+  <td class="num">1,835 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W25</td>
+  <td class="date">06/12–06/18</td>
+  <td class="num">1,388</td>
+  <td class="num">1,613 (86.1% of total)</td>
+  <td class="num"><span class="badge red">72.72%</span> <span class="up">▲ 4.17pp</span></td>
+  <td class="num"><span class="badge red">55.63%</span> <span class="up">▲ 5.00pp</span></td>
+  <td class="num">1,727 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W26</td>
+  <td class="date">06/19–06/25</td>
+  <td class="num">869</td>
+  <td class="num">1,040 (83.6% of total)</td>
+  <td class="num"><span class="badge red">68.37%</span> <span class="down">▼ 4.35pp</span></td>
+  <td class="num"><span class="badge red">44.08%</span> <span class="down">▼ 11.55pp</span></td>
+  <td class="num">1,504 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W27</td>
+  <td class="date">06/26–07/02</td>
+  <td class="num">1,048</td>
+  <td class="num">1,198 (87.5% of total)</td>
+  <td class="num"><span class="badge red">73.37%</span> <span class="up">▲ 5.00pp</span></td>
+  <td class="num"><span class="badge red">57.45%</span> <span class="up">▲ 13.37pp</span></td>
+  <td class="num">1,877 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W28</td>
+  <td class="date">07/03–07/09</td>
+  <td class="num">815</td>
+  <td class="num">907 (89.9% of total)</td>
+  <td class="num"><span class="badge red">78.39%</span> <span class="up">▲ 5.02pp</span></td>
+  <td class="num"><span class="badge red">65.10%</span> <span class="up">▲ 7.65pp</span></td>
+  <td class="num">2,053 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W29</td>
+  <td class="date">07/10–07/16</td>
+  <td class="num">1,049</td>
+  <td class="num">1,162 (90.3% of total)</td>
+  <td class="num"><span class="badge red">79.00%</span> <span class="up">▲ 0.61pp</span></td>
+  <td class="num"><span class="badge red">63.70%</span> <span class="down">▼ 1.40pp</span></td>
+  <td class="num">2,048 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W30</td>
+  <td class="date">07/17–07/23</td>
+  <td class="num">956</td>
+  <td class="num">1,035 (92.4% of total)</td>
+  <td class="num"><span class="badge red">84.44%</span> <span class="up">▲ 5.44pp</span></td>
+  <td class="num"><span class="badge red">73.37%</span> <span class="up">▲ 9.67pp</span></td>
+  <td class="num">1,708 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W31</td>
+  <td class="date">07/24–07/30</td>
+  <td class="num">1,012</td>
+  <td class="num">1,015 (99.7% of total)</td>
+  <td class="num"><span class="badge green">90.05%</span> <span class="up">▲ 5.61pp</span></td>
+  <td class="num"><span class="badge yellow">79.76%</span> <span class="up">▲ 6.39pp</span></td>
+  <td class="num">1,487 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W32</td>
+  <td class="date">07/31–08/06</td>
+  <td class="num">1,234</td>
+  <td class="num">1,234 (100.0% of total)</td>
+  <td class="num"><span class="badge red">72.45%</span> <span class="down">▼ 17.60pp</span></td>
+  <td class="num"><span class="badge red">47.54%</span> <span class="down">▼ 32.22pp</span></td>
+  <td class="num">1,479 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W33</td>
+  <td class="date">08/07–08/13</td>
+  <td class="num">958</td>
+  <td class="num">958 (100.0% of total)</td>
+  <td class="num"><span class="badge green">91.13%</span> <span class="up">▲ 18.68pp</span></td>
+  <td class="num"><span class="badge yellow">76.87%</span> <span class="up">▲ 29.33pp</span></td>
+  <td class="num">1,428 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W34</td>
+  <td class="date">08/14–08/20</td>
+  <td class="num">1,260</td>
+  <td class="num">1,260 (100.0% of total)</td>
+  <td class="num"><span class="badge yellow">89.68%</span> <span class="down">▼ 1.45pp</span></td>
+  <td class="num"><span class="badge red">71.41%</span> <span class="down">▼ 5.46pp</span></td>
+  <td class="num">1,503 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W35</td>
+  <td class="date">08/21–08/27</td>
+  <td class="num">903</td>
+  <td class="num">903 (100.0% of total)</td>
+  <td class="num"><span class="badge green">95.35%</span> <span class="up">▲ 5.67pp</span></td>
+  <td class="num"><span class="badge green">83.30%</span> <span class="up">▲ 11.89pp</span></td>
+  <td class="num">1,758 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W36</td>
+  <td class="date">08/28–09/03</td>
+  <td class="num">837</td>
+  <td class="num">837 (100.0% of total)</td>
+  <td class="num"><span class="badge green">96.89%</span> <span class="up">▲ 1.54pp</span></td>
+  <td class="num"><span class="badge green">84.66%</span> <span class="up">▲ 1.36pp</span></td>
+  <td class="num">1,504 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W37</td>
+  <td class="date">09/04–09/10</td>
+  <td class="num">638</td>
+  <td class="num">638 (100.0% of total)</td>
+  <td class="num"><span class="badge green">95.77%</span> <span class="down">▼ 1.12pp</span></td>
+  <td class="num"><span class="badge green">85.62%</span> <span class="up">▲ 0.96pp</span></td>
+  <td class="num">1,293 (0.0%)</td>
+</tr>
+<tr>
+  <td class="wn">W38</td>
+  <td class="date">09/11–09/17</td>
+  <td class="num">841</td>
+  <td class="num">841 (100.0% of total)</td>
+  <td class="num"><span class="badge green">93.82%</span> <span class="down">▼ 1.95pp</span></td>
+  <td class="num"><span class="badge green">80.65%</span> <span class="down">▼ 4.97pp</span></td>
+  <td class="num">1,336 (0.0%)</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
+<div class="footer">MY CS Weekly Trend · Auto-generated by gen_my_history.py</div>
+
+<script>
+const labels = ["W24", "W25", "W26", "W27", "W28", "W29", "W30", "W31", "W32", "W33", "W34", "W35", "W36", "W37", "W38"];
+const ccrData = [68.55, 72.72, 68.37, 73.37, 78.39, 79.0, 84.44, 90.05, 72.45, 91.13, 89.68, 95.35, 96.89, 95.77, 93.82];
+const slaData = [50.63, 55.63, 44.08, 57.45, 65.1, 63.7, 73.37, 79.76, 47.54, 76.87, 71.41, 83.3, 84.66, 85.62, 80.65];
+const inbData = [1274, 1388, 869, 1048, 815, 1049, 956, 1012, 1234, 958, 1260, 903, 837, 638, 841];
+
+new Chart(document.getElementById('trendChart'), {
+  type: 'line',
+  data: {
+    labels: labels,
+    datasets: [
+      { label: 'CCR %', data: ccrData, borderColor: '#1a73e8', backgroundColor: 'rgba(26,115,232,0.1)', tension: 0.3, fill: true },
+      { label: 'SLA60 %', data: slaData, borderColor: '#d63031', backgroundColor: 'rgba(214,48,49,0.1)', tension: 0.3, fill: true }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    scales: { y: { beginAtZero: false, min: 50, max: 100 } },
+    plugins: { legend: { position: 'top' } }
+  }
+});
+
+new Chart(document.getElementById('volChart'), {
+  type: 'bar',
+  data: {
+    labels: labels,
+    datasets: [{ label: 'MY True Inbound', data: inbData, backgroundColor: 'rgba(26,115,232,0.75)' }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' } }
+  }
+});
+</script>
+</body>
+</html>
